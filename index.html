@@ -174,8 +174,46 @@
       width: 100%;
       border-collapse: collapse;
       font-size: 13.5px;
-      min-width: 540px;
+      min-width: 620px;
     }
+    .hack-thumb {
+      width: 56px;
+      height: 56px;
+      border-radius: 8px;
+      object-fit: cover;
+      border: 1px solid #2a2a2a;
+      display: block;
+      transition: transform 0.2s, border-color 0.2s;
+      cursor: zoom-in;
+    }
+    .hack-thumb:hover { transform: scale(1.05); border-color: #555; }
+    .hack-thumb-empty {
+      width: 56px;
+      height: 56px;
+      border-radius: 8px;
+      background: #1a1a1a;
+      border: 1px dashed #2a2a2a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #444;
+      font-size: 11px;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+      cursor: zoom-out;
+    }
+    .lightbox.show { display: flex; }
+    .lightbox img { max-width: 90%; max-height: 90vh; border-radius: 8px; }
     .hack-table th {
       text-align: left;
       font-size: 11px;
@@ -509,6 +547,7 @@
       <table class="hack-table">
         <thead>
           <tr>
+            <th></th>
             <th>Event</th>
             <th>Project</th>
             <th>Award</th>
@@ -517,30 +556,35 @@
         </thead>
         <tbody>
           <tr>
+            <td><img src="naccent.png" class="hack-thumb" alt="naccent demo" onclick="zoom(this.src)"></td>
             <td class="hack-event"><a href="https://2025.sbhacks.com/" target="_blank">SB Hacks XI ↗</a></td>
             <td><a href="https://devpost.com/software/naccent" target="_blank" style="color:#aaa;">naccent</a> — AI pronunciation trainer</td>
             <td class="hack-award">🏆 Best Student Life Hack</td>
             <td class="hack-year">2025</td>
           </tr>
           <tr>
+            <td><img src="greenmate.png" class="hack-thumb" alt="GreenMate demo" onclick="zoom(this.src)"></td>
             <td class="hack-event">Columbia University Hackathon</td>
-            <td><a href="https://dorahacks.io/buidl/16986" target="_blank" style="color:#aaa;">GreenMate</a> — environmental sustainability</td>
+            <td><a href="https://dorahacks.io/buidl/16986" target="_blank" style="color:#aaa;">GreenMate</a> — AR sustainability tracker</td>
             <td class="hack-award">🏆 1st Award</td>
             <td class="hack-year">2024</td>
           </tr>
           <tr>
+            <td><img src="cv-module.png" class="hack-thumb" alt="CV Module demo" onclick="zoom(this.src)"></td>
             <td class="hack-event">UC Berkeley Hack for Impact</td>
             <td><a href="https://github.com/NeuralNurse/CV-Module" target="_blank" style="color:#aaa;">CV Module</a> — accessibility &amp; healthcare</td>
             <td class="hack-award">🥈 2nd Place Overall</td>
             <td class="hack-year">2024</td>
           </tr>
           <tr>
+            <td><img src="biomyo.png" class="hack-thumb" alt="BioMyo demo" onclick="zoom(this.src)"></td>
             <td class="hack-event">De Anza Hacks 2.5</td>
             <td><a href="https://devpost.com/software/biomyo" target="_blank" style="color:#aaa;">BioMyo</a> — low-cost EMG prosthetic arm</td>
             <td class="hack-award">🥉 3rd Place</td>
             <td class="hack-year">2024</td>
           </tr>
           <tr>
+            <td><div class="hack-thumb-empty">—</div></td>
             <td class="hack-event">Hack Harvard &amp; HackMIT</td>
             <td>Selected from thousands of participants</td>
             <td class="hack-award">🏅 Finalist</td>
@@ -549,6 +593,18 @@
         </tbody>
       </table>
     </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" onclick="this.classList.remove('show')">
+      <img id="lightbox-img" src="">
+    </div>
+
+    <script>
+      function zoom(src) {
+        document.getElementById('lightbox-img').src = src;
+        document.getElementById('lightbox').classList.add('show');
+      }
+    </script>
 
     <!-- MUSIC -->
     <div class="section-label" id="music">Music</div>
