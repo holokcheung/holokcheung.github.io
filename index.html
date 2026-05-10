@@ -165,11 +165,16 @@
     .now-label { font-size: 11px; color: #777; letter-spacing: 0.5px; margin-bottom: 8px; text-transform: uppercase; font-weight: 600; }
 
     /* ── Hackathon table ── */
+    .hack-wrap {
+      overflow-x: auto;
+      margin-bottom: 36px;
+      -webkit-overflow-scrolling: touch;
+    }
     .hack-table {
       width: 100%;
       border-collapse: collapse;
-      margin-bottom: 36px;
       font-size: 13.5px;
+      min-width: 540px;
     }
     .hack-table th {
       text-align: left;
@@ -305,7 +310,7 @@
   <aside class="left">
     <div class="avatar"><img src="photo.jpg" alt="Ho Lok Cheung"></div>
     <div class="name">Ho Lok Cheung</div>
-    <div class="tagline">I sport, build, and research.</div>
+    <div class="tagline">Athlete. Builder. Researcher.</div>
     <div class="status-badge"><span class="status-dot"></span> Open to work · US</div>
 
     <div class="nav-grid">
@@ -351,16 +356,15 @@
   <main class="right">
 
     <div class="currently">
-      📍 Currently — Math Tutor at <strong>UCLA Engineering CEED</strong> · Open to internships &amp; research roles
+      📍 Looking for <strong>SWE / Research internships — Summer 2026</strong>
     </div>
 
     <p class="bio">
-      CS + Linguistics honors at <a href="https://www.ucla.edu" target="_blank">UCLA</a>,
-      4.0 GPA, 6× hackathon winner, USA Team Handball Academic All-American.
+      CS + Linguistics @ <a href="https://www.ucla.edu" target="_blank">UCLA</a>, 4.0 GPA,
+      6× hackathon winner, USA Handball All-American.
       I build at the intersection of <strong style="color:#ddd">language, code, and physical discipline</strong> —
-      research at <a href="#publications">Stanford</a>, code for <a href="#experience">NASA</a>,
-      <a href="#athletics">rugby</a> for UCLA, and <a href="#music">rock music</a> on Spotify.
-      Open to research, internships, and conversations —
+      <a href="#publications">Stanford</a> research, <a href="#experience">NASA</a> code,
+      <a href="#athletics">UCLA rugby</a>, <a href="#music">rock music</a>.
       <a href="mailto:holokcheung@ucla.edu" style="color:#fff;font-weight:600;">Say hi.</a>
     </p>
 
@@ -459,53 +463,7 @@
       </div>
     </div>
 
-    <!-- HACKATHONS -->
-    <div class="section-label" id="hackathons">Hackathons — 6× Winner</div>
-
-    <table class="hack-table">
-      <thead>
-        <tr>
-          <th>Event</th>
-          <th>Project</th>
-          <th>Award</th>
-          <th>Year</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="hack-event"><a href="https://2025.sbhacks.com/" target="_blank">SB Hacks XI ↗</a></td>
-          <td><a href="https://devpost.com/software/naccent" target="_blank" style="color:#aaa;">naccent</a> — AI pronunciation trainer</td>
-          <td class="hack-award">🏆 Best Student Life Hack</td>
-          <td class="hack-year">2025</td>
-        </tr>
-        <tr>
-          <td class="hack-event">Columbia University Hackathon</td>
-          <td><a href="https://dorahacks.io/buidl/16986" target="_blank" style="color:#aaa;">GreenMate</a> — environmental sustainability</td>
-          <td class="hack-award">🏆 1st Award</td>
-          <td class="hack-year">2024</td>
-        </tr>
-        <tr>
-          <td class="hack-event">UC Berkeley Hack for Impact</td>
-          <td><a href="https://github.com/NeuralNurse/CV-Module" target="_blank" style="color:#aaa;">CV Module</a> — accessibility &amp; healthcare</td>
-          <td class="hack-award">🥈 2nd Place Overall</td>
-          <td class="hack-year">2024</td>
-        </tr>
-        <tr>
-          <td class="hack-event">De Anza Hacks 2.5</td>
-          <td><a href="https://devpost.com/software/biomyo" target="_blank" style="color:#aaa;">BioMyo</a> — low-cost EMG prosthetic arm</td>
-          <td class="hack-award">🥉 3rd Place</td>
-          <td class="hack-year">2024</td>
-        </tr>
-        <tr>
-          <td class="hack-event">Hack Harvard &amp; HackMIT</td>
-          <td>Selected from thousands of participants</td>
-          <td class="hack-award">🏅 Finalist</td>
-          <td class="hack-year">2024</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <!-- ATHLETICS -->
+    <!-- ATHLETICS (moved up — unique differentiator) -->
     <div class="section-label" id="athletics">Athletics</div>
 
     <div class="entry">
@@ -542,6 +500,54 @@
         <div class="entry-desc">Collegiate-level rugby player at UCLA.</div>
         <div class="tags"><span class="tag">Rugby</span><span class="tag">UCLA</span></div>
       </div>
+    </div>
+
+    <!-- HACKATHONS -->
+    <div class="section-label" id="hackathons">Hackathons — 6× Winner</div>
+
+    <div class="hack-wrap">
+      <table class="hack-table">
+        <thead>
+          <tr>
+            <th>Event</th>
+            <th>Project</th>
+            <th>Award</th>
+            <th>Year</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="hack-event"><a href="https://2025.sbhacks.com/" target="_blank">SB Hacks XI ↗</a></td>
+            <td><a href="https://devpost.com/software/naccent" target="_blank" style="color:#aaa;">naccent</a> — AI pronunciation trainer</td>
+            <td class="hack-award">🏆 Best Student Life Hack</td>
+            <td class="hack-year">2025</td>
+          </tr>
+          <tr>
+            <td class="hack-event">Columbia University Hackathon</td>
+            <td><a href="https://dorahacks.io/buidl/16986" target="_blank" style="color:#aaa;">GreenMate</a> — environmental sustainability</td>
+            <td class="hack-award">🏆 1st Award</td>
+            <td class="hack-year">2024</td>
+          </tr>
+          <tr>
+            <td class="hack-event">UC Berkeley Hack for Impact</td>
+            <td><a href="https://github.com/NeuralNurse/CV-Module" target="_blank" style="color:#aaa;">CV Module</a> — accessibility &amp; healthcare</td>
+            <td class="hack-award">🥈 2nd Place Overall</td>
+            <td class="hack-year">2024</td>
+          </tr>
+          <tr>
+            <td class="hack-event">De Anza Hacks 2.5</td>
+            <td><a href="https://devpost.com/software/biomyo" target="_blank" style="color:#aaa;">BioMyo</a> — low-cost EMG prosthetic arm</td>
+            <td class="hack-award">🥉 3rd Place</td>
+            <td class="hack-year">2024</td>
+          </tr>
+          <tr>
+            <td class="hack-event">Hack Harvard &amp; HackMIT</td>
+            <td>Selected from thousands of participants</td>
+            <td class="hack-award">🏅 Finalist</td>
+            <td class="hack-year">2024</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
     <!-- MUSIC -->
