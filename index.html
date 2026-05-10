@@ -152,7 +152,59 @@
     }
     .currently strong { color: #ccc; }
 
-    .bio { font-size: 15px; color: #888; line-height: 1.8; margin-bottom: 52px; max-width: 580px; }
+    .bio { font-size: 15px; color: #888; line-height: 1.8; margin-bottom: 24px; max-width: 580px; }
+
+    .now-playing {
+      background: #131313;
+      border: 1px solid #2a2a2a;
+      border-radius: 10px;
+      padding: 12px 14px;
+      margin-bottom: 52px;
+      max-width: 580px;
+    }
+    .now-label { font-size: 11px; color: #777; letter-spacing: 0.5px; margin-bottom: 8px; text-transform: uppercase; font-weight: 600; }
+
+    /* ── Hackathon table ── */
+    .hack-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 36px;
+      font-size: 13.5px;
+    }
+    .hack-table th {
+      text-align: left;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #666;
+      padding: 8px 12px 10px 12px;
+      border-bottom: 1px solid #2a2a2a;
+    }
+    .hack-table td {
+      padding: 12px;
+      border-bottom: 1px solid #1c1c1c;
+      vertical-align: top;
+      color: #aaa;
+    }
+    .hack-table tr:hover td { background: #131313; }
+    .hack-table .hack-event { color: #fff; font-weight: 600; }
+    .hack-table .hack-event a { color: #fff; text-decoration: none; }
+    .hack-table .hack-event a:hover { text-decoration: underline; }
+    .hack-table .hack-award { color: #fbbf24; font-weight: 600; white-space: nowrap; }
+    .hack-table .hack-year { color: #555; font-size: 12px; }
+
+    /* Publications */
+    .pub {
+      padding: 14px 0;
+      border-bottom: 1px solid #1c1c1c;
+    }
+    .pub-title { font-size: 15px; color: #fff; font-weight: 600; margin-bottom: 4px; line-height: 1.4; }
+    .pub-authors { font-size: 13px; color: #888; margin-bottom: 4px; }
+    .pub-authors strong { color: #ddd; }
+    .pub-venue { font-size: 12.5px; color: #666; font-style: italic; margin-bottom: 6px; }
+    .pub-links a { font-size: 12px; color: #888; text-decoration: none; margin-right: 14px; }
+    .pub-links a:hover { color: #fff; }
     .bio a { color: #bbb; text-decoration: underline; text-underline-offset: 3px; }
     .bio a:hover { color: #fff; }
 
@@ -260,6 +312,7 @@
       <a class="nav-btn" href="#experience"><span class="dot d-blue"></span>Experience</a>
       <a class="nav-btn" href="#education"><span class="dot d-purple"></span>Education</a>
       <a class="nav-btn" href="#projects"><span class="dot d-teal"></span>Projects</a>
+      <a class="nav-btn" href="#publications"><span class="dot d-blue"></span>Research</a>
       <a class="nav-btn" href="#hackathons"><span class="dot d-orange"></span>Hackathons</a>
       <a class="nav-btn" href="#athletics"><span class="dot d-pink"></span>Athletics</a>
       <a class="nav-btn" href="#music"><span class="dot d-red"></span>Music</a>
@@ -303,13 +356,20 @@
     </div>
 
     <p class="bio">
-      CS + Linguistics honors student at <a href="https://www.ucla.edu" target="_blank">UCLA</a>.
-      6× hackathon winner, NASA intern, and Stanford-published researcher.
-      I care about the intersection of language and technology — building things that are smart, useful, and human.
-      I also compete nationally in <a href="#athletics">handball</a>, play rugby at UCLA, and produce <a href="#music">rock music</a>.
+      I build at the intersection of <strong style="color:#ddd">language, code, and physical discipline</strong> —
+      research at <a href="#publications">Stanford</a>, code for <a href="#experience">NASA</a>,
+      <a href="#athletics">rugby</a> for UCLA, and <a href="#music">rock music</a> on Spotify.
+      CS + Linguistics honors at <a href="https://www.ucla.edu" target="_blank">UCLA</a>,
+      4.0 GPA, 6× hackathon winner, USA Team Handball Academic All-American.
       Open to research, internships, and conversations —
       <a href="mailto:holokcheung@ucla.edu" style="color:#fff;font-weight:600;">Say hi.</a>
     </p>
+
+    <!-- NOW PLAYING -->
+    <div class="now-playing">
+      <div class="now-label">🎵 Currently producing</div>
+      <iframe style="border-radius:8px" src="https://open.spotify.com/embed/user/31nbmogf4rjiuwlt7sp6ymlc57qm?utm_source=generator&theme=0" width="100%" height="80" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture" loading="lazy"></iframe>
+    </div>
 
     <!-- EXPERIENCE -->
     <div class="section-label" id="experience">Experience</div>
@@ -467,72 +527,63 @@
       </div>
     </div>
 
-    <div class="entry">
-      <div class="entry-date">2024</div>
-      <div class="entry-body">
-        <div class="entry-top">
-          <div class="entry-icon">🧬</div>
-          <div class="entry-title">Genetic Evolution Research — Stanford Journal</div>
-        </div>
-        <div class="entry-desc">Published original research on genetic evolution at Stanford University.</div>
-        <div class="tags"><span class="tag">Research</span><span class="tag">Published</span><span class="tag">Stanford</span></div>
+    <!-- PUBLICATIONS -->
+    <div class="section-label" id="publications">Publications</div>
+
+    <div class="pub">
+      <div class="pub-title">Genetic Evolution Research</div>
+      <div class="pub-authors"><strong>Ho Lok Cheung</strong></div>
+      <div class="pub-venue">Stanford Journal · Stanford University School of Engineering · 2024</div>
+      <div class="pub-links">
+        <a href="https://engineering.stanford.edu" target="_blank">Stanford ↗</a>
       </div>
     </div>
 
     <!-- HACKATHONS -->
     <div class="section-label" id="hackathons">Hackathons — 6× Winner</div>
 
-    <div class="entry">
-      <div class="entry-date">2025</div>
-      <div class="entry-body">
-        <div class="entry-top">
-          <div class="entry-icon">🏆</div>
-          <div class="entry-title"><a href="https://2025.sbhacks.com/" target="_blank">SB Hacks XI — Best Student Life Hack ↗</a></div>
-        </div>
-        <div class="entry-desc">Built naccent, an AI-powered English pronunciation trainer for international students.</div>
-        <div class="tags"><span class="tag tag-win">🏆 Winner</span><span class="tag">AI</span><span class="tag">EdTech</span></div>
-      </div>
-    </div>
-
-    <div class="entry">
-      <div class="entry-date">2024</div>
-      <div class="entry-body">
-        <div class="entry-top">
-          <div class="entry-icon">🥈</div>
-          <div class="entry-title">UC Berkeley Hack for Impact — 2nd Place Overall</div>
-        </div>
-        <div class="entry-desc">Social impact hackathon at UC Berkeley. Built a CV module to assist accessibility and healthcare.</div>
-        <div class="tags">
-          <span class="tag tag-win">🥈 2nd Place Overall</span>
-          <span class="tag"><a href="https://github.com/NeuralNurse/CV-Module" target="_blank">GitHub ↗</a></span>
-          <span class="tag">Social Impact</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="entry">
-      <div class="entry-date">2024</div>
-      <div class="entry-body">
-        <div class="entry-top">
-          <div class="entry-icon">🎓</div>
-          <div class="entry-title">Hack Harvard &amp; HackMIT — Finalist</div>
-        </div>
-        <div class="entry-desc">Selected as a finalist at both Hack Harvard and HackMIT, two of the most competitive collegiate hackathons in the country.</div>
-        <div class="tags"><span class="tag tag-win">🏅 Finalist</span><span class="tag">Harvard</span><span class="tag">MIT</span></div>
-      </div>
-    </div>
-
-    <div class="entry">
-      <div class="entry-date">2023</div>
-      <div class="entry-body">
-        <div class="entry-top">
-          <div class="entry-icon">🥽</div>
-          <div class="entry-title">Columbia University Hackathon — 1st Award Winner</div>
-        </div>
-        <div class="entry-desc">AR/VR hackathon at Columbia University. Awarded 1st for innovative Snapchat Lens design.</div>
-        <div class="tags"><span class="tag tag-win">🏆 1st Award</span><span class="tag">AR/VR</span><span class="tag">Snapchat</span></div>
-      </div>
-    </div>
+    <table class="hack-table">
+      <thead>
+        <tr>
+          <th>Event</th>
+          <th>Project</th>
+          <th>Award</th>
+          <th>Year</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="hack-event"><a href="https://2025.sbhacks.com/" target="_blank">SB Hacks XI ↗</a></td>
+          <td><a href="https://devpost.com/software/naccent" target="_blank" style="color:#aaa;">naccent</a> — AI pronunciation trainer</td>
+          <td class="hack-award">🏆 Best Student Life Hack</td>
+          <td class="hack-year">2025</td>
+        </tr>
+        <tr>
+          <td class="hack-event">Columbia University Hackathon</td>
+          <td><a href="https://dorahacks.io/buidl/16986" target="_blank" style="color:#aaa;">GreenMate</a> — environmental sustainability</td>
+          <td class="hack-award">🏆 1st Award</td>
+          <td class="hack-year">2024</td>
+        </tr>
+        <tr>
+          <td class="hack-event">UC Berkeley Hack for Impact</td>
+          <td><a href="https://github.com/NeuralNurse/CV-Module" target="_blank" style="color:#aaa;">CV Module</a> — accessibility &amp; healthcare</td>
+          <td class="hack-award">🥈 2nd Place Overall</td>
+          <td class="hack-year">2024</td>
+        </tr>
+        <tr>
+          <td class="hack-event">De Anza Hacks 2.5</td>
+          <td><a href="https://devpost.com/software/biomyo" target="_blank" style="color:#aaa;">BioMyo</a> — low-cost EMG prosthetic arm</td>
+          <td class="hack-award">🥉 3rd Place</td>
+          <td class="hack-year">2024</td>
+        </tr>
+        <tr>
+          <td class="hack-event">Hack Harvard &amp; HackMIT</td>
+          <td>Selected from thousands of applicants</td>
+          <td class="hack-award">🏅 Finalist</td>
+          <td class="hack-year">2024</td>
+        </tr>
+      </tbody>
+    </table>
 
     <!-- ATHLETICS -->
     <div class="section-label" id="athletics">Athletics</div>
