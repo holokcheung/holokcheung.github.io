@@ -3,652 +3,447 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ho Lok Cheung — CS + Linguistics @ UCLA</title>
-  <meta name="description" content="Ho Lok Cheung — CS + Linguistics at UCLA. NASA intern, Stanford researcher, 6x hackathon winner, USA Team Handball Academic All-American, music producer.">
+  <title>Ho Lok Cheung</title>
+  <meta name="description" content="Ho Lok Cheung — CS + Linguistics at UCLA. Stanford researcher, NASA project manager, 6× hackathon winner, USA Team Handball All-American, music producer.">
   <meta property="og:title" content="Ho Lok Cheung">
   <meta property="og:description" content="CS + Linguistics @ UCLA. I sport, build, and research.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
-      --bg: #0d0d0d;
-      --surface: #181818;
-      --border: #2a2a2a;
-      --text: #e8e8e8;
-      --muted: #666;
-      --tag-bg: #1e1e1e;
-      --tag-border: #333;
+      --bg: #ffffff;
+      --ink: #161616;
+      --gray: #b9b9b9;
+      --muted: #9a9a9a;
+      --soft: #6e6e6e;
+      --border: #ececec;
+      --border-hover: #d6d6d6;
+      --radius: 20px;
+      --serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
     }
 
     html { scroll-behavior: smooth; }
 
     body {
       background: var(--bg);
-      color: var(--text);
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-      font-size: 15px;
-      line-height: 1.65;
-      min-height: 100vh;
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
     }
 
-    .layout {
-      display: flex;
-      min-height: 100vh;
-      max-width: 1160px;
+    .page {
+      max-width: 1440px;
       margin: 0 auto;
-      padding: 0 28px;
+      padding: 28px 32px 90px;
     }
 
-    /* ── LEFT ── */
-    .left {
-      width: 300px;
-      min-width: 300px;
-      padding: 64px 44px 64px 0;
+    /* ── Pill nav ── */
+    .navwrap {
       position: sticky;
-      top: 0;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      flex-shrink: 0;
-      overflow-y: auto;
+      top: 20px;
+      z-index: 100;
+      margin-bottom: 56px;
     }
-
-    .avatar {
-      width: 88px;
-      height: 88px;
-      border-radius: 50%;
-      background: #222;
-      margin-bottom: 18px;
-      border: 2px solid #333;
-      overflow: hidden;
-      flex-shrink: 0;
-    }
-    .avatar img { width: 100%; height: 100%; object-fit: cover; object-position: center 15%; }
-
-    .name { font-size: 28px; font-weight: 800; color: #fff; letter-spacing: -0.4px; margin-bottom: 4px; }
-    .tagline { font-size: 14px; color: var(--muted); margin-bottom: 6px; }
-
-    .status-badge {
+    .pill-nav {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      background: #1a2a1a;
-      border: 1px solid #2a4a2a;
-      border-radius: 20px;
-      padding: 3px 10px;
-      font-size: 11.5px;
-      color: #4ade80;
-      margin-bottom: 28px;
-    }
-    .status-dot { width: 6px; height: 6px; border-radius: 50%; background: #4ade80; animation: pulse 2s infinite; }
-    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
-
-    .nav-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 9px;
-      margin-bottom: 28px;
-    }
-
-    .nav-btn {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--surface);
+      gap: 2px;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(8px);
       border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 10px 13px;
-      font-size: 13px;
-      font-weight: 500;
-      color: #ccc;
+      border-radius: 14px;
+      padding: 9px 10px;
+      box-shadow: 0 2px 14px rgba(0,0,0,0.04);
+    }
+    .pill-nav a {
+      padding: 3px 11px;
+      font-size: 15px;
+      color: var(--muted);
       text-decoration: none;
-      transition: background 0.15s, border-color 0.15s, color 0.15s, transform 0.15s;
+      border-radius: 9px;
+      transition: color 0.15s, background 0.15s;
+      white-space: nowrap;
     }
-    .nav-btn:hover { background: #232323; border-color: #444; color: #fff; transform: translateY(-1px); }
+    .pill-nav a:hover { color: var(--ink); background: #f5f5f5; }
+    .pill-nav a.me { color: var(--ink); font-weight: 550; }
 
-    .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
-    .d-blue   { background: #4a9eff; }
-    .d-purple { background: #a78bfa; }
-    .d-teal   { background: #2dd4bf; }
-    .d-orange { background: #fb923c; }
-    .d-pink   { background: #f472b6; }
-    .d-green  { background: #4ade80; }
-    .d-red    { background: #f87171; }
-    .d-yellow { background: #fbbf24; }
-
-    .socials { display: flex; gap: 14px; align-items: center; margin-top: auto; flex-wrap: wrap; }
-
-    .social-link {
-      color: #555;
-      text-decoration: none;
-      transition: color 0.15s, transform 0.15s;
+    /* ── Hero ── */
+    .hero {
       display: flex;
-      align-items: center;
-    }
-    .social-link:hover { color: #ddd; transform: translateY(-2px); }
-    .social-link svg { width: 19px; height: 19px; fill: currentColor; }
-    .social-link img { width: 19px; height: 19px; object-fit: contain; opacity: 0.5; transition: opacity 0.15s; border-radius: 4px; }
-    .social-link:hover img { opacity: 1; }
-
-    /* ── RIGHT ── */
-    .right {
-      flex: 1;
-      padding: 64px 0 100px 56px;
-      border-left: 1px solid var(--border);
-      min-width: 0;
-    }
-
-    .currently {
-      display: flex;
+      gap: 40px;
       align-items: flex-start;
-      gap: 10px;
-      background: #141414;
-      border: 1px solid #2a2a2a;
-      border-radius: 10px;
-      padding: 12px 16px;
-      margin-bottom: 28px;
-      font-size: 13.5px;
-      color: #888;
+      margin-bottom: 18px;
     }
-    .currently strong { color: #ccc; }
+    .hero-text {
+      flex: 1.2;
+      font-family: var(--serif);
+      font-weight: 300;
+      font-size: clamp(27px, 3vw, 42px);
+      line-height: 1.42;
+      color: var(--gray);
+      letter-spacing: 0.1px;
+      padding-top: 24px;
+      max-width: 880px;
+    }
+    .hero-text p { margin-bottom: 1.15em; }
+    .hero-text strong { color: var(--ink); font-weight: 400; }
+    .hero-text a {
+      color: var(--ink);
+      font-weight: 400;
+      text-decoration: underline;
+      text-decoration-style: dotted;
+      text-decoration-color: #c9c9c9;
+      text-decoration-thickness: 1.5px;
+      text-underline-offset: 6px;
+      transition: text-decoration-color 0.15s;
+    }
+    .hero-text a:hover { text-decoration-color: var(--ink); text-decoration-style: solid; }
 
-    .bio { font-size: 15px; color: #888; line-height: 1.8; margin-bottom: 24px; max-width: 580px; }
+    .hero-cards {
+      flex: 0.9;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      min-width: 320px;
+      max-width: 460px;
+    }
 
-    /* ── Hackathon table ── */
-    .hack-wrap {
-      overflow-x: auto;
-      margin-bottom: 36px;
-      -webkit-overflow-scrolling: touch;
-    }
-    .hack-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 13.5px;
-      min-width: 620px;
-    }
-    .hack-thumb {
-      width: 56px;
-      height: 56px;
-      border-radius: 8px;
-      object-fit: cover;
-      border: 1px solid #2a2a2a;
-      display: block;
-      transition: transform 0.2s, border-color 0.2s;
-      cursor: zoom-in;
-    }
-    .hack-thumb:hover { transform: scale(1.05); border-color: #555; }
-    .hack-thumb-empty {
-      width: 56px;
-      height: 56px;
-      border-radius: 8px;
-      background: #1a1a1a;
-      border: 1px dashed #2a2a2a;
+    /* ── Cards ── */
+    .card {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #444;
-      font-size: 11px;
+      flex-direction: column;
+      gap: 14px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px;
+      text-decoration: none;
+      color: inherit;
+      position: relative;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      break-inside: avoid;
     }
+    a.card:hover { border-color: var(--border-hover); box-shadow: 0 4px 22px rgba(0,0,0,0.05); }
+    a.card:hover .card-arrow { color: var(--ink); transform: translate(2px, -2px); }
 
-    /* Lightbox */
-    .lightbox {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.92);
-      z-index: 9999;
-      align-items: center;
-      justify-content: center;
-      padding: 40px;
-      cursor: zoom-out;
-    }
-    .lightbox.show { display: flex; }
-    .lightbox img { max-width: 90%; max-height: 90vh; border-radius: 8px; }
-    .hack-table th {
-      text-align: left;
-      font-size: 11px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      color: #666;
-      padding: 8px 12px 10px 12px;
-      border-bottom: 1px solid #2a2a2a;
-    }
-    .hack-table td {
-      padding: 12px;
-      border-bottom: 1px solid #1c1c1c;
-      vertical-align: top;
-      color: #aaa;
-    }
-    .hack-table tr:hover td { background: #131313; }
-    .hack-table .hack-event { color: #fff; font-weight: 600; }
-    .hack-table .hack-event a { color: #fff; text-decoration: none; }
-    .hack-table .hack-event a:hover { text-decoration: underline; }
-    .hack-table .hack-award { color: #fbbf24; font-weight: 600; white-space: nowrap; }
-    .hack-table .hack-year { color: #555; font-size: 12px; }
-
-    /* Publications */
-    .pub {
-      padding: 14px 0;
-      border-bottom: 1px solid #1c1c1c;
-    }
-    .pub-title { font-size: 15px; color: #fff; font-weight: 600; margin-bottom: 4px; line-height: 1.4; }
-    .pub-authors { font-size: 13px; color: #888; margin-bottom: 4px; }
-    .pub-authors strong { color: #ddd; }
-    .pub-venue { font-size: 12.5px; color: #666; font-style: italic; margin-bottom: 6px; }
-    .pub-links a { font-size: 12px; color: #888; text-decoration: none; margin-right: 14px; }
-    .pub-links a:hover { color: #fff; }
-    .bio a { color: #bbb; text-decoration: underline; text-underline-offset: 3px; }
-    .bio a:hover { color: #fff; }
-
-    .athletics-intro {
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
       font-size: 13.5px;
-      color: #888;
-      line-height: 1.7;
-      margin: -6px 0 24px 0;
-      max-width: 580px;
-      padding: 12px 16px;
-      background: #131313;
-      border: 1px solid #2a2a2a;
-      border-radius: 10px;
+      color: var(--muted);
+      gap: 12px;
     }
-    .athletics-intro strong { color: #ddd; }
-    .athletics-intro a { color: #fbbf24; text-decoration: none; font-weight: 600; }
-    .athletics-intro a:hover { color: #fff; }
-
-    .section-label {
-      font-size: 12px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: #aaa;
-      margin-bottom: 22px;
-      margin-top: 8px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid #2a2a2a;
+    .card-arrow {
+      color: #cfcfcf;
+      font-size: 15px;
+      transition: color 0.2s, transform 0.2s;
+      flex-shrink: 0;
     }
+    .card-img {
+      width: 100%;
+      border-radius: 12px;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      border: 1px solid var(--border);
+      background: #fafafa;
+    }
+    .card-img.portrait { aspect-ratio: 3 / 3.4; object-position: center 20%; }
+    .card-title {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: 25px;
+      line-height: 1.25;
+      color: var(--ink);
+      letter-spacing: 0.1px;
+    }
+    .card-date { font-size: 14px; color: var(--muted); margin-top: -6px; }
+    .card-note { font-size: 14.5px; color: var(--soft); line-height: 1.6; margin-top: -4px; }
 
+    /* ── Garden grid ── */
+    .garden {
+      columns: 3;
+      column-gap: 16px;
+      margin-bottom: 90px;
+    }
+    .garden .card { margin-bottom: 16px; }
+
+    /* ── Sections ── */
+    .section {
+      max-width: 760px;
+      margin: 0 auto 80px;
+    }
+    .section h2 {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: 36px;
+      letter-spacing: 0.2px;
+      margin-bottom: 28px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+    }
     .entry {
       display: flex;
-      gap: 32px;
-      margin-bottom: 36px;
-      padding: 14px;
-      border-radius: 10px;
-      transition: background 0.15s;
-      margin-left: -14px;
-      margin-right: -14px;
+      gap: 28px;
+      padding: 12px 0;
     }
-    .entry:hover { background: #131313; }
-
     .entry-date {
-      font-size: 11.5px;
-      color: #444;
-      text-transform: uppercase;
-      letter-spacing: 0.4px;
-      min-width: 110px;
-      padding-top: 4px;
-      line-height: 1.6;
+      font-size: 13.5px;
+      color: var(--muted);
+      min-width: 138px;
       flex-shrink: 0;
+      padding-top: 3px;
+      font-variant-numeric: tabular-nums;
     }
-
-    .entry-body { flex: 1; }
-
-    .entry-top { display: flex; align-items: center; gap: 10px; margin-bottom: 7px; }
-
-    .entry-icon {
-      width: 30px; height: 30px;
-      border-radius: 7px;
-      background: #1c1c1c;
-      border: 1px solid #2e2e2e;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 15px;
-      flex-shrink: 0;
-      overflow: hidden;
+    .entry-body { flex: 1; min-width: 0; }
+    .entry-title { font-size: 16px; font-weight: 600; line-height: 1.5; }
+    .entry-title a {
+      color: inherit;
+      text-decoration: underline;
+      text-decoration-style: dotted;
+      text-decoration-color: #cccccc;
+      text-underline-offset: 4px;
+      transition: text-decoration-color 0.15s;
     }
-    .entry-icon img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      background: #fff;
+    .entry-title a:hover { text-decoration-style: solid; text-decoration-color: var(--ink); }
+    .entry-desc { font-size: 14.5px; color: var(--soft); margin-top: 2px; }
+    .entry-meta { font-size: 13.5px; color: var(--muted); margin-top: 4px; }
+
+    /* ── Footer ── */
+    footer {
+      max-width: 760px;
+      margin: 0 auto;
+      border-top: 1px solid var(--border);
+      padding-top: 26px;
+      font-size: 14.5px;
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 18px;
     }
-
-    .entry-title { font-size: 16.5px; font-weight: 700; color: #fff; letter-spacing: -0.2px; }
-    .entry-title a { color: #fff; text-decoration: none; }
-    .entry-title a:hover { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
-
-    .entry-desc { font-size: 13.5px; color: #555; margin-bottom: 10px; line-height: 1.65; }
-
-    .tags { display: flex; flex-wrap: wrap; gap: 7px; }
-    .tag {
-      background: var(--tag-bg);
-      color: #666;
-      border: 1px solid var(--tag-border);
-      border-radius: 20px;
-      padding: 2px 11px;
-      font-size: 12px;
+    footer a {
+      color: var(--soft);
+      text-decoration: none;
+      transition: color 0.15s;
     }
-    .tag a { color: #666; text-decoration: none; }
-    .tag a:hover { color: #ccc; }
-    .tag-win { background: #1a1500; border-color: #3a3000; color: #fbbf24; }
+    footer a:hover { color: var(--ink); }
 
-    /* ── RESPONSIVE ── */
-    @media (max-width: 860px) {
-      .layout { flex-direction: column; padding: 0 20px; }
-      .left {
-        position: static; height: auto; width: 100%; min-width: unset;
-        padding: 36px 0 28px;
-        border-bottom: 1px solid var(--border);
+    /* ── Responsive ── */
+    @media (max-width: 1100px) {
+      .garden { columns: 2; }
+    }
+    @media (max-width: 900px) {
+      .hero { flex-direction: column; gap: 28px; }
+      .hero-cards { max-width: 100%; width: 100%; grid-template-columns: 1fr 1fr; }
+      .hero-text { padding-top: 0; }
+    }
+    @media (max-width: 620px) {
+      .page { padding: 20px 18px 70px; }
+      .navwrap {
+        margin-bottom: 36px;
+        overflow-x: auto;
+        margin-left: -18px;
+        margin-right: -18px;
+        padding: 4px 18px;
+        scrollbar-width: none;
       }
-      .right { padding: 36px 0 60px; border-left: none; }
-      .socials { margin-top: 24px; }
-      .entry { flex-direction: column; gap: 6px; margin-left: 0; margin-right: 0; padding: 12px 0; }
-      .entry:hover { background: transparent; }
+      .navwrap::-webkit-scrollbar { display: none; }
+      .pill-nav { padding: 7px 8px; }
+      .pill-nav a { font-size: 14px; padding: 3px 8px; }
+      .hero-cards { grid-template-columns: 1fr; }
+      .garden { columns: 1; }
+      .section h2 { font-size: 30px; }
+      .entry { flex-direction: column; gap: 2px; }
       .entry-date { min-width: unset; }
-      .nav-grid { grid-template-columns: 1fr 1fr 1fr; }
-    }
-
-    @media (max-width: 480px) {
-      .nav-grid { grid-template-columns: 1fr 1fr; }
-      .name { font-size: 24px; }
     }
   </style>
 </head>
 <body>
-<div class="layout">
+<div class="page">
 
-  <!-- LEFT -->
-  <aside class="left">
-    <div class="avatar"><img src="photo.jpg" alt="Ho Lok Cheung"></div>
-    <div class="name">Ho Lok Cheung</div>
-    <div class="tagline">Athlete. Builder. Researcher.</div>
-    <div class="status-badge"><span class="status-dot"></span> Open to SWE / Research internships · US</div>
+  <div class="navwrap">
+    <nav class="pill-nav">
+      <a class="me" href="#">Ho Lok</a>
+      <a href="#garden">Highlights</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="resume.pdf" target="_blank">Resume</a>
+    </nav>
+  </div>
 
-    <div class="nav-grid">
-      <a class="nav-btn" href="#experience"><span class="dot d-blue"></span>Experience</a>
-      <a class="nav-btn" href="#education"><span class="dot d-purple"></span>Education</a>
-      <a class="nav-btn" href="#publications"><span class="dot d-teal"></span>Research</a>
-      <a class="nav-btn" href="#hackathons"><span class="dot d-orange"></span>Hackathons</a>
-      <a class="nav-btn" href="#athletics"><span class="dot d-pink"></span>Athletics</a>
-      <a class="nav-btn" href="#music"><span class="dot d-red"></span>Music</a>
-      <a class="nav-btn" href="resume.pdf" target="_blank"><span class="dot d-yellow"></span>Resume</a>
-      <a class="nav-btn" href="mailto:holokcheung@ucla.edu"><span class="dot d-green"></span>Email</a>
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-text">
+      <p>
+        Hey there, I'm <strong>Ho Lok</strong> 👋 Welcome to my
+        <strong>personal website</strong>.
+        I study <strong>CS + Linguistics</strong> at <a href="https://www.ucla.edu" target="_blank">UCLA</a>,
+        and I like <strong>building things</strong>.
+      </p>
+      <p>
+        Off the screen, I play <strong>handball</strong> for
+        <a href="https://www.usateamhandball.org/news/2026/april/27/usath-names-college-all-tournament-teams-academic-all-americans" target="_blank">Team USA</a>,
+        <strong>rugby</strong> at UCLA, and I produce <strong>rock music</strong>.
+      </p>
+      <p>
+        Currently looking for <strong>SWE / research internships</strong> for Summer 2026 —
+        <a href="mailto:holokcheung@ucla.edu">say hi</a>.
+      </p>
     </div>
 
-    <div class="socials">
-      <!-- GitHub -->
-      <a class="social-link" href="https://github.com/holokcheung" target="_blank" title="GitHub">
-        <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-      </a>
-      <!-- LinkedIn -->
-      <a class="social-link" href="https://www.linkedin.com/in/holokcheung" target="_blank" title="LinkedIn">
-        <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-      </a>
-      <!-- Instagram -->
-      <a class="social-link" href="https://www.instagram.com/holok.cheung/" target="_blank" title="Instagram">
-        <img src="ig.webp" alt="Instagram">
-      </a>
-      <!-- VSCO -->
-      <a class="social-link" href="https://vsco.co/holokbbbb/gallery" target="_blank" title="VSCO">
-        <img src="vsco.jpg" alt="VSCO">
-      </a>
-      <!-- Email -->
-      <a class="social-link" href="mailto:holokcheung@ucla.edu" title="Email">
-        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-      </a>
+    <div class="hero-cards">
+      <div class="card">
+        <div class="card-top"><span>About · Me</span></div>
+        <img class="card-img portrait" src="photo.jpg" alt="Ho Lok Cheung">
+      </div>
+      <div class="card">
+        <div class="card-top"><span>Now · Status</span></div>
+        <div class="card-title">Open to SWE / research internships, Summer 2026 🇺🇸</div>
+        <div class="card-date">CS + Linguistics · 4.0 GPA · UCLA '27</div>
+      </div>
     </div>
-  </aside>
+  </div>
 
-  <!-- RIGHT -->
-  <main class="right">
+  <!-- GARDEN -->
+  <div class="garden" id="garden">
 
-    <div class="currently">
-      📍 Looking for <strong>SWE / Research internships — Summer 2026</strong>
+    <a class="card" href="https://devpost.com/software/naccent" target="_blank">
+      <div class="card-top"><span>Hackathons · SB Hacks XI</span><span class="card-arrow">↗</span></div>
+      <img class="card-img" src="naccent.jpg" alt="naccent — AI pronunciation trainer">
+      <div class="card-title">naccent — AI pronunciation trainer 🏆</div>
+      <div class="card-date">Best Student Life Hack · 2025</div>
+    </a>
+
+    <a class="card" href="https://www.usateamhandball.org/news/2026/april/27/usath-names-college-all-tournament-teams-academic-all-americans" target="_blank">
+      <div class="card-top"><span>Athletics · Team Handball</span><span class="card-arrow">↗</span></div>
+      <div class="card-title">USA Academic All-American, 1st Team</div>
+      <div class="card-date">USA Team Handball · 2026</div>
+      <div class="card-note">Also 2nd Team All-American in 2025, and formerly on the Hong Kong National Handball Team. Handball is a featured sport at the LA 2028 Olympics.</div>
+    </a>
+
+    <a class="card" href="https://dorahacks.io/buidl/16986" target="_blank">
+      <div class="card-top"><span>Hackathons · Columbia University</span><span class="card-arrow">↗</span></div>
+      <img class="card-img" src="greenmate.jpg" alt="GreenMate — AR sustainability tracker">
+      <div class="card-title">GreenMate — AR sustainability tracker 🏆</div>
+      <div class="card-date">1st Award · 2024</div>
+    </a>
+
+    <a class="card" href="https://engineering.stanford.edu" target="_blank">
+      <div class="card-top"><span>Research · Stanford</span><span class="card-arrow">↗</span></div>
+      <div class="card-title">Genetic Evolution Research</div>
+      <div class="card-date">Stanford Journal · 2024</div>
+      <div class="card-note">Published in the Stanford Journal through Stanford's School of Engineering.</div>
+    </a>
+
+    <a class="card" href="https://github.com/NeuralNurse/CV-Module" target="_blank">
+      <div class="card-top"><span>Hackathons · UC Berkeley</span><span class="card-arrow">↗</span></div>
+      <img class="card-img" src="cv-module.jpg" alt="CV Module — accessibility and healthcare">
+      <div class="card-title">CV Module — accessibility &amp; healthcare 🥈</div>
+      <div class="card-date">2nd Place Overall · 2024</div>
+    </a>
+
+    <div class="card">
+      <div class="card-top"><span>Athletics · UCLA Rugby</span></div>
+      <div class="card-title">D1 rugby at a top-20 program</div>
+      <div class="card-date">UCLA · 2025 — now</div>
     </div>
 
-    <p class="bio">
-      CS + Linguistics @ <a href="https://www.ucla.edu" target="_blank">UCLA</a>, 4.0 GPA,
-      6× hackathon winner, USA Team Handball All-American.
-      I build at the intersection of <strong style="color:#ddd">language, code, and physical discipline</strong> —
-      <a href="#publications">Stanford</a> research, <a href="#experience">NASA</a> code,
-      <a href="#athletics">UCLA rugby</a>, <a href="#music">rock music</a>.
-      <a href="mailto:holokcheung@ucla.edu" style="color:#fff;font-weight:600;">Say hi.</a>
-    </p>
+    <a class="card" href="https://devpost.com/software/biomyo" target="_blank">
+      <div class="card-top"><span>Hackathons · De Anza Hacks 2.5</span><span class="card-arrow">↗</span></div>
+      <img class="card-img" src="biomyo.jpg" alt="BioMyo — low-cost EMG prosthetic arm">
+      <div class="card-title">BioMyo — low-cost EMG prosthetic arm 🥉</div>
+      <div class="card-date">3rd Place · 2024</div>
+    </a>
 
-    <!-- EXPERIENCE -->
-    <div class="section-label" id="experience">Experience</div>
+    <div class="card">
+      <div class="card-top"><span>Music · Producer</span></div>
+      <div class="card-title">I produce rock music 🎸</div>
+      <div class="card-date">Ongoing</div>
+    </div>
+
+    <div class="card">
+      <div class="card-top"><span>Hackathons · Hack Harvard &amp; HackMIT</span></div>
+      <div class="card-title">Finalist, twice over</div>
+      <div class="card-date">2024</div>
+      <div class="card-note">Selected from thousands of participants at both events.</div>
+    </div>
+
+  </div>
+
+  <!-- EXPERIENCE -->
+  <div class="section" id="experience">
+    <h2>Experience</h2>
 
     <div class="entry">
-      <div class="entry-date">Sep 2025 —<br>Present</div>
+      <div class="entry-date">Sep 2025 — now</div>
       <div class="entry-body">
-        <div class="entry-top">
-          <div class="entry-icon"><img src="logos/ucla.jpeg" alt="UCLA"></div>
-          <div class="entry-title"><a href="https://www.ceed.ucla.edu/map-page/" target="_blank">Mathematics Tutor · UCLA Engineering CEED ↗</a></div>
-        </div>
+        <div class="entry-title"><a href="https://www.ceed.ucla.edu/map-page/" target="_blank">Mathematics Tutor · UCLA Engineering CEED</a></div>
         <div class="entry-desc">K–12 mathematics education under UCLA's Henry Samueli School of Engineering and Applied Science.</div>
-        <div class="tags"><span class="tag">Education</span><span class="tag">Mathematics</span><span class="tag">UCLA</span></div>
       </div>
     </div>
 
     <div class="entry">
-      <div class="entry-date">Sep 2024 —<br>Jul 2025</div>
+      <div class="entry-date">Sep 2024 — Jul 2025</div>
       <div class="entry-body">
-        <div class="entry-top">
-          <div class="entry-icon"><img src="logos/deanza.jpeg" alt="De Anza"></div>
-          <div class="entry-title"><a href="https://www.deanza.edu/studentsuccess/wrc/" target="_blank">Senior Writing &amp; Reading Tutor · De Anza College ↗</a></div>
-        </div>
-        <div class="entry-desc">Mentored new tutors and provided advanced academic writing guidance. Promoted from Writing &amp; Reading Tutor after 6 months.</div>
-        <div class="tags"><span class="tag">Mentorship</span><span class="tag">Writing</span><span class="tag">Education</span></div>
+        <div class="entry-title"><a href="https://www.deanza.edu/studentsuccess/wrc/" target="_blank">Senior Writing &amp; Reading Tutor · De Anza College</a></div>
+        <div class="entry-desc">Mentored new tutors and provided advanced academic writing guidance. Promoted after 6 months.</div>
       </div>
     </div>
 
     <div class="entry">
-      <div class="entry-date">Jun 2024 —<br>Aug 2024</div>
+      <div class="entry-date">Summer 2024</div>
       <div class="entry-body">
-        <div class="entry-top">
-          <div class="entry-icon"><img src="logos/nasa.jpeg" alt="NASA"></div>
-          <div class="entry-title"><a href="https://www.nasa.gov/learning-resources/lspace-academy/" target="_blank">Project Manager · NASA L'SPACE ↗</a></div>
-        </div>
+        <div class="entry-title"><a href="https://www.nasa.gov/learning-resources/lspace-academy/" target="_blank">Project Manager · NASA L'SPACE</a></div>
         <div class="entry-desc">Led a student team through NASA's L'SPACE Academy. Authored a full mission design review for a semi-autonomous lunar rover.</div>
-        <div class="tags"><span class="tag">Project Management</span><span class="tag">Space</span><span class="tag">Systems Design</span></div>
       </div>
     </div>
 
     <div class="entry">
-      <div class="entry-date">Jun 2024 —<br>Aug 2024</div>
+      <div class="entry-date">Summer 2024</div>
       <div class="entry-body">
-        <div class="entry-top">
-          <div class="entry-icon"><img src="logos/stanford.jpeg" alt="Stanford"></div>
-          <div class="entry-title"><a href="https://engineering.stanford.edu" target="_blank">Research Intern · Stanford University ↗</a></div>
-        </div>
-        <div class="entry-desc">Genetic evolution research at Stanford's School of Engineering. Published findings in the Stanford Journal.</div>
-        <div class="tags"><span class="tag">Research</span><span class="tag">Genetics</span><span class="tag">Published</span></div>
+        <div class="entry-title"><a href="https://engineering.stanford.edu" target="_blank">Research Intern · Stanford University</a></div>
+        <div class="entry-desc">Genetic evolution research at Stanford's School of Engineering. Published in the Stanford Journal.</div>
       </div>
     </div>
 
     <div class="entry">
-      <div class="entry-date">Jun 2023 —<br>Aug 2023</div>
+      <div class="entry-date">Summer 2023</div>
       <div class="entry-body">
-        <div class="entry-top">
-          <div class="entry-icon"><img src="logos/hsbc.jpeg" alt="Hang Seng / HSBC"></div>
-          <div class="entry-title"><a href="https://www.hangseng.com/en-hk/home/" target="_blank">Operations Intern · Hang Seng Bank ↗</a></div>
-        </div>
-        <div class="entry-desc">Banking operations internship at one of Hong Kong's largest financial institutions.</div>
-        <div class="tags"><span class="tag">Finance</span><span class="tag">Operations</span><span class="tag">Hong Kong</span></div>
+        <div class="entry-title"><a href="https://www.hangseng.com/en-hk/home/" target="_blank">Operations Intern · Hang Seng Bank</a></div>
+        <div class="entry-desc">Banking operations at one of Hong Kong's largest financial institutions.</div>
       </div>
     </div>
+  </div>
 
-    <!-- EDUCATION -->
-    <div class="section-label" id="education">Education</div>
+  <!-- EDUCATION -->
+  <div class="section" id="education">
+    <h2>Education</h2>
 
     <div class="entry">
-      <div class="entry-date">Graduating<br>2027</div>
+      <div class="entry-date">2023 — 2027</div>
       <div class="entry-body">
-        <div class="entry-top">
-          <div class="entry-icon"><img src="logos/ucla.jpeg" alt="UCLA"></div>
-          <div class="entry-title"><a href="https://www.ucla.edu" target="_blank">UCLA — B.S. CS &amp; Linguistics (Honors) ↗</a></div>
-        </div>
-        <div class="entry-desc">GPA: 4.0. UCLA Mathematics Achievement Program. Henry Samueli School of Engineering and Applied Science.</div>
-        <div class="tags">
-          <span class="tag">CS</span>
-          <span class="tag">Linguistics</span>
-          <span class="tag">4.0 GPA</span>
-          <span class="tag tag-win" title="Awarded to the top 2% of admitted class">🏅 Regent Scholar — Top 2% of Admitted Class</span>
-        </div>
+        <div class="entry-title"><a href="https://www.ucla.edu" target="_blank">UCLA — B.S. Computer Science &amp; Linguistics (Honors)</a></div>
+        <div class="entry-desc">4.0 GPA. UCLA Mathematics Achievement Program, Henry Samueli School of Engineering and Applied Science.</div>
+        <div class="entry-meta">Regent Scholar — awarded to the top 2% of the admitted class.</div>
       </div>
     </div>
+  </div>
 
-    <!-- PUBLICATIONS -->
-    <div class="section-label" id="publications">Publications</div>
+  <footer>
+    <a href="https://github.com/holokcheung" target="_blank">GitHub</a>
+    <a href="https://www.linkedin.com/in/holokcheung" target="_blank">LinkedIn</a>
+    <a href="https://www.instagram.com/holok.cheung/" target="_blank">Instagram</a>
+    <a href="https://vsco.co/holokbbbb/gallery" target="_blank">VSCO</a>
+    <a href="mailto:holokcheung@ucla.edu">Email</a>
+    <a href="resume.pdf" target="_blank">Resume</a>
+  </footer>
 
-    <div class="pub">
-      <div class="pub-title">Genetic Evolution Research</div>
-      <div class="pub-authors"><strong>Ho Lok Cheung</strong></div>
-      <div class="pub-venue">Stanford Journal · Stanford University School of Engineering · 2024</div>
-      <div class="pub-links">
-        <a href="https://engineering.stanford.edu" target="_blank">Stanford ↗</a>
-      </div>
-    </div>
-
-    <!-- ATHLETICS (moved up — unique differentiator) -->
-    <div class="section-label" id="athletics">Athletics</div>
-
-    <p class="athletics-intro">
-      🤾 <strong>Team Handball</strong> is one of the fastest-growing sports in the U.S. and a featured sport at the <strong>LA 2028 Olympics</strong>. <a href="https://youtu.be/zWh4tmKtIuw?si=IVgBtwmqfY-8oKwe&t=9" target="_blank">Watch ↗</a><br>
-      I've been selected to represent both the <strong>🇭🇰 Hong Kong National Handball Team</strong> and <strong>🇺🇸 USA Team Handball</strong>.
-    </p>
-
-    <div class="entry">
-      <div class="entry-date">National<br>Teams</div>
-      <div class="entry-body">
-        <div class="entry-top">
-          <div class="entry-icon"><img src="logos/handball.png" alt="USA Team Handball"></div>
-          <div class="entry-title">National Team Athlete — Hong Kong &amp; USA</div>
-        </div>
-        <div class="entry-desc">Formerly played for the Hong Kong National Handball Team.</div>
-        <div class="tags"><span class="tag">🇭🇰 Hong Kong (Former)</span><span class="tag tag-win">🇺🇸 USA (Current)</span></div>
-      </div>
-    </div>
-
-    <div class="entry">
-      <div class="entry-date">2026</div>
-      <div class="entry-body">
-        <div class="entry-top">
-          <div class="entry-icon"><img src="logos/handball.png" alt="USA Team Handball"></div>
-          <div class="entry-title"><a href="https://www.usateamhandball.org/news/2026/april/27/usath-names-college-all-tournament-teams-academic-all-americans" target="_blank">USA Team Handball — Academic All-American 1st Team ↗</a></div>
-        </div>
-        <div class="entry-desc">Named to the USATH College Academic All-American 1st Team. Recognized nationally for outstanding academic and athletic achievement representing UCLA.</div>
-        <div class="tags"><span class="tag tag-win">🏅 1st Team All-American</span><span class="tag">USA National Team</span><span class="tag"><a href="https://youtu.be/zWh4tmKtIuw?si=IVgBtwmqfY-8oKwe&t=9" target="_blank">▶ Watch ↗</a></span></div>
-      </div>
-    </div>
-
-    <div class="entry">
-      <div class="entry-date">2025</div>
-      <div class="entry-body">
-        <div class="entry-top">
-          <div class="entry-icon"><img src="logos/handball.png" alt="USA Team Handball"></div>
-          <div class="entry-title">USA Team Handball — All-American 2nd Team</div>
-        </div>
-        <div class="entry-desc">Recognized nationally for outstanding academic and athletic achievement representing the USA in team handball.</div>
-        <div class="tags"><span class="tag">USA National Team</span><span class="tag">All-American</span></div>
-      </div>
-    </div>
-
-    <div class="entry">
-      <div class="entry-date">2025 — Present</div>
-      <div class="entry-body">
-        <div class="entry-top">
-          <div class="entry-icon"><img src="logos/ucla.jpeg" alt="UCLA"></div>
-          <div class="entry-title">UCLA Rugby — D1</div>
-        </div>
-        <div class="entry-desc">D1 collegiate-level rugby player at UCLA. Top 20 nationally ranked program.</div>
-        <div class="tags"><span class="tag">D1</span><span class="tag">Rugby</span><span class="tag">Top 20 Nationally</span><span class="tag">UCLA</span></div>
-      </div>
-    </div>
-
-    <!-- HACKATHONS -->
-    <div class="section-label" id="hackathons">Hackathons — 6× Winner</div>
-
-    <div class="hack-wrap">
-      <table class="hack-table">
-        <thead>
-          <tr>
-            <th></th>
-            <th>Event</th>
-            <th>Project</th>
-            <th>Award</th>
-            <th>Year</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><img src="naccent.png" class="hack-thumb" alt="naccent demo" onclick="zoom(this.src)"></td>
-            <td class="hack-event"><a href="https://2025.sbhacks.com/" target="_blank">SB Hacks XI ↗</a></td>
-            <td><a href="https://devpost.com/software/naccent" target="_blank" style="color:#aaa;">naccent</a> — AI pronunciation trainer</td>
-            <td class="hack-award">🏆 Best Student Life Hack</td>
-            <td class="hack-year">2025</td>
-          </tr>
-          <tr>
-            <td><img src="greenmate.png" class="hack-thumb" alt="GreenMate demo" onclick="zoom(this.src)"></td>
-            <td class="hack-event">Columbia University Hackathon</td>
-            <td><a href="https://dorahacks.io/buidl/16986" target="_blank" style="color:#aaa;">GreenMate</a> — AR sustainability tracker</td>
-            <td class="hack-award">🏆 1st Award</td>
-            <td class="hack-year">2024</td>
-          </tr>
-          <tr>
-            <td><img src="cv-module.png" class="hack-thumb" alt="CV Module demo" onclick="zoom(this.src)"></td>
-            <td class="hack-event">UC Berkeley Hack for Impact</td>
-            <td><a href="https://github.com/NeuralNurse/CV-Module" target="_blank" style="color:#aaa;">CV Module</a> — accessibility &amp; healthcare</td>
-            <td class="hack-award">🥈 2nd Place Overall</td>
-            <td class="hack-year">2024</td>
-          </tr>
-          <tr>
-            <td><img src="biomyo.png" class="hack-thumb" alt="BioMyo demo" onclick="zoom(this.src)"></td>
-            <td class="hack-event">De Anza Hacks 2.5</td>
-            <td><a href="https://devpost.com/software/biomyo" target="_blank" style="color:#aaa;">BioMyo</a> — low-cost EMG prosthetic arm</td>
-            <td class="hack-award">🥉 3rd Place</td>
-            <td class="hack-year">2024</td>
-          </tr>
-          <tr>
-            <td><div class="hack-thumb-empty">—</div></td>
-            <td class="hack-event">Hack Harvard &amp; HackMIT</td>
-            <td>Selected from thousands of participants</td>
-            <td class="hack-award">🏅 Finalist</td>
-            <td class="hack-year">2024</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <!-- Lightbox -->
-    <div class="lightbox" id="lightbox" onclick="this.classList.remove('show')">
-      <img id="lightbox-img" src="">
-    </div>
-
-    <script>
-      function zoom(src) {
-        document.getElementById('lightbox-img').src = src;
-        document.getElementById('lightbox').classList.add('show');
-      }
-    </script>
-
-    <!-- MUSIC -->
-    <div class="section-label" id="music">Music</div>
-
-    <div class="entry">
-      <div class="entry-date">Ongoing</div>
-      <div class="entry-body">
-        <div class="entry-top">
-          <div class="entry-icon">🎸</div>
-          <div class="entry-title">Music Producer — Rock</div>
-        </div>
-        <div class="entry-desc">I produce rock music.</div>
-        <div class="tags">
-          <span class="tag">🎵 Rock</span>
-        </div>
-      </div>
-    </div>
-
-  </main>
 </div>
 </body>
 </html>
