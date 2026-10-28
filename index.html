@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ho Lok Cheung</title>
-  <meta name="description" content="Ho Lok Cheung — CS + Linguistics at UCLA. Stanford research intern, NASA L'SPACE project manager, hackathon prize winner, USA Team Handball Academic All-American.">
+  <meta name="description" content="Ho Lok Cheung — CS + Linguistics at UCLA. Stanford research intern, NASA L'SPACE project manager, eight-time hackathon prize winner, USA Team Handball Academic All-American.">
   <meta property="og:title" content="Ho Lok Cheung">
   <meta property="og:description" content="CS + Linguistics @ UCLA. I build at the intersection of language, code, and sport.">
   <meta property="og:type" content="website">
@@ -16,7 +16,7 @@
   <meta name="twitter:image" content="https://holokcheung.com/photo.jpg">
   <meta name="theme-color" content="#ffffff">
   <link rel="canonical" href="https://holokcheung.com/">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👋</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22><rect width=%2264%22 height=%2264%22 rx=%2216%22 fill=%22%231868DB%22/><text x=%2232%22 y=%2243%22 text-anchor=%22middle%22 font-family=%22Arial,Helvetica,sans-serif%22 font-weight=%22700%22 font-size=%2228%22 fill=%22white%22>HL</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -140,7 +140,8 @@
       color: #fff;
       display: grid;
       place-items: center;
-      font-size: 15px;
+      font-size: 12.5px;
+      letter-spacing: -0.02em;
     }
     .nav-links { display: flex; gap: 2px; }
     .nav-links a {
@@ -354,6 +355,7 @@
     .work { padding: 40px 0 112px; }
     .tabs-scroll { margin-top: 36px; overflow-x: auto; scrollbar-width: none; margin-left: -24px; margin-right: -24px; padding: 2px 24px; }
     .tabs-scroll::-webkit-scrollbar { display: none; }
+    .tabs-scroll.more { -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 56px), transparent); mask-image: linear-gradient(to right, #000 calc(100% - 56px), transparent); }
     .tabs { display: inline-flex; gap: 4px; padding: 6px; background: var(--fill); border-radius: 999px; }
     .tab {
       border: 0;
@@ -400,7 +402,77 @@
       border-radius: 999px;
       padding: 7px 14px;
     }
-    .panel-text .link-arrow { display: flex; width: fit-content; margin-top: 24px; }
+    .panel-text > .link-arrow { display: flex; width: fit-content; margin-top: 24px; }
+    .award .em { margin-right: 7px; }
+    .links { display: flex; flex-wrap: wrap; gap: 10px 28px; margin-top: 24px; }
+    .watch {
+      position: absolute;
+      left: 24px;
+      bottom: 24px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #fff;
+      color: var(--ink);
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 10px 16px;
+      border-radius: 999px;
+      box-shadow: 0 8px 24px rgba(16,18,20,0.18);
+      transition: background 0.15s, color 0.15s;
+    }
+    .watch:hover { background: var(--ink); color: #fff; }
+
+    /* ── Cal Hacks photos ── */
+    .photos { padding: 0 0 112px; }
+    .photo-grid {
+      margin-top: 40px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 270px;
+      gap: 16px;
+    }
+    .shot { position: relative; margin: 0; border-radius: 20px; overflow: hidden; background: var(--fill); }
+    .shot img { width: 100%; height: 100%; object-fit: cover; }
+    .shot figcaption {
+      position: absolute;
+      left: 14px;
+      bottom: 14px;
+      right: 14px;
+      width: fit-content;
+      background: rgba(255,255,255,0.94);
+      color: var(--ink);
+      font-size: 13.5px;
+      font-weight: 500;
+      line-height: 1.35;
+      padding: 8px 12px;
+      border-radius: 10px;
+    }
+    .shot-wide { grid-column: 1 / 3; }
+    .shot-tall { grid-column: 3; grid-row: 1 / 3; }
+    .plain { text-decoration: none; }
+    .plain:hover { text-decoration: underline; text-underline-offset: 3px; }
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 24px;
+      translate: -50% 16px;
+      background: var(--ink);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 12px 18px;
+      border-radius: 12px;
+      box-shadow: 0 12px 32px rgba(16,18,20,0.25);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s, translate 0.2s;
+      z-index: 100;
+      max-width: calc(100vw - 32px);
+      text-align: center;
+    }
+    .toast.show { opacity: 1; translate: -50% 0; }
     .panel-visual {
       border-radius: 24px;
       padding: 40px;
@@ -409,13 +481,14 @@
       display: grid;
       grid-template: minmax(0, 1fr) / minmax(0, 1fr);
       place-items: center;
+      position: relative;
     }
-    .panel-visual img, .panel-visual svg {
+    .panel-visual > img, .panel-visual > svg {
       border-radius: 14px;
       box-shadow: 0 22px 50px rgba(16,18,20,0.18);
     }
-    .panel-visual img { width: auto; height: 100%; max-width: 100%; object-fit: contain; }
-    .panel-visual svg { width: 100%; height: auto; max-height: 100%; }
+    .panel-visual > img { width: auto; height: auto; max-width: 100%; max-height: 100%; }
+    .panel-visual > svg { width: 100%; height: auto; max-height: 100%; }
 
     /* ── Dark band: athletics ── */
     .dark { background: var(--ink); color: #fff; padding: 112px 0; }
@@ -622,9 +695,19 @@
       .nav-text { display: none; }
       .nav-actions { gap: 8px; }
 
+      .link-arrow { padding: 10px 0; }
+      .panel-text > .link-arrow, .links { margin-top: 12px; }
+      .links { gap: 0 28px; }
+      .foot-cols a { padding: 9px 0; margin-bottom: 0; }
+      .foot-cols { gap: 48px; }
+
       .panel { grid-template-columns: 1fr; gap: 28px; }
       .panel-visual { padding: 22px; aspect-ratio: 1 / 1; }
       .dark-inner { grid-template-columns: 1fr; gap: 48px; }
+      .photo-grid { grid-template-columns: 1fr 1fr; grid-auto-rows: auto; }
+      .shot { aspect-ratio: 4 / 3; }
+      .shot-wide { grid-column: 1 / -1; aspect-ratio: 3 / 2; }
+      .shot-tall { grid-column: 2; grid-row: 2 / 4; aspect-ratio: auto; }
       .edu-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 560px) {
@@ -639,6 +722,11 @@
       .card-p h3 { font-size: 48px; }
       .cta-box { padding: 60px 22px; border-radius: 24px; }
       .honors li { grid-template-columns: 78px 1fr; gap: 12px; }
+      .award { border-radius: 14px; }
+      .photo-grid { grid-template-columns: 1fr; gap: 12px; }
+      .shot { aspect-ratio: 3 / 2; }
+      .shot-tall { grid-column: 1 / -1; grid-row: auto; aspect-ratio: 4 / 5; }
+      .watch { left: 14px; bottom: 14px; }
       .brand-name { font-size: 17px; }
     }
     @media (prefers-reduced-motion: reduce) {
@@ -651,7 +739,7 @@
 
 <header class="nav" id="nav">
   <div class="wrap nav-inner">
-    <a class="brand" href="#top"><span class="brand-mark">H</span><span class="brand-name">Ho Lok Cheung</span></a>
+    <a class="brand" href="#top"><span class="brand-mark">HL</span><span class="brand-name">Ho Lok Cheung</span></a>
     <nav class="nav-links" id="nav-links" aria-label="Main">
       <a href="#work">Work</a>
       <a href="#athletics">Athletics</a>
@@ -678,7 +766,7 @@
       <h1>I build at the intersection of language, code, and sport.</h1>
       <p class="lede">
         I'm Ho Lok, a CS + Linguistics student at <a class="hl" href="https://www.ucla.edu" target="_blank" rel="noopener">UCLA</a>.
-        Stanford research intern, NASA L'SPACE project manager, four-time hackathon prize winner,
+        Stanford research intern, NASA L'SPACE project manager, eight-time hackathon prize winner,
         and a USA Team Handball Academic All-American.
       </p>
       <div class="cta-row">
@@ -694,7 +782,7 @@
             Ho Lok
           </span>
         </div>
-        <div class="chip c1"><span class="chip-icon bg-yellow">🏆</span><div><b>Best Student Life Hack</b><small>naccent · SB Hacks XI</small></div></div>
+        <div class="chip c1"><span class="chip-icon bg-yellow">🏆</span><div><b>Claude for Public Benefit Prize</b><small>TouchSpace · Cal Hacks 13.0</small></div></div>
         <div class="chip c2"><span class="chip-icon bg-lime">🥇</span><div><b>1st Place</b><small>GreenMate · Columbia Hackathon</small></div></div>
         <div class="chip c3"><span class="chip-icon bg-blue">🤾</span><div><b>Academic All-American</b><small>USA Team Handball · 1st Team</small></div></div>
         <div class="chip c4"><span class="chip-icon bg-lav">🎓</span><div><b>4.0 GPA · Regents Scholar</b><small>UCLA · top 2% of admits</small></div></div>
@@ -726,13 +814,13 @@
       <div class="stat-row">
         <div class="stat"><div class="num" data-to="4.0" data-dec="1">4.0</div><div class="label">GPA at UCLA</div></div>
         <div class="plus" aria-hidden="true">+</div>
-        <div class="stat"><div class="num" data-to="4">4</div><div class="label">Hackathon prizes</div></div>
+        <div class="stat"><div class="num" data-to="8">8</div><div class="label">Hackathon prizes</div></div>
         <div class="plus" aria-hidden="true">+</div>
         <div class="stat"><div class="num" data-to="20">20</div><div class="label">People led at<br>NASA L'SPACE</div></div>
         <div class="plus" aria-hidden="true">+</div>
         <div class="stat"><div class="num">1st</div><div class="label">Team Academic<br>All-American</div></div>
       </div>
-      <p class="footnote">Hackathon prizes from SB Hacks XI, the Columbia University Hackathon, UC Berkeley Hack for Impact, and De Anza Hacks 2.5. Also a finalist at HackHarvard and HackMIT.</p>
+      <p class="footnote">Prizes include Anthropic's Claude for Public Benefit Prize at Cal Hacks 13.0, 1st Place at the Columbia University Hackathon, 2nd Place at UC Berkeley Hack for Impact, Best Student Life Hack at SB Hacks XI, and 3rd Place at De Anza Hacks 2.5. Also a finalist at HackHarvard and HackMIT.</p>
     </div>
   </section>
 
@@ -740,11 +828,12 @@
   <section class="work" id="work">
     <div class="wrap">
       <h2 class="h2">Featured work</h2>
-      <p class="sub">Four hackathon prize winners and a full-stack team project. Pick one to see what it does.</p>
+      <p class="sub">Hackathon prize winners and a full-stack team project. Pick one to see what it does.</p>
 
       <div class="tabs-scroll">
         <div class="tabs" role="tablist" aria-label="Projects">
-          <button class="tab" role="tab" id="t-naccent" aria-controls="p-naccent" aria-selected="true">naccent</button>
+          <button class="tab" role="tab" id="t-touchspace" aria-controls="p-touchspace" aria-selected="true">TouchSpace</button>
+          <button class="tab" role="tab" id="t-naccent" aria-controls="p-naccent" aria-selected="false" tabindex="-1">naccent</button>
           <button class="tab" role="tab" id="t-greenmate" aria-controls="p-greenmate" aria-selected="false" tabindex="-1">GreenMate</button>
           <button class="tab" role="tab" id="t-neuralnurse" aria-controls="p-neuralnurse" aria-selected="false" tabindex="-1">NeuralNurse</button>
           <button class="tab" role="tab" id="t-biomyo" aria-controls="p-biomyo" aria-selected="false" tabindex="-1">BioMyo</button>
@@ -752,13 +841,31 @@
         </div>
       </div>
 
-      <div class="panel" role="tabpanel" id="p-naccent" aria-labelledby="t-naccent">
+      <div class="panel" role="tabpanel" id="p-touchspace" aria-labelledby="t-touchspace">
+        <div class="panel-text">
+          <p class="eyebrow">Hackathon · Cal Hacks 13.0 · 2026</p>
+          <div class="stack"><span><i class="sq bg-blue"></i>Swift &amp; RoomPlan</span><span><i class="sq bg-lime"></i>LiDAR</span><span><i class="sq bg-yellow"></i>React</span><span><i class="sq bg-lav"></i>FastAPI</span><span><i class="sq bg-blue"></i>Claude</span><span><i class="sq bg-lime"></i>Dot Pad</span></div>
+          <h3>Tactile and audio maps for blind and visually impaired people</h3>
+          <p>Scan a room with a LiDAR iPhone and TouchSpace turns it into a floor plan of walls, doors, and landmarks that rises as pins on a Dot Pad tactile display. Ask questions out loud and Claude answers from the real map data. Every route is computed straight from the map, so the AI can never make up a path. Built with James Zheng and Sunghyuk Yoon.</p>
+          <p class="award"><span class="em" aria-hidden="true">🏆</span>Claude for Public Benefit Prize · $5K from Anthropic</p>
+          <div class="links">
+            <a class="link-arrow" href="https://devpost.com/software/touchspace" target="_blank" rel="noopener">View on Devpost <span>→</span></a>
+            <a class="link-arrow" href="https://github.com/holokcheung/touchspace" target="_blank" rel="noopener">GitHub <span>→</span></a>
+          </div>
+        </div>
+        <div class="panel-visual bg-lav">
+          <img src="touchspace-team.jpg" alt="Ho Lok holding the Dot Pad between teammates holding the TouchSpace web app and iPhone scanner">
+          <a class="watch" href="https://www.youtube.com/watch?v=zCSkCPO-3cc" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>Watch the demo</a>
+        </div>
+      </div>
+
+      <div class="panel" role="tabpanel" id="p-naccent" aria-labelledby="t-naccent" hidden>
         <div class="panel-text">
           <p class="eyebrow">Hackathon · SB Hacks XI · 2025</p>
           <div class="stack"><span><i class="sq bg-blue"></i>Python</span><span><i class="sq bg-lime"></i>Speech recognition</span><span><i class="sq bg-lav"></i>AI</span></div>
           <h3>An AI pronunciation trainer for English learners</h3>
           <p>naccent listens while you speak and gives instant feedback, comparing the sounds it expected to hear with the ones you actually said.</p>
-          <p class="award">🏆 Best Student Life Hack</p>
+          <p class="award"><span class="em" aria-hidden="true">🏆</span>Best Student Life Hack</p>
           <a class="link-arrow" href="https://devpost.com/software/naccent" target="_blank" rel="noopener">View on Devpost <span>→</span></a>
         </div>
         <div class="panel-visual bg-blue"><img src="naccent.jpg" alt="naccent showing expected and heard sounds for a spoken sentence"></div>
@@ -770,7 +877,7 @@
           <div class="stack"><span><i class="sq bg-lime"></i>Snap Spectacles</span><span><i class="sq bg-yellow"></i>Lens Studio</span><span><i class="sq bg-blue"></i>AR</span></div>
           <h3>Live plant health, right in your field of view</h3>
           <p>GreenMate runs on Snap Spectacles and overlays real-time plant-health data in the wearer's view, so you can see what a plant needs just by looking at it.</p>
-          <p class="award">🥇 1st Place</p>
+          <p class="award"><span class="em" aria-hidden="true">🥇</span>1st Place</p>
           <a class="link-arrow" href="https://dorahacks.io/buidl/16986" target="_blank" rel="noopener">View on DoraHacks <span>→</span></a>
         </div>
         <div class="panel-visual bg-lime"><img src="greenmate.jpg" alt="GreenMate AR demo at the Columbia hackathon"></div>
@@ -781,8 +888,8 @@
           <p class="eyebrow">Hackathon · UC Berkeley Hack for Impact · 2024</p>
           <div class="stack"><span><i class="sq bg-lav"></i>Python</span><span><i class="sq bg-blue"></i>Computer vision</span><span><i class="sq bg-yellow"></i>Facial recognition</span></div>
           <h3>A social memory assistant</h3>
-          <p>An AI assistant that recognizes the people around you and recalls how you know them, to make in-person conversations easier.</p>
-          <p class="award">🥈 2nd Place Overall</p>
+          <p>An AI assistant that recognizes the people around you and recalls how you know them, to make in-person conversations easier. My first hackathon win, at an event hosted by Cal Hacks.</p>
+          <p class="award"><span class="em" aria-hidden="true">🥈</span>2nd Place Overall</p>
           <a class="link-arrow" href="https://github.com/NeuralNurse/CV-Module" target="_blank" rel="noopener">View on GitHub <span>→</span></a>
         </div>
         <div class="panel-visual bg-lav"><img src="cv-module.jpg" alt="NeuralNurse detecting a face in a live camera feed"></div>
@@ -794,7 +901,7 @@
           <div class="stack"><span><i class="sq bg-yellow"></i>3D printing</span><span><i class="sq bg-lime"></i>EMG sensors</span><span><i class="sq bg-lav"></i>Hardware</span></div>
           <h3>A low-cost prosthetic arm</h3>
           <p>A 3D-printed prosthetic arm driven by muscle (EMG) sensors, built to move naturally while keeping costs low.</p>
-          <p class="award">🥉 3rd Place</p>
+          <p class="award"><span class="em" aria-hidden="true">🥉</span>3rd Place</p>
           <a class="link-arrow" href="https://devpost.com/software/biomyo" target="_blank" rel="noopener">View on Devpost <span>→</span></a>
         </div>
         <div class="panel-visual bg-yellow"><img src="biomyo.jpg" alt="BioMyo prosthetic arm prototype"></div>
@@ -806,7 +913,7 @@
           <div class="stack"><span><i class="sq bg-blue"></i>React</span><span><i class="sq bg-lime"></i>Node.js</span><span><i class="sq bg-yellow"></i>Express</span><span><i class="sq bg-lav"></i>MongoDB</span><span><i class="sq bg-blue"></i>JWT</span></div>
           <h3>Your photos, pinned to where you took them</h3>
           <p>A full-stack web app that maps uploaded photos to the places they were taken, backed by MongoDB and a REST API with secure JWT login. Built with a five-person team using Git and weekly agile reviews.</p>
-          <p class="award">👥 Five-person team</p>
+          <p class="award"><span class="em" aria-hidden="true">👥</span>Five-person team</p>
         </div>
         <div class="panel-visual bg-blue">
           <svg viewBox="0 0 480 360" role="img" aria-label="Illustration of photos pinned on a map">
@@ -849,6 +956,32 @@
     </div>
   </section>
 
+  <!-- CAL HACKS PHOTOS -->
+  <section class="photos" id="calhacks">
+    <div class="wrap">
+      <h2 class="h2">Cal Hacks 13.0, in photos</h2>
+      <p class="sub">Building TouchSpace in San Francisco with James Zheng and Sunghyuk Yoon. It won Anthropic's Claude for Public Benefit Prize.</p>
+      <div class="photo-grid">
+        <figure class="shot shot-wide">
+          <img src="calhacks-group.jpg" alt="Ho Lok and three others at the Palace of Fine Arts" loading="lazy" style="object-position: 50% 38%">
+          <figcaption>Palace of Fine Arts, San Francisco</figcaption>
+        </figure>
+        <figure class="shot shot-tall">
+          <img src="calhacks-dotpad.jpg" alt="Ho Lok holding a Dot Pad showing a floor plan as raised pins" loading="lazy">
+          <figcaption>A scanned floor plan, raised as pins on the Dot Pad</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="calhacks-building.jpg" alt="A teammate pointing at the laptop screen while Ho Lok works" loading="lazy" style="object-position: 50% 30%">
+          <figcaption>Building with the team</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="calhacks-webapp.jpg" alt="The TouchSpace web app's walkthrough of the venue on a laptop" loading="lazy">
+          <figcaption>The web app walking through the venue</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
   <!-- ATHLETICS (dark band) -->
   <section class="dark" id="athletics">
     <div class="wrap dark-inner">
@@ -865,7 +998,7 @@
         </ul>
       </div>
       <div class="video" id="video">
-        <button class="video-btn" type="button" data-id="zWh4tmKtIuw" data-start="9" aria-label="Play video: What is Handball? America's Next Great Sport">
+        <button class="video-btn" type="button" data-id="zWh4tmKtIuw" data-start="9" data-title="What is Handball? America's Next Great Sport" aria-label="Play video: What is Handball? America's Next Great Sport">
           <img src="https://i.ytimg.com/vi/zWh4tmKtIuw/maxresdefault.jpg" alt="" loading="lazy">
           <span class="play"><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="#101214"/></svg></span>
         </button>
@@ -992,6 +1125,7 @@
             <li><b>Regents Scholar</b> — UCLA's most prestigious merit scholarship, awarded to the top 2% of admitted students</li>
             <li>UCLA Mathematics Achievement Program, Henry Samueli School of Engineering and Applied Science</li>
             <li>Coursework: Algorithms, Data Structures, Software Construction, Computer Systems</li>
+            <li><b><a class="plain" href="https://uclaclubsports.com/sports/mens-rugby" target="_blank" rel="noopener">UCLA Rugby</a></b> — NCAA Division I, top-20 nationally ranked program (2025–now)</li>
           </ul>
         </div>
         <div class="card-p outlined">
@@ -1016,7 +1150,7 @@
     <div class="wrap">
       <div class="cta-box">
         <h2 class="h2">Let's build something.</h2>
-        <p class="sub center">I'm always happy to talk about SWE and research roles, hackathons, or handball.</p>
+        <p class="sub center">I'm always happy to talk about SWE and research roles, hackathons, or handball. Reach me at <a class="hl" href="mailto:holokcheung@ucla.edu">holokcheung@ucla.edu</a>.</p>
         <div class="cta-row">
           <a class="btn btn-primary" href="mailto:holokcheung@ucla.edu">Email me</a>
           <a class="btn btn-outline" href="https://www.linkedin.com/in/thomascheung86" target="_blank" rel="noopener">LinkedIn</a>
@@ -1031,7 +1165,7 @@
 <footer class="foot">
   <div class="wrap foot-inner">
     <div>
-      <a class="brand" href="#top"><span class="brand-mark">H</span><span>Ho Lok Cheung</span></a>
+      <a class="brand" href="#top"><span class="brand-mark">HL</span><span>Ho Lok Cheung</span></a>
       <p class="foot-small">CS + Linguistics at UCLA</p>
     </div>
     <div class="foot-cols">
@@ -1063,9 +1197,13 @@
     menuBtn.setAttribute('aria-expanded', open);
     menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
   });
-  navLinks.addEventListener('click', e => {
-    if (e.target.tagName === 'A') { navLinks.classList.remove('open'); menuBtn.setAttribute('aria-expanded', false); }
-  });
+  function closeMenu() {
+    navLinks.classList.remove('open');
+    menuBtn.setAttribute('aria-expanded', false);
+    menuBtn.setAttribute('aria-label', 'Open menu');
+  }
+  navLinks.addEventListener('click', e => { if (e.target.tagName === 'A') closeMenu(); });
+  addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
 
   // Project tabs
   const tabs = [...document.querySelectorAll('[role="tab"]')];
@@ -1088,6 +1226,14 @@
     });
   });
 
+  // Fade the right edge of the tab bar while more tabs are hidden off-screen
+  const tabsScroll = document.querySelector('.tabs-scroll');
+  const updateFade = () => tabsScroll.classList.toggle('more', tabsScroll.scrollLeft + tabsScroll.clientWidth < tabsScroll.scrollWidth - 4);
+  tabsScroll.addEventListener('scroll', updateFade, { passive: true });
+  addEventListener('resize', updateFade);
+  updateFade();
+  tabs.forEach(t => t.addEventListener('click', () => t.scrollIntoView({ block: 'nearest', inline: 'nearest' })));
+
   // Count-up stats
   if (!matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) {
     const nums = document.querySelectorAll('.num[data-to]');
@@ -1107,15 +1253,33 @@
   }
 
   // Click-to-load video: only the thumbnail loads until someone presses play
-  document.querySelector('.video-btn').addEventListener('click', e => {
-    const btn = e.currentTarget;
+  document.querySelectorAll('.video-btn').forEach(btn => btn.addEventListener('click', () => {
     const iframe = document.createElement('iframe');
-    iframe.src = `https://www.youtube-nocookie.com/embed/${btn.dataset.id}?start=${btn.dataset.start}&autoplay=1&rel=0`;
-    iframe.title = "What is Handball? America's Next Great Sport";
+    iframe.src = `https://www.youtube-nocookie.com/embed/${btn.dataset.id}?start=${btn.dataset.start || 0}&autoplay=1&rel=0`;
+    iframe.title = btn.dataset.title;
     iframe.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
     iframe.allowFullscreen = true;
     btn.replaceWith(iframe);
-  });
+  }));
+
+  // Email links: open the mail app as usual, and copy the address in case there isn't one
+  const toast = document.createElement('div');
+  toast.className = 'toast';
+  toast.setAttribute('role', 'status');
+  document.body.append(toast);
+  let toastTimer;
+  function showToast(text) {
+    toast.textContent = text;
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove('show'), 3000);
+  }
+  document.querySelectorAll('a[href^="mailto:"]').forEach(a => a.addEventListener('click', () => {
+    const email = a.getAttribute('href').slice(7);
+    Promise.resolve(navigator.clipboard?.writeText(email))
+      .then(() => showToast(navigator.clipboard ? `Copied ${email}` : `Email: ${email}`))
+      .catch(() => showToast(`Email: ${email}`));
+  }));
 </script>
 <script data-goatcounter="https://holokcheung.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
