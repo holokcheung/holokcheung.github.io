@@ -4,470 +4,1119 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ho Lok Cheung</title>
-  <meta name="description" content="Ho Lok Cheung — CS + Linguistics at UCLA. Stanford researcher, NASA project manager, 6× hackathon winner, USA Team Handball All-American, music producer.">
+  <meta name="description" content="Ho Lok Cheung — CS + Linguistics at UCLA. Stanford research intern, NASA L'SPACE project manager, hackathon prize winner, USA Team Handball Academic All-American.">
   <meta property="og:title" content="Ho Lok Cheung">
-  <meta property="og:description" content="CS + Linguistics @ UCLA. I sport, build, and research.">
+  <meta property="og:description" content="CS + Linguistics @ UCLA. I build at the intersection of language, code, and sport.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://holokcheung.com/">
   <meta property="og:image" content="https://holokcheung.com/photo.jpg">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Ho Lok Cheung">
-  <meta name="twitter:description" content="CS + Linguistics @ UCLA. I sport, build, and research.">
+  <meta name="twitter:description" content="CS + Linguistics @ UCLA. I build at the intersection of language, code, and sport.">
   <meta name="twitter:image" content="https://holokcheung.com/photo.jpg">
   <meta name="theme-color" content="#ffffff">
   <link rel="canonical" href="https://holokcheung.com/">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👋</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #ffffff;
-      --ink: #161616;
-      --gray: #b9b9b9;
-      --muted: #9a9a9a;
-      --soft: #6e6e6e;
-      --border: #ececec;
-      --border-hover: #d6d6d6;
-      --radius: 20px;
-      --serif: 'Newsreader', Georgia, 'Times New Roman', serif;
-      --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+      --blue: #1868DB;
+      --blue-hover: #1558BC;
+      --ink: #101214;
+      --text: #292A2E;
+      --muted: #505258;
+      --subtle: #6B6E76;
+      --line: #DDDEE1;
+      --line-soft: #EBECF0;
+      --fill: #F1F2F4;
+
+      --p-blue: #CFE1FD;
+      --p-lime: #D3F1A7;
+      --p-yellow: #FFE48F;
+      --p-lav: #EED7FC;
+
+      --display: 'Inter Tight', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
     }
 
-    html { scroll-behavior: smooth; }
-
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
     body {
-      background: var(--bg);
-      color: var(--ink);
+      background: #fff;
+      color: var(--text);
       font-family: var(--sans);
       font-size: 16px;
-      line-height: 1.7;
+      line-height: 1.6;
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
+    :focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; border-radius: 6px; }
 
-    .page {
-      max-width: 1440px;
-      margin: 0 auto;
-      padding: 28px 32px 90px;
-    }
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
-    /* ── Pill nav ── */
-    .navwrap {
-      position: sticky;
-      top: 20px;
-      z-index: 100;
-      margin-bottom: 56px;
+    /* ── Type ── */
+    .h2 {
+      font-family: var(--display);
+      font-weight: 600;
+      font-size: clamp(32px, 4.2vw, 48px);
+      line-height: 1.08;
+      letter-spacing: -0.025em;
+      color: var(--ink);
     }
-    .pill-nav {
+    .sub { font-size: 18px; color: var(--muted); margin-top: 14px; max-width: 640px; }
+    .center { text-align: center; margin-left: auto; margin-right: auto; }
+    .eyebrow { font-size: 14px; font-weight: 500; color: var(--subtle); }
+    .hl { color: var(--blue); font-weight: 600; text-decoration: none; }
+    .hl:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+    /* ── Buttons ── */
+    .btn {
       display: inline-flex;
       align-items: center;
-      gap: 2px;
-      background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(8px);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 9px 10px;
-      box-shadow: 0 2px 14px rgba(0,0,0,0.04);
-    }
-    .pill-nav a {
-      padding: 3px 11px;
-      font-size: 15px;
-      color: var(--muted);
+      gap: 8px;
+      font-family: var(--sans);
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 1;
+      padding: 15px 24px;
+      border-radius: 999px;
+      border: 1.5px solid transparent;
       text-decoration: none;
-      border-radius: 9px;
-      transition: color 0.15s, background 0.15s;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.15s, color 0.15s, border-color 0.15s;
+    }
+    .btn-primary { background: var(--blue); color: #fff; }
+    .btn-primary:hover { background: var(--blue-hover); }
+    .btn-outline { border-color: var(--ink); color: var(--ink); background: transparent; }
+    .btn-outline:hover { background: var(--ink); color: #fff; }
+    .btn-sm { padding: 10px 18px; font-size: 14px; }
+    .link-arrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--blue);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .link-arrow span, .btn span { transition: transform 0.15s; }
+    .link-arrow:hover span, .btn:hover span { transform: translateX(3px); }
+
+    /* ── Nav ── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255,255,255,0.94);
+      backdrop-filter: saturate(180%) blur(10px);
+      -webkit-backdrop-filter: saturate(180%) blur(10px);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .nav.scrolled { border-bottom-color: var(--line-soft); box-shadow: 0 2px 12px rgba(16,18,20,0.04); }
+    .nav-inner { display: flex; align-items: center; gap: 36px; height: 64px; }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 18px;
+      letter-spacing: -0.01em;
+      color: var(--ink);
       white-space: nowrap;
     }
-    .pill-nav a:hover { color: var(--ink); background: #f5f5f5; }
-    .pill-nav a.me { color: var(--ink); font-weight: 550; }
+    .brand-mark {
+      width: 28px; height: 28px;
+      border-radius: 8px;
+      background: var(--blue);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-size: 15px;
+    }
+    .nav-links { display: flex; gap: 2px; }
+    .nav-links a {
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text);
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .nav-links a:hover { background: var(--fill); }
+    .nav-actions { margin-left: auto; display: flex; align-items: center; gap: 18px; }
+    .nav-text { font-size: 15px; font-weight: 500; color: var(--text); text-decoration: none; }
+    .nav-text:hover { color: var(--blue); }
+    .menu-btn {
+      display: none;
+      width: 40px; height: 40px;
+      border: 0;
+      border-radius: 10px;
+      background: transparent;
+      color: var(--ink);
+      cursor: pointer;
+      place-items: center;
+    }
+    .menu-btn:hover { background: var(--fill); }
 
     /* ── Hero ── */
-    .hero {
-      display: flex;
-      gap: 40px;
-      align-items: flex-start;
-      margin-bottom: 18px;
-    }
-    .hero-text {
-      flex: 1.2;
-      font-family: var(--serif);
-      font-weight: 300;
-      font-size: clamp(27px, 3vw, 42px);
-      line-height: 1.42;
-      color: var(--gray);
-      letter-spacing: 0.1px;
-      padding-top: 24px;
-      max-width: 880px;
-    }
-    .hero-text p { margin-bottom: 1.15em; }
-    .hero-text strong { color: var(--ink); font-weight: 400; }
-    .hero-text a {
-      color: var(--ink);
-      font-weight: 400;
-      text-decoration: underline;
-      text-decoration-style: dotted;
-      text-decoration-color: #c9c9c9;
-      text-decoration-thickness: 1.5px;
-      text-underline-offset: 6px;
-      transition: text-decoration-color 0.15s;
-    }
-    .hero-text a:hover { text-decoration-color: var(--ink); text-decoration-style: solid; }
-
-    .hero-cards {
-      flex: 0.9;
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 16px;
-      min-width: 320px;
-      max-width: 460px;
-    }
-
-    /* ── Cards ── */
-    .card {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 18px;
-      text-decoration: none;
-      color: inherit;
-      position: relative;
-      transition: border-color 0.2s, box-shadow 0.2s;
-      break-inside: avoid;
-    }
-    a.card:hover { border-color: var(--border-hover); box-shadow: 0 4px 22px rgba(0,0,0,0.05); }
-    a.card:hover .card-arrow { color: var(--ink); transform: translate(2px, -2px); }
-
-    .card-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      font-size: 13.5px;
-      color: var(--muted);
-      gap: 12px;
-    }
-    .card-arrow {
-      color: #cfcfcf;
-      font-size: 15px;
-      transition: color 0.2s, transform 0.2s;
-      flex-shrink: 0;
-    }
-    .card-img {
-      width: 100%;
-      border-radius: 12px;
-      aspect-ratio: 4 / 3;
-      object-fit: cover;
-      border: 1px solid var(--border);
-      background: #fafafa;
-    }
-    .card-img.portrait { aspect-ratio: 3 / 3.4; object-position: center 20%; }
-    .card-title {
-      font-family: var(--serif);
-      font-weight: 400;
-      font-size: 25px;
-      line-height: 1.25;
-      color: var(--ink);
-      letter-spacing: 0.1px;
-    }
-    .card-date { font-size: 14px; color: var(--muted); margin-top: -6px; }
-    .card-note { font-size: 14.5px; color: var(--soft); line-height: 1.6; margin-top: -4px; }
-
-    /* ── Garden grid ── */
-    .garden {
-      columns: 3;
-      column-gap: 16px;
-      margin-bottom: 90px;
-    }
-    .garden .card { margin-bottom: 16px; }
-
-    /* ── Sections ── */
-    .section {
-      max-width: 760px;
-      margin: 0 auto 80px;
-    }
-    .section h2 {
-      font-family: var(--serif);
-      font-weight: 400;
-      font-size: 36px;
-      letter-spacing: 0.2px;
+    .hero { padding: 84px 0 0; text-align: center; }
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #4C6B1F;
+      background: #EFFFD6;
+      border-radius: 999px;
+      padding: 6px 14px;
       margin-bottom: 28px;
-      padding-bottom: 14px;
-      border-bottom: 1px solid var(--border);
+      text-decoration: none;
     }
-    .entry {
-      display: flex;
-      gap: 28px;
-      padding: 12px 0;
+    .status .dot { width: 8px; height: 8px; border-radius: 50%; background: #6A9A23; animation: pulse 2.4s infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+    .hero h1 {
+      font-family: var(--display);
+      font-weight: 600;
+      font-size: clamp(40px, 6.2vw, 72px);
+      line-height: 1.03;
+      letter-spacing: -0.035em;
+      color: var(--ink);
+      max-width: 940px;
+      margin: 0 auto;
     }
-    .entry-date {
-      font-size: 13.5px;
+    .lede {
+      font-size: clamp(18px, 1.8vw, 21px);
       color: var(--muted);
-      min-width: 138px;
+      max-width: 720px;
+      margin: 26px auto 0;
+      line-height: 1.55;
+    }
+    .cta-row { margin-top: 36px; display: flex; gap: 16px 28px; justify-content: center; align-items: center; flex-wrap: wrap; }
+
+    /* hero visual: photo with floating UI chips */
+    .stage {
+      position: relative;
+      height: 540px;
+      margin-top: 64px;
+      border: 1px solid var(--line-soft);
+      border-radius: 28px;
+      overflow: hidden;
+      background: #FCFCFD;
+    }
+    .stage::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(var(--line-soft) 1px, transparent 1px),
+        linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+      background-size: 44px 44px;
+      background-position: center;
+      -webkit-mask-image: radial-gradient(ellipse at center, #000 35%, transparent 78%);
+      mask-image: radial-gradient(ellipse at center, #000 35%, transparent 78%);
+    }
+    .stage-photo {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 300px;
+      aspect-ratio: 3 / 4;
+    }
+    .stage-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 18%;
+      border-radius: 22px;
+      box-shadow: 0 28px 64px rgba(16,18,20,0.16);
+    }
+    .name-tag {
+      position: absolute;
+      top: 34px;
+      right: -30px;
+      background: var(--blue);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 4px 999px 999px 999px;
+      box-shadow: 0 6px 16px rgba(24,104,219,0.3);
+    }
+    .name-tag svg { position: absolute; top: -14px; left: -12px; }
+    .chip {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-align: left;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 12px 18px 12px 12px;
+      box-shadow: 0 10px 28px rgba(16,18,20,0.08);
+      animation: float 7s ease-in-out infinite;
+    }
+    .chip-icon {
+      width: 38px; height: 38px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      font-size: 19px;
       flex-shrink: 0;
-      padding-top: 3px;
+    }
+    .chip b { display: block; font-size: 15px; font-weight: 600; color: var(--ink); line-height: 1.3; }
+    .chip small { display: block; font-size: 13px; color: var(--subtle); line-height: 1.35; }
+    .chip.dark {
+      background: var(--ink);
+      border-color: var(--ink);
+      color: #fff;
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-family: var(--mono);
+      font-size: 13px;
+    }
+    .c1 { right: calc(50% + 200px); top: 15%; }
+    .c2 { right: calc(50% + 172px); bottom: 19%; animation-delay: -2s; }
+    .c3 { left: calc(50% + 200px); top: 13%; animation-delay: -4s; }
+    .c4 { left: calc(50% + 172px); bottom: 23%; animation-delay: -1s; }
+    .c5 { left: 50%; top: calc(50% + 178px); translate: -50% 0; animation-delay: -3s; }
+    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+
+    .bg-blue { background: var(--p-blue); }
+    .bg-lime { background: var(--p-lime); }
+    .bg-yellow { background: var(--p-yellow); }
+    .bg-lav { background: var(--p-lav); }
+
+    /* ── Logo strip ── */
+    .logos { padding: 76px 0 8px; text-align: center; }
+    .logos-label { font-size: 14px; color: var(--subtle); margin-bottom: 26px; }
+    .logo-row { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 14px 40px; }
+    .logo-row li {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 21px;
+      letter-spacing: -0.015em;
+      color: #8C8F97;
+      white-space: nowrap;
+    }
+
+    /* ── Stats ── */
+    .stats { padding: 104px 0 96px; }
+    .stat-row {
+      margin-top: 64px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 28px;
+      text-align: center;
+    }
+    .stat { min-width: 170px; }
+    .num {
+      font-family: var(--mono);
+      font-weight: 500;
+      font-size: clamp(56px, 7vw, 92px);
+      line-height: 1;
+      letter-spacing: -0.05em;
+      color: var(--ink);
       font-variant-numeric: tabular-nums;
     }
-    .entry-body { flex: 1; min-width: 0; }
-    .entry-title { font-size: 16px; font-weight: 600; line-height: 1.5; }
-    .entry-title a {
-      color: inherit;
+    .label {
+      font-family: var(--mono);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text);
+      margin-top: 18px;
+      line-height: 1.5;
+    }
+    .plus {
+      font-family: var(--display);
+      font-weight: 600;
+      font-size: 60px;
+      line-height: 1.3;
+      color: var(--blue);
+    }
+    .footnote { font-size: 13px; color: var(--subtle); text-align: center; max-width: 700px; margin: 52px auto 0; }
+
+    /* ── Featured work (tabs) ── */
+    .work { padding: 40px 0 112px; }
+    .tabs-scroll { margin-top: 36px; overflow-x: auto; scrollbar-width: none; margin-left: -24px; margin-right: -24px; padding: 2px 24px; }
+    .tabs-scroll::-webkit-scrollbar { display: none; }
+    .tabs { display: inline-flex; gap: 4px; padding: 6px; background: var(--fill); border-radius: 999px; }
+    .tab {
+      border: 0;
+      background: transparent;
+      font-family: var(--sans);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      padding: 10px 20px;
+      border-radius: 999px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.15s, color 0.15s;
+    }
+    .tab:hover { background: #E3E4E8; }
+    .tab[aria-selected="true"] { background: var(--ink); color: #fff; }
+    .panel {
+      margin-top: 40px;
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 56px;
+      align-items: center;
+    }
+    .panel[hidden] { display: none; }
+    .stack { display: flex; flex-wrap: wrap; gap: 8px 18px; margin: 14px 0 22px; }
+    .stack span { display: inline-flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 500; color: var(--ink); }
+    .sq { width: 18px; height: 18px; border-radius: 5px; display: inline-block; }
+    .panel h3 {
+      font-family: var(--display);
+      font-weight: 600;
+      font-size: clamp(26px, 3vw, 38px);
+      line-height: 1.12;
+      letter-spacing: -0.025em;
+      color: var(--ink);
+    }
+    .panel-text > p:not(.eyebrow):not(.award) { font-size: 17px; color: var(--muted); margin-top: 16px; }
+    .award {
+      display: inline-block;
+      margin-top: 22px;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--ink);
+      background: var(--fill);
+      border-radius: 999px;
+      padding: 7px 14px;
+    }
+    .panel-text .link-arrow { display: flex; width: fit-content; margin-top: 24px; }
+    .panel-visual {
+      border-radius: 24px;
+      padding: 40px;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      display: grid;
+      grid-template: minmax(0, 1fr) / minmax(0, 1fr);
+      place-items: center;
+    }
+    .panel-visual img, .panel-visual svg {
+      border-radius: 14px;
+      box-shadow: 0 22px 50px rgba(16,18,20,0.18);
+    }
+    .panel-visual img { width: auto; height: 100%; max-width: 100%; object-fit: contain; }
+    .panel-visual svg { width: 100%; height: auto; max-height: 100%; }
+
+    /* ── Dark band: athletics ── */
+    .dark { background: var(--ink); color: #fff; padding: 112px 0; }
+    .dark .h2 { color: #fff; }
+    .dark .sub { color: #B7B9BE; }
+    .dark-inner { display: grid; grid-template-columns: 1fr 1.1fr; gap: 64px; align-items: center; }
+    .eyebrow-mono {
+      font-family: var(--mono);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #94C748;
+      margin-bottom: 18px;
+    }
+    .honors { list-style: none; margin-top: 36px; }
+    .honors li {
+      display: grid;
+      grid-template-columns: 96px 1fr;
+      gap: 16px;
+      padding: 14px 0;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      font-size: 16px;
+    }
+    .honors li:last-child { border-bottom: 1px solid rgba(255,255,255,0.12); }
+    .yr { font-family: var(--mono); font-size: 13px; color: #8C8F97; padding-top: 2px; }
+    .honors a {
+      color: #fff;
       text-decoration: underline;
       text-decoration-style: dotted;
-      text-decoration-color: #cccccc;
+      text-decoration-color: rgba(255,255,255,0.45);
       text-underline-offset: 4px;
-      transition: text-decoration-color 0.15s;
     }
-    .entry-title a:hover { text-decoration-style: solid; text-decoration-color: var(--ink); }
-    .entry-desc { font-size: 14.5px; color: var(--soft); margin-top: 2px; }
-    .entry-meta { font-size: 13.5px; color: var(--muted); margin-top: 4px; }
+    .honors a:hover { text-decoration-style: solid; text-decoration-color: #fff; }
+    .honors .muted { color: #B7B9BE; }
+    .video-btn {
+      position: relative;
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: 0;
+      padding: 0;
+      border-radius: 20px;
+      overflow: hidden;
+      background: #22272B;
+      cursor: pointer;
+    }
+    .video-btn img { width: 100%; height: 100%; object-fit: cover; opacity: 0.82; transition: opacity 0.2s; }
+    .video-btn:hover img { opacity: 1; }
+    .play {
+      position: absolute;
+      left: 50%; top: 50%;
+      transform: translate(-50%, -50%);
+      width: 76px; height: 76px;
+      border-radius: 50%;
+      background: #fff;
+      display: grid;
+      place-items: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+      transition: transform 0.2s;
+    }
+    .video-btn:hover .play { transform: translate(-50%, -50%) scale(1.07); }
+    .video iframe { width: 100%; aspect-ratio: 16 / 9; border: 0; border-radius: 20px; display: block; }
+    .video-cap { font-size: 14px; color: #8C8F97; margin-top: 14px; }
+
+    /* ── How I work ── */
+    .how { padding: 112px 0 40px; }
+    .how-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; }
+    .feat-grid { margin-top: 60px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; }
+    .feat svg { width: 36px; height: 36px; stroke: var(--ink); stroke-width: 1.6; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    .feat h3 {
+      font-family: var(--display);
+      font-weight: 600;
+      font-size: 22px;
+      line-height: 1.2;
+      letter-spacing: -0.015em;
+      color: var(--ink);
+      margin: 20px 0 10px;
+    }
+    .feat p { font-size: 15.5px; color: var(--muted); }
+
+    /* ── Experience ── */
+    .exp { padding: 112px 0 0; }
+    .exp-list { margin-top: 40px; border-top: 1px solid var(--line); }
+    .job { display: grid; grid-template-columns: 48px 1fr; gap: 22px; padding: 28px 0; border-bottom: 1px solid var(--line); }
+    .badge {
+      width: 48px; height: 48px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 20px;
+      color: var(--ink);
+    }
+    .job-top { display: flex; justify-content: space-between; align-items: baseline; gap: 6px 16px; flex-wrap: wrap; }
+    .job h3 { font-family: var(--display); font-weight: 600; font-size: 21px; letter-spacing: -0.01em; color: var(--ink); }
+    .job-date { font-family: var(--mono); font-size: 13px; color: var(--subtle); white-space: nowrap; }
+    .job-org { font-size: 15.5px; color: var(--muted); margin-top: 2px; }
+    .job-org a {
+      color: var(--ink);
+      font-weight: 500;
+      text-decoration: underline;
+      text-decoration-style: dotted;
+      text-decoration-color: #B7B9BE;
+      text-underline-offset: 4px;
+    }
+    .job-org a:hover { color: var(--blue); text-decoration-color: var(--blue); text-decoration-style: solid; }
+    .job ul { margin-top: 12px; padding-left: 18px; }
+    .job li { font-size: 15.5px; color: var(--text); margin-top: 4px; }
+    .job li::marker { color: #B7B9BE; }
+
+    /* ── Education & skills ── */
+    .edu { padding: 112px 0 0; }
+    .edu-grid { margin-top: 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .card-p { border-radius: 24px; padding: 40px; }
+    .card-p.outlined { border: 1px solid var(--line); }
+    .card-p h3 {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 60px;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      color: var(--ink);
+      margin-top: 14px;
+    }
+    .card-p h3 a { text-decoration: none; }
+    .card-p h3 a:hover { color: var(--blue); }
+    .deg { font-size: 18px; font-weight: 600; color: var(--ink); margin-top: 10px; }
+    .facts { list-style: none; margin-top: 24px; }
+    .facts li { font-size: 15.5px; color: var(--text); padding: 11px 0; border-top: 1px solid rgba(16,18,20,0.1); }
+    .facts b { color: var(--ink); }
+    .skill-h {
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--subtle);
+      margin: 20px 0 8px;
+    }
+    .skill-h:first-of-type { margin-top: 16px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+    .chips span { font-size: 14px; font-weight: 500; color: var(--ink); background: var(--fill); border-radius: 8px; padding: 6px 12px; }
+
+    /* ── CTA ── */
+    .cta { padding: 112px 0; }
+    .cta-box { background: var(--p-lav); border-radius: 32px; padding: 88px 32px; text-align: center; }
 
     /* ── Footer ── */
-    footer {
-      max-width: 760px;
-      margin: 0 auto;
-      border-top: 1px solid var(--border);
-      padding-top: 26px;
-      font-size: 14.5px;
-      color: var(--muted);
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px 18px;
+    .foot { background: var(--ink); color: #B7B9BE; padding: 64px 0 32px; }
+    .foot-inner { display: flex; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
+    .foot .brand { color: #fff; }
+    .foot-small { font-size: 14px; margin-top: 12px; }
+    .foot-cols { display: flex; gap: 72px; flex-wrap: wrap; }
+    .foot h4 {
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #8C8F97;
+      margin-bottom: 14px;
     }
-    footer a {
-      color: var(--soft);
-      text-decoration: none;
-      transition: color 0.15s;
-    }
-    footer a:hover { color: var(--ink); }
+    .foot-cols a { display: block; color: #fff; text-decoration: none; font-size: 15px; margin-bottom: 10px; }
+    .foot-cols a:hover { text-decoration: underline; text-underline-offset: 4px; }
+    .foot-bottom { margin-top: 48px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.12); font-size: 13px; }
 
     /* ── Responsive ── */
     @media (max-width: 1100px) {
-      .garden { columns: 2; }
+      .feat-grid { grid-template-columns: repeat(2, 1fr); }
+      .stage {
+        height: auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        padding: 28px 20px;
+      }
+      .stage-photo { position: relative; left: auto; top: auto; transform: none; grid-column: 1 / -1; justify-self: center; width: min(280px, 78%); margin-bottom: 14px; }
+      .name-tag { right: -18px; }
+      .chip { position: relative; left: auto; right: auto; top: auto; bottom: auto; animation: none; }
+      .chip.dark { grid-column: 1 / -1; justify-self: center; translate: none; width: auto; }
+      .chip { max-width: 520px; width: 100%; justify-self: center; }
+    }
+    @media (max-width: 1000px) {
+      .stat-row { display: grid; grid-template-columns: 1fr 1fr; gap: 44px 16px; }
+      .stat { min-width: 0; }
+      .plus { display: none; }
     }
     @media (max-width: 900px) {
-      .hero { flex-direction: column; gap: 28px; }
-      .hero-cards { max-width: 100%; width: 100%; grid-template-columns: 1fr 1fr; }
-      .hero-text { padding-top: 0; }
-    }
-    @media (max-width: 620px) {
-      .page { padding: 20px 18px 70px; }
-      .navwrap {
-        margin-bottom: 36px;
-        overflow-x: auto;
-        margin-left: -18px;
-        margin-right: -18px;
-        padding: 4px 18px;
-        scrollbar-width: none;
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 64px; left: 0; right: 0;
+        flex-direction: column;
+        gap: 0;
+        background: #fff;
+        padding: 8px 16px 16px;
+        border-bottom: 1px solid var(--line);
+        box-shadow: 0 12px 24px rgba(16,18,20,0.06);
       }
-      .navwrap::-webkit-scrollbar { display: none; }
-      .pill-nav { padding: 7px 8px; }
-      .pill-nav a { font-size: 14px; padding: 3px 8px; }
-      .hero-cards { grid-template-columns: 1fr; }
-      .garden { columns: 1; }
-      .section h2 { font-size: 30px; }
-      .entry { flex-direction: column; gap: 2px; }
-      .entry-date { min-width: unset; }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 12px; font-size: 16px; }
+      .menu-btn { display: grid; }
+      .nav-text { display: none; }
+      .nav-actions { gap: 8px; }
+
+      .panel { grid-template-columns: 1fr; gap: 28px; }
+      .panel-visual { padding: 22px; aspect-ratio: 1 / 1; }
+      .dark-inner { grid-template-columns: 1fr; gap: 48px; }
+      .edu-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 560px) {
+      .wrap { padding: 0 18px; }
+      .tabs-scroll { margin-left: -18px; margin-right: -18px; padding: 2px 18px; }
+      .hero { padding-top: 56px; }
+      .stage { grid-template-columns: 1fr; padding: 24px 16px; border-radius: 22px; }
+      .feat-grid { grid-template-columns: 1fr; gap: 36px; }
+      .how, .exp, .edu { padding-top: 88px; }
+      .dark, .cta { padding: 88px 0; }
+      .card-p { padding: 28px 22px; }
+      .card-p h3 { font-size: 48px; }
+      .cta-box { padding: 60px 22px; border-radius: 24px; }
+      .honors li { grid-template-columns: 78px 1fr; gap: 12px; }
+      .brand-name { font-size: 17px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .chip, .status .dot { animation: none; }
     }
   </style>
 </head>
 <body>
-<div class="page">
 
-  <div class="navwrap">
-    <nav class="pill-nav">
-      <a class="me" href="#">Ho Lok</a>
-      <a href="#garden">Projects</a>
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top"><span class="brand-mark">H</span><span class="brand-name">Ho Lok Cheung</span></a>
+    <nav class="nav-links" id="nav-links" aria-label="Main">
+      <a href="#work">Work</a>
+      <a href="#athletics">Athletics</a>
+      <a href="#how">How I work</a>
       <a href="#experience">Experience</a>
       <a href="#education">Education</a>
-      <a href="resume.pdf" target="_blank">Resume</a>
     </nav>
+    <div class="nav-actions">
+      <a class="nav-text" href="mailto:holokcheung@ucla.edu">Email</a>
+      <a class="btn btn-primary btn-sm" href="resume.pdf" target="_blank" rel="noopener">Resume</a>
+      <button class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+      </button>
+    </div>
   </div>
+</header>
+
+<main id="top">
 
   <!-- HERO -->
-  <div class="hero">
-    <div class="hero-text">
-      <p>
-        Hey there, I'm <strong>Ho Lok</strong> 👋 Welcome to my
-        <strong>personal website</strong>.
-        I study <strong>CS + Linguistics</strong> at <a href="https://www.ucla.edu" target="_blank">UCLA</a>,
-        and I like <strong>building things</strong>.
+  <section class="hero">
+    <div class="wrap">
+      <a class="status" href="mailto:holokcheung@ucla.edu"><span class="dot"></span>Open to SWE &amp; research opportunities</a>
+      <h1>I build at the intersection of language, code, and sport.</h1>
+      <p class="lede">
+        I'm Ho Lok, a CS + Linguistics student at <a class="hl" href="https://www.ucla.edu" target="_blank" rel="noopener">UCLA</a>.
+        Stanford research intern, NASA L'SPACE project manager, four-time hackathon prize winner,
+        and a USA Team Handball Academic All-American.
       </p>
-      <p>
-        Off the screen, I play <strong>handball</strong> for
-        <a href="https://www.usateamhandball.org/news/2026/april/27/usath-names-college-all-tournament-teams-academic-all-americans" target="_blank">Team USA</a>,
-        <strong>rugby</strong> at <a href="https://www.ucla.edu" target="_blank">UCLA</a>, and I produce <strong>rock music</strong>.
-      </p>
-      <p>
-        Currently looking for <strong>SWE / research internships</strong> for Summer 2026 —
-        <a href="mailto:holokcheung@ucla.edu">say hi</a>.
-      </p>
-    </div>
-
-    <div class="hero-cards">
-      <div class="card">
-        <div class="card-top"><span>About · Me</span></div>
-        <img class="card-img portrait" src="photo.jpg" alt="Ho Lok Cheung">
+      <div class="cta-row">
+        <a class="btn btn-primary" href="resume.pdf" target="_blank" rel="noopener">View my resume</a>
+        <a class="link-arrow" href="mailto:holokcheung@ucla.edu">Email me <span>→</span></a>
       </div>
-      <div class="card">
-        <div class="card-top"><span>Now · Status</span></div>
-        <div class="card-title">Open to SWE / research internships, Summer 2026 🇺🇸</div>
-        <div class="card-date">CS + Linguistics · 4.0 GPA · UCLA '27</div>
+
+      <div class="stage">
+        <div class="stage-photo">
+          <img src="photo.jpg" alt="Ho Lok Cheung in a UCLA rugby jersey">
+          <span class="name-tag">
+            <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 1l11 5.2-4.6 1.4L6.6 12z" fill="#1868DB" stroke="#fff" stroke-width="1.2" stroke-linejoin="round"/></svg>
+            Ho Lok
+          </span>
+        </div>
+        <div class="chip c1"><span class="chip-icon bg-yellow">🏆</span><div><b>Best Student Life Hack</b><small>naccent · SB Hacks XI</small></div></div>
+        <div class="chip c2"><span class="chip-icon bg-lime">🥇</span><div><b>1st Place</b><small>GreenMate · Columbia Hackathon</small></div></div>
+        <div class="chip c3"><span class="chip-icon bg-blue">🤾</span><div><b>Academic All-American</b><small>USA Team Handball · 1st Team</small></div></div>
+        <div class="chip c4"><span class="chip-icon bg-lav">🎓</span><div><b>4.0 GPA · Regents Scholar</b><small>UCLA · top 2% of admits</small></div></div>
+        <div class="chip dark c5">React · Node.js · C++ · Python</div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- GARDEN -->
-  <div class="garden" id="garden">
-
-    <div class="card">
-      <div class="card-top"><span>Projects · Momento</span></div>
-      <div class="card-title">Momento — photo mapping web app 📍</div>
-      <div class="card-date">Full stack · 2026</div>
-      <div class="card-note">Maps uploaded photos to the places they were taken, backed by MongoDB and a REST API with JWT login. Built in a five-person agile team. React · Node.js · Express.</div>
+  <!-- LOGO STRIP -->
+  <section class="logos" aria-label="Affiliations">
+    <div class="wrap">
+      <p class="logos-label">Where I've studied, researched, and competed</p>
+      <ul class="logo-row">
+        <li>UCLA</li>
+        <li>Stanford University</li>
+        <li>NASA L'SPACE</li>
+        <li>Hang Seng Bank</li>
+        <li>USA Team Handball</li>
+        <li>De Anza College</li>
+      </ul>
     </div>
+  </section>
 
-    <a class="card" href="https://devpost.com/software/naccent" target="_blank">
-      <div class="card-top"><span>Hackathons · SB Hacks XI</span><span class="card-arrow">↗</span></div>
-      <img class="card-img" src="naccent.jpg" alt="naccent — AI pronunciation trainer">
-      <div class="card-title">naccent — AI pronunciation trainer 🏆</div>
-      <div class="card-date">Best Student Life Hack · 2025</div>
-      <div class="card-note">Gives students instant AI feedback to improve their English pronunciation. Python · speech recognition.</div>
-    </a>
-
-    <a class="card" href="https://www.usateamhandball.org/news/2026/april/27/usath-names-college-all-tournament-teams-academic-all-americans" target="_blank">
-      <div class="card-top"><span>Athletics · Team Handball</span><span class="card-arrow">↗</span></div>
-      <div class="card-title">USA Academic All-American, 1st Team</div>
-      <div class="card-date">USA Team Handball · 2026</div>
-      <div class="card-note">Also 2nd Team All-American in 2025, and formerly on the Hong Kong National Handball Team. Handball is a featured sport at the LA 2028 Olympics.</div>
-    </a>
-
-    <a class="card" href="https://dorahacks.io/buidl/16986" target="_blank">
-      <div class="card-top"><span>Hackathons · Columbia University</span><span class="card-arrow">↗</span></div>
-      <img class="card-img" src="greenmate.jpg" alt="GreenMate — AR sustainability tracker">
-      <div class="card-title">GreenMate — AR sustainability tracker 🏆</div>
-      <div class="card-date">1st Place · 2024</div>
-      <div class="card-note">Overlays live plant-health data in the wearer's view on Snap Spectacles. Lens Studio · AR.</div>
-    </a>
-
-    <a class="card" href="https://engineering.stanford.edu" target="_blank">
-      <div class="card-top"><span>Research · Stanford</span><span class="card-arrow">↗</span></div>
-      <div class="card-title">Genetic Evolution Research</div>
-      <div class="card-date">Stanford Journal · 2024</div>
-      <div class="card-note">Published in the Stanford Journal through Stanford's School of Engineering.</div>
-    </a>
-
-    <a class="card" href="https://github.com/NeuralNurse/CV-Module" target="_blank">
-      <div class="card-top"><span>Hackathons · UC Berkeley</span><span class="card-arrow">↗</span></div>
-      <img class="card-img" src="cv-module.jpg" alt="NeuralNurse — AI social memory assistant">
-      <div class="card-title">NeuralNurse — social memory assistant 🥈</div>
-      <div class="card-date">2nd Place Overall · 2024</div>
-      <div class="card-note">AI assistant that recognizes people and recalls their relationships to ease in-person social interactions. Python · computer vision.</div>
-    </a>
-
-    <a class="card" href="https://uclaclubsports.com/sports/mens-rugby" target="_blank">
-      <div class="card-top"><span>Athletics · UCLA Rugby</span><span class="card-arrow">↗</span></div>
-      <div class="card-title">UCLA Rugby — NCAA Division I</div>
-      <div class="card-date">2025 — now</div>
-      <div class="card-note">Playing for UCLA's top-20 nationally ranked rugby program.</div>
-    </a>
-
-    <a class="card" href="https://devpost.com/software/biomyo" target="_blank">
-      <div class="card-top"><span>Hackathons · De Anza Hacks 2.5</span><span class="card-arrow">↗</span></div>
-      <img class="card-img" src="biomyo.jpg" alt="BioMyo — low-cost EMG prosthetic arm">
-      <div class="card-title">BioMyo — low-cost EMG prosthetic arm 🥉</div>
-      <div class="card-date">3rd Place · 2024</div>
-      <div class="card-note">3D-printed prosthetic arm driven by muscle (EMG) sensors for natural movement.</div>
-    </a>
-
-    <div class="card">
-      <div class="card-top"><span>Music · Producer</span></div>
-      <div class="card-title">I produce rock music 🎸</div>
-      <div class="card-date">Ongoing</div>
+  <!-- STATS -->
+  <section class="stats">
+    <div class="wrap">
+      <h2 class="h2 center">The short version</h2>
+      <p class="sub center">A few numbers that sum up the last few years.</p>
+      <div class="stat-row">
+        <div class="stat"><div class="num" data-to="4.0" data-dec="1">4.0</div><div class="label">GPA at UCLA</div></div>
+        <div class="plus" aria-hidden="true">+</div>
+        <div class="stat"><div class="num" data-to="4">4</div><div class="label">Hackathon prizes</div></div>
+        <div class="plus" aria-hidden="true">+</div>
+        <div class="stat"><div class="num" data-to="20">20</div><div class="label">People led at<br>NASA L'SPACE</div></div>
+        <div class="plus" aria-hidden="true">+</div>
+        <div class="stat"><div class="num">1st</div><div class="label">Team Academic<br>All-American</div></div>
+      </div>
+      <p class="footnote">Hackathon prizes from SB Hacks XI, the Columbia University Hackathon, UC Berkeley Hack for Impact, and De Anza Hacks 2.5. Also a finalist at HackHarvard and HackMIT.</p>
     </div>
+  </section>
 
-    <div class="card">
-      <div class="card-top"><span>Hackathons · Hack Harvard &amp; HackMIT</span></div>
-      <div class="card-title">Finalist, twice over</div>
-      <div class="card-date">2024</div>
-      <div class="card-note">Selected from thousands of participants at both events.</div>
+  <!-- FEATURED WORK -->
+  <section class="work" id="work">
+    <div class="wrap">
+      <h2 class="h2">Featured work</h2>
+      <p class="sub">Four hackathon prize winners and a full-stack team project. Pick one to see what it does.</p>
+
+      <div class="tabs-scroll">
+        <div class="tabs" role="tablist" aria-label="Projects">
+          <button class="tab" role="tab" id="t-naccent" aria-controls="p-naccent" aria-selected="true">naccent</button>
+          <button class="tab" role="tab" id="t-greenmate" aria-controls="p-greenmate" aria-selected="false" tabindex="-1">GreenMate</button>
+          <button class="tab" role="tab" id="t-neuralnurse" aria-controls="p-neuralnurse" aria-selected="false" tabindex="-1">NeuralNurse</button>
+          <button class="tab" role="tab" id="t-biomyo" aria-controls="p-biomyo" aria-selected="false" tabindex="-1">BioMyo</button>
+          <button class="tab" role="tab" id="t-momento" aria-controls="p-momento" aria-selected="false" tabindex="-1">Momento</button>
+        </div>
+      </div>
+
+      <div class="panel" role="tabpanel" id="p-naccent" aria-labelledby="t-naccent">
+        <div class="panel-text">
+          <p class="eyebrow">Hackathon · SB Hacks XI · 2025</p>
+          <div class="stack"><span><i class="sq bg-blue"></i>Python</span><span><i class="sq bg-lime"></i>Speech recognition</span><span><i class="sq bg-lav"></i>AI</span></div>
+          <h3>An AI pronunciation trainer for English learners</h3>
+          <p>naccent listens while you speak and gives instant feedback, comparing the sounds it expected to hear with the ones you actually said.</p>
+          <p class="award">🏆 Best Student Life Hack</p>
+          <a class="link-arrow" href="https://devpost.com/software/naccent" target="_blank" rel="noopener">View on Devpost <span>→</span></a>
+        </div>
+        <div class="panel-visual bg-blue"><img src="naccent.jpg" alt="naccent showing expected and heard sounds for a spoken sentence"></div>
+      </div>
+
+      <div class="panel" role="tabpanel" id="p-greenmate" aria-labelledby="t-greenmate" hidden>
+        <div class="panel-text">
+          <p class="eyebrow">Hackathon · Columbia University · 2024</p>
+          <div class="stack"><span><i class="sq bg-lime"></i>Snap Spectacles</span><span><i class="sq bg-yellow"></i>Lens Studio</span><span><i class="sq bg-blue"></i>AR</span></div>
+          <h3>Live plant health, right in your field of view</h3>
+          <p>GreenMate runs on Snap Spectacles and overlays real-time plant-health data in the wearer's view, so you can see what a plant needs just by looking at it.</p>
+          <p class="award">🥇 1st Place</p>
+          <a class="link-arrow" href="https://dorahacks.io/buidl/16986" target="_blank" rel="noopener">View on DoraHacks <span>→</span></a>
+        </div>
+        <div class="panel-visual bg-lime"><img src="greenmate.jpg" alt="GreenMate AR demo at the Columbia hackathon"></div>
+      </div>
+
+      <div class="panel" role="tabpanel" id="p-neuralnurse" aria-labelledby="t-neuralnurse" hidden>
+        <div class="panel-text">
+          <p class="eyebrow">Hackathon · UC Berkeley Hack for Impact · 2024</p>
+          <div class="stack"><span><i class="sq bg-lav"></i>Python</span><span><i class="sq bg-blue"></i>Computer vision</span><span><i class="sq bg-yellow"></i>Facial recognition</span></div>
+          <h3>A social memory assistant</h3>
+          <p>An AI assistant that recognizes the people around you and recalls how you know them, to make in-person conversations easier.</p>
+          <p class="award">🥈 2nd Place Overall</p>
+          <a class="link-arrow" href="https://github.com/NeuralNurse/CV-Module" target="_blank" rel="noopener">View on GitHub <span>→</span></a>
+        </div>
+        <div class="panel-visual bg-lav"><img src="cv-module.jpg" alt="NeuralNurse detecting a face in a live camera feed"></div>
+      </div>
+
+      <div class="panel" role="tabpanel" id="p-biomyo" aria-labelledby="t-biomyo" hidden>
+        <div class="panel-text">
+          <p class="eyebrow">Hackathon · De Anza Hacks 2.5 · 2024</p>
+          <div class="stack"><span><i class="sq bg-yellow"></i>3D printing</span><span><i class="sq bg-lime"></i>EMG sensors</span><span><i class="sq bg-lav"></i>Hardware</span></div>
+          <h3>A low-cost prosthetic arm</h3>
+          <p>A 3D-printed prosthetic arm driven by muscle (EMG) sensors, built to move naturally while keeping costs low.</p>
+          <p class="award">🥉 3rd Place</p>
+          <a class="link-arrow" href="https://devpost.com/software/biomyo" target="_blank" rel="noopener">View on Devpost <span>→</span></a>
+        </div>
+        <div class="panel-visual bg-yellow"><img src="biomyo.jpg" alt="BioMyo prosthetic arm prototype"></div>
+      </div>
+
+      <div class="panel" role="tabpanel" id="p-momento" aria-labelledby="t-momento" hidden>
+        <div class="panel-text">
+          <p class="eyebrow">Team project · 2026</p>
+          <div class="stack"><span><i class="sq bg-blue"></i>React</span><span><i class="sq bg-lime"></i>Node.js</span><span><i class="sq bg-yellow"></i>Express</span><span><i class="sq bg-lav"></i>MongoDB</span><span><i class="sq bg-blue"></i>JWT</span></div>
+          <h3>Your photos, pinned to where you took them</h3>
+          <p>A full-stack web app that maps uploaded photos to the places they were taken, backed by MongoDB and a REST API with secure JWT login. Built with a five-person team using Git and weekly agile reviews.</p>
+          <p class="award">👥 Five-person team</p>
+        </div>
+        <div class="panel-visual bg-blue">
+          <svg viewBox="0 0 480 360" role="img" aria-label="Illustration of photos pinned on a map">
+            <rect width="480" height="360" fill="#fff"/>
+            <path d="M360 0H480V128C428 148 384 92 360 0Z" fill="#E9F2FE"/>
+            <rect x="36" y="34" width="104" height="76" rx="14" fill="#EFFFD6"/>
+            <path d="M-10 250C120 205 210 305 490 175" stroke="#EBECF0" stroke-width="16" fill="none" stroke-linecap="round"/>
+            <path d="M150 -10C180 120 120 240 195 370" stroke="#EBECF0" stroke-width="12" fill="none" stroke-linecap="round"/>
+            <path d="M310 -10L345 370" stroke="#EBECF0" stroke-width="9" fill="none" stroke-linecap="round"/>
+            <path d="M292 116L222 196" stroke="#1868DB" stroke-width="2" stroke-dasharray="5 5"/>
+            <path d="M156 252L118 290" stroke="#1868DB" stroke-width="2" stroke-dasharray="5 5"/>
+            <g transform="translate(248 52)">
+              <rect width="104" height="84" rx="12" fill="#fff" stroke="#DDDEE1"/>
+              <rect x="7" y="7" width="90" height="56" rx="7" fill="#FFE48F"/>
+              <path d="M7 63L36 34L58 52L72 40L97 63Z" fill="#C75300" opacity=".55"/>
+              <circle cx="76" cy="22" r="7" fill="#fff" opacity=".9"/>
+              <rect x="7" y="70" width="52" height="6" rx="3" fill="#EBECF0"/>
+            </g>
+            <g transform="translate(44 266)">
+              <rect width="104" height="84" rx="12" fill="#fff" stroke="#DDDEE1"/>
+              <rect x="7" y="7" width="90" height="56" rx="7" fill="#CFE1FD"/>
+              <path d="M7 63L30 40L50 56L70 30L97 63Z" fill="#1868DB" opacity=".45"/>
+              <rect x="7" y="70" width="40" height="6" rx="3" fill="#EBECF0"/>
+            </g>
+            <g transform="translate(222 200)">
+              <path d="M0-30C-11-30-19-22-19-11C-19 3 0 20 0 20S19 3 19-11C19-22 11-30 0-30Z" fill="#1868DB"/>
+              <circle cy="-11" r="6.5" fill="#fff"/>
+            </g>
+            <g transform="translate(160 250)">
+              <path d="M0-30C-11-30-19-22-19-11C-19 3 0 20 0 20S19 3 19-11C19-22 11-30 0-30Z" fill="#1868DB"/>
+              <circle cy="-11" r="6.5" fill="#fff"/>
+            </g>
+            <g transform="translate(398 230)">
+              <path d="M0-30C-11-30-19-22-19-11C-19 3 0 20 0 20S19 3 19-11C19-22 11-30 0-30Z" fill="#803FA5"/>
+              <circle cy="-11" r="6.5" fill="#fff"/>
+            </g>
+          </svg>
+        </div>
+      </div>
     </div>
+  </section>
 
-  </div>
+  <!-- ATHLETICS (dark band) -->
+  <section class="dark" id="athletics">
+    <div class="wrap dark-inner">
+      <div>
+        <p class="eyebrow-mono">Off the screen</p>
+        <h2 class="h2">Team USA handball. UCLA rugby. Rock music.</h2>
+        <p class="sub">Team handball is one of the fastest-growing sports in the U.S. and a featured sport at the LA 2028 Olympics. I've been selected to represent both Hong Kong and the USA.</p>
+        <ul class="honors">
+          <li><span class="yr">2026</span><a href="https://www.usateamhandball.org/news/2026/april/27/usath-names-college-all-tournament-teams-academic-all-americans" target="_blank" rel="noopener">USA Team Handball Academic All-American, 1st Team</a></li>
+          <li><span class="yr">2025</span><span>USA Team Handball Academic All-American, 2nd Team</span></li>
+          <li><span class="yr">2025–now</span><span><a href="https://uclaclubsports.com/sports/mens-rugby" target="_blank" rel="noopener">UCLA Rugby</a> <span class="muted">· NCAA Division I, top-20 nationally ranked</span></span></li>
+          <li><span class="yr">Former</span><span>Hong Kong National Handball Team</span></li>
+          <li><span class="yr">Ongoing</span><span>Rock music producer 🎸</span></li>
+        </ul>
+      </div>
+      <div class="video" id="video">
+        <button class="video-btn" type="button" data-id="zWh4tmKtIuw" data-start="9" aria-label="Play video: What is Handball? America's Next Great Sport">
+          <img src="https://i.ytimg.com/vi/zWh4tmKtIuw/maxresdefault.jpg" alt="" loading="lazy">
+          <span class="play"><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="#101214"/></svg></span>
+        </button>
+        <p class="video-cap">“What is Handball? America's Next Great Sport” · USA Team Handball</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW I WORK -->
+  <section class="how" id="how">
+    <div class="wrap">
+      <div class="how-head">
+        <h2 class="h2">How I work</h2>
+        <a class="btn btn-outline" href="resume.pdf" target="_blank" rel="noopener">Read my resume <span>→</span></a>
+      </div>
+      <div class="feat-grid">
+        <div class="feat">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="8 6 2 12 8 18"/><polyline points="16 6 22 12 16 18"/><line x1="14" y1="4" x2="10" y2="20"/></svg>
+          <h3>Full-stack engineering</h3>
+          <p>React, Node.js, Express, and MongoDB on the web. C++, C, and x86 assembly when I need to get closer to the hardware.</p>
+        </div>
+        <div class="feat">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.5L3 20.5l1.6-5.2A8.4 8.4 0 1 1 21 11.5z"/><path d="M8.5 11.5h.01M12.5 11.5h.01M16.5 11.5h.01" stroke-width="2.6"/></svg>
+          <h3>Language meets AI</h3>
+          <p>Studying CS and linguistics means I care about how people actually talk. naccent turns speech recognition into feedback a learner can use.</p>
+        </div>
+        <div class="feat">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6"/><path d="M10 3v6.5L4.6 18.4A1.8 1.8 0 0 0 6.2 21h11.6a1.8 1.8 0 0 0 1.6-2.6L14 9.5V3"/><path d="M7.2 15h9.6"/></svg>
+          <h3>Research rigor</h3>
+          <p>At Stanford I set up genetic-algorithm simulations of mutation and natural selection, then benchmarked the evolved organisms against reinforcement-learning agents.</p>
+        </div>
+        <div class="feat">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17.2" cy="9" r="2.6"/><path d="M16.4 14.1c2.8-.2 4.8 2 4.8 5"/></svg>
+          <h3>Leading teams</h3>
+          <p>I led a 20-person team at NASA L'SPACE, and I've spent years on handball and rugby teams where everyone has a role.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- EXPERIENCE -->
-  <div class="section" id="experience">
-    <h2>Experience</h2>
+  <section class="exp" id="experience">
+    <div class="wrap">
+      <h2 class="h2">Experience</h2>
+      <div class="exp-list">
 
-    <div class="entry">
-      <div class="entry-date">Sep 2025 — now</div>
-      <div class="entry-body">
-        <div class="entry-title"><a href="https://www.ceed.ucla.edu/map-page/" target="_blank">Mathematics Tutor · UCLA Engineering CEED</a></div>
-        <div class="entry-desc">K–12 mathematics education under UCLA's Henry Samueli School of Engineering and Applied Science.</div>
+        <article class="job">
+          <span class="badge bg-blue" aria-hidden="true">U</span>
+          <div>
+            <div class="job-top"><h3>Mathematics Instructor</h3><span class="job-date">Sep 2025 – Jun 2026</span></div>
+            <p class="job-org"><a href="https://www.ceed.ucla.edu/map-page/" target="_blank" rel="noopener">UCLA Center for Excellence in Engineering and Diversity</a> · Los Angeles</p>
+            <ul>
+              <li>Taught and mentored K–12 students in mathematics through UCLA's engineering outreach program.</li>
+              <li>Guided a mentee to a full scholarship at Vanderbilt University.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="job">
+          <span class="badge bg-yellow" aria-hidden="true">D</span>
+          <div>
+            <div class="job-top"><h3>Senior Writing &amp; Reading Tutor</h3><span class="job-date">Sep 2024 – Jul 2025</span></div>
+            <p class="job-org"><a href="https://www.deanza.edu/studentsuccess/wrc/" target="_blank" rel="noopener">De Anza College</a> · Cupertino</p>
+            <ul>
+              <li>Mentored new tutors and gave advanced academic writing guidance.</li>
+              <li>Promoted from Writing &amp; Reading Tutor after six months.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="job">
+          <span class="badge bg-lav" aria-hidden="true">N</span>
+          <div>
+            <div class="job-top"><h3>Project Manager</h3><span class="job-date">Summer 2024</span></div>
+            <p class="job-org"><a href="https://www.lspace.asu.edu/" target="_blank" rel="noopener">NASA L'SPACE Academy</a> · Tempe, AZ</p>
+            <ul>
+              <li>Led a 20-person team spanning Chief Scientist, Deputy Program Manager, and Chief Engineer roles.</li>
+              <li>Authored a full mission design review for a semi-autonomous lunar rover, defining and tracking benchmarks for its mission-critical operations.</li>
+              <li>Coordinated public mission outreach with NASA engineers and researchers.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="job">
+          <span class="badge bg-lime" aria-hidden="true">S</span>
+          <div>
+            <div class="job-top"><h3>Research Intern</h3><span class="job-date">Jun – Aug 2024</span></div>
+            <p class="job-org"><a href="https://engineering.stanford.edu" target="_blank" rel="noopener">Stanford University</a> · Palo Alto</p>
+            <ul>
+              <li>Defined genetic algorithm parameters and initial conditions for evolutionary simulations.</li>
+              <li>Ran simulations modeling mutation and natural selection, then benchmarked the evolved organisms against reinforcement learning agents.</li>
+              <li>Published findings in the Stanford Journal.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="job">
+          <span class="badge bg-blue" aria-hidden="true">H</span>
+          <div>
+            <div class="job-top"><h3>Operations Intern</h3><span class="job-date">Jun – Aug 2023</span></div>
+            <p class="job-org"><a href="https://www.hangseng.com/en-hk/home/" target="_blank" rel="noopener">Hang Seng Bank</a> · Hong Kong</p>
+            <ul>
+              <li>Queried trade data with SQL, then cleaned and analyzed it in Excel to support the operations team's daily workflow.</li>
+              <li>Built and maintained spreadsheets tracking daily trade records.</li>
+            </ul>
+          </div>
+        </article>
+
       </div>
     </div>
+  </section>
 
-    <div class="entry">
-      <div class="entry-date">Sep 2024 — Jul 2025</div>
-      <div class="entry-body">
-        <div class="entry-title"><a href="https://www.deanza.edu/studentsuccess/wrc/" target="_blank">Senior Writing &amp; Reading Tutor · De Anza College</a></div>
-        <div class="entry-desc">Mentored new tutors and provided advanced academic writing guidance. Promoted after 6 months.</div>
+  <!-- EDUCATION & SKILLS -->
+  <section class="edu" id="education">
+    <div class="wrap">
+      <h2 class="h2">Education &amp; skills</h2>
+      <div class="edu-grid">
+        <div class="card-p bg-blue">
+          <p class="eyebrow">Graduating June 2027</p>
+          <h3><a href="https://www.ucla.edu" target="_blank" rel="noopener">UCLA</a></h3>
+          <p class="deg">B.S. Computer Science &amp; Linguistics (Honors)</p>
+          <ul class="facts">
+            <li><b>4.0 GPA</b></li>
+            <li><b>Regents Scholar</b> — UCLA's most prestigious merit scholarship, awarded to the top 2% of admitted students</li>
+            <li>UCLA Mathematics Achievement Program, Henry Samueli School of Engineering and Applied Science</li>
+            <li>Coursework: Algorithms, Data Structures, Software Construction, Computer Systems</li>
+          </ul>
+        </div>
+        <div class="card-p outlined">
+          <p class="eyebrow">Technical skills</p>
+          <h4 class="skill-h">Programming</h4>
+          <div class="chips"><span>C++</span><span>C</span><span>Python</span><span>JavaScript</span><span>x86 Assembly</span></div>
+          <h4 class="skill-h">Web &amp; data</h4>
+          <div class="chips"><span>React</span><span>Node.js</span><span>Express.js</span><span>MongoDB</span><span>REST APIs</span><span>JWT auth</span></div>
+          <h4 class="skill-h">Tools</h4>
+          <div class="chips"><span>Git</span><span>Bash</span><span>Regex</span><span>Linux</span><span>SSH</span></div>
+          <h4 class="skill-h">Concepts</h4>
+          <div class="chips"><span>Data structures &amp; algorithms</span><span>Multithreading (pthreads)</span><span>Object-oriented design</span></div>
+          <h4 class="skill-h">Spoken languages</h4>
+          <div class="chips"><span>Cantonese (native)</span><span>Mandarin</span><span>English</span></div>
+        </div>
       </div>
     </div>
+  </section>
 
-    <div class="entry">
-      <div class="entry-date">Summer 2024</div>
-      <div class="entry-body">
-        <div class="entry-title"><a href="https://www.lspace.asu.edu/" target="_blank">Project Manager · NASA L'SPACE</a></div>
-        <div class="entry-desc">Led a student team through NASA's L'SPACE Academy. Authored a full mission design review for a semi-autonomous lunar rover.</div>
+  <!-- CTA -->
+  <section class="cta">
+    <div class="wrap">
+      <div class="cta-box">
+        <h2 class="h2">Let's build something.</h2>
+        <p class="sub center">I'm always happy to talk about SWE and research roles, hackathons, or handball.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="mailto:holokcheung@ucla.edu">Email me</a>
+          <a class="btn btn-outline" href="https://www.linkedin.com/in/thomascheung86" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn btn-outline" href="https://github.com/holokcheung" target="_blank" rel="noopener">GitHub</a>
+        </div>
       </div>
     </div>
+  </section>
 
-    <div class="entry">
-      <div class="entry-date">Summer 2024</div>
-      <div class="entry-body">
-        <div class="entry-title"><a href="https://engineering.stanford.edu" target="_blank">Research Intern · Stanford University</a></div>
-        <div class="entry-desc">Genetic evolution research at Stanford's School of Engineering. Published in the Stanford Journal.</div>
-      </div>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-inner">
+    <div>
+      <a class="brand" href="#top"><span class="brand-mark">H</span><span>Ho Lok Cheung</span></a>
+      <p class="foot-small">CS + Linguistics at UCLA</p>
     </div>
-
-    <div class="entry">
-      <div class="entry-date">Summer 2023</div>
-      <div class="entry-body">
-        <div class="entry-title"><a href="https://www.hangseng.com/en-hk/home/" target="_blank">Operations Intern · Hang Seng Bank</a></div>
-        <div class="entry-desc">Banking operations at one of Hong Kong's largest financial institutions.</div>
+    <div class="foot-cols">
+      <div>
+        <h4>Elsewhere</h4>
+        <a href="https://github.com/holokcheung" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/thomascheung86" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.instagram.com/holok.cheung/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://vsco.co/holokbbbb/gallery" target="_blank" rel="noopener">VSCO</a>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <a href="mailto:holokcheung@ucla.edu">holokcheung@ucla.edu</a>
+        <a href="resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a>
       </div>
     </div>
   </div>
+  <div class="wrap"><p class="foot-bottom">© 2026 Ho Lok Cheung</p></div>
+</footer>
 
-  <!-- EDUCATION -->
-  <div class="section" id="education">
-    <h2>Education</h2>
+<script>
+  // Nav: border on scroll, mobile menu
+  const nav = document.getElementById('nav');
+  const menuBtn = document.getElementById('menu-btn');
+  const navLinks = document.getElementById('nav-links');
+  addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 8), { passive: true });
+  menuBtn.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', open);
+    menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  });
+  navLinks.addEventListener('click', e => {
+    if (e.target.tagName === 'A') { navLinks.classList.remove('open'); menuBtn.setAttribute('aria-expanded', false); }
+  });
 
-    <div class="entry">
-      <div class="entry-date">Graduating June 2027</div>
-      <div class="entry-body">
-        <div class="entry-title"><a href="https://www.ucla.edu" target="_blank">UCLA — B.S. Computer Science &amp; Linguistics (Honors)</a></div>
-        <div class="entry-desc">4.0 GPA. UCLA Mathematics Achievement Program, Henry Samueli School of Engineering and Applied Science.</div>
-        <div class="entry-meta">Regent Scholar — awarded to the top 2% of the admitted class.</div>
-      </div>
-    </div>
-  </div>
+  // Project tabs
+  const tabs = [...document.querySelectorAll('[role="tab"]')];
+  function select(tab) {
+    tabs.forEach(t => {
+      const on = t === tab;
+      t.setAttribute('aria-selected', on);
+      t.tabIndex = on ? 0 : -1;
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+    });
+  }
+  tabs.forEach((tab, i) => {
+    tab.addEventListener('click', () => select(tab));
+    tab.addEventListener('keydown', e => {
+      const step = { ArrowRight: 1, ArrowLeft: -1 }[e.key];
+      if (!step) return;
+      const next = tabs[(i + step + tabs.length) % tabs.length];
+      select(next);
+      next.focus();
+    });
+  });
 
-  <footer>
-    <a href="https://github.com/holokcheung" target="_blank">GitHub</a>
-    <a href="https://www.linkedin.com/in/thomascheung86" target="_blank">LinkedIn</a>
-    <a href="https://www.instagram.com/holok.cheung/" target="_blank">Instagram</a>
-    <a href="https://vsco.co/holokbbbb/gallery" target="_blank">VSCO</a>
-    <a href="mailto:holokcheung@ucla.edu">Email</a>
-    <a href="resume.pdf" target="_blank">Resume</a>
-  </footer>
+  // Count-up stats
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) {
+    const nums = document.querySelectorAll('.num[data-to]');
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(({ isIntersecting, target }) => {
+        if (!isIntersecting) return;
+        io.unobserve(target);
+        const to = parseFloat(target.dataset.to), dec = +target.dataset.dec || 0, start = performance.now();
+        (function tick(now) {
+          const p = Math.min((now - start) / 1200, 1);
+          target.textContent = (to * (1 - Math.pow(1 - p, 3))).toFixed(dec);
+          if (p < 1) requestAnimationFrame(tick);
+        })(start);
+      });
+    }, { threshold: 0.6 });
+    nums.forEach(n => { n.textContent = (0).toFixed(+n.dataset.dec || 0); io.observe(n); });
+  }
 
-</div>
-
+  // Click-to-load video: only the thumbnail loads until someone presses play
+  document.querySelector('.video-btn').addEventListener('click', e => {
+    const btn = e.currentTarget;
+    const iframe = document.createElement('iframe');
+    iframe.src = `https://www.youtube-nocookie.com/embed/${btn.dataset.id}?start=${btn.dataset.start}&autoplay=1&rel=0`;
+    iframe.title = "What is Handball? America's Next Great Sport";
+    iframe.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+    iframe.allowFullscreen = true;
+    btn.replaceWith(iframe);
+  });
+</script>
 <script data-goatcounter="https://holokcheung.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>
