@@ -3,23 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ho Lok Cheung</title>
-  <meta name="description" content="Ho Lok Cheung — CS + Linguistics at UCLA. Former Stanford research intern and NASA L'SPACE project manager, eight-time hackathon prize winner, USA Team Handball Academic All-American, and UCLA Rugby player.">
+  <title>Ho Lok Cheung · CS + Linguistics at UCLA</title>
+  <meta name="description" content="Ho Lok Cheung — CS + Linguistics at UCLA and software developer at UCLA Digital and Technology Solutions. Former Stanford research intern and NASA L'SPACE project manager, eight-time hackathon prize winner, USA Team Handball Academic All-American, and UCLA Rugby player.">
   <meta property="og:title" content="Ho Lok Cheung">
   <meta property="og:description" content="CS + Linguistics @ UCLA. I build at the intersection of language, code, and sport.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://holokcheung.com/">
-  <meta property="og:image" content="https://holokcheung.com/photo.jpg">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="https://holokcheung.com/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Ho Lok Cheung — CS + Linguistics at UCLA">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Ho Lok Cheung">
   <meta name="twitter:description" content="CS + Linguistics @ UCLA. I build at the intersection of language, code, and sport.">
-  <meta name="twitter:image" content="https://holokcheung.com/photo.jpg">
+  <meta name="twitter:image" content="https://holokcheung.com/og-image.jpg">
   <meta name="theme-color" content="#ffffff">
   <link rel="canonical" href="https://holokcheung.com/">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22><rect width=%2264%22 height=%2264%22 rx=%2216%22 fill=%22%231868DB%22/><text x=%2232%22 y=%2243%22 text-anchor=%22middle%22 font-family=%22Arial,Helvetica,sans-serif%22 font-weight=%22700%22 font-size=%2228%22 fill=%22white%22>HL</text></svg>">
+  <link rel="icon" type="image/png" sizes="32x32" href="icon-32.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22><rect width=%2264%22 height=%2264%22 rx=%2216%22 fill=%22%231868DB%22/><text x=%2232%22 y=%2243%22 text-anchor=%22middle%22 font-family=%22Arial,Helvetica,sans-serif%22 font-weight=%22700%22 font-size=%2228%22 fill=%22white%22>HL</text></svg>">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Ho Lok Cheung", "url": "https://holokcheung.com/", "image": "https://holokcheung.com/photo.jpg", "email": "mailto:holokcheung@ucla.edu", "jobTitle": "Software Developer", "worksFor": {"@type": "Organization", "name": "UCLA Digital and Technology Solutions", "url": "https://dts.ucla.edu/"}, "affiliation": {"@type": "CollegeOrUniversity", "name": "University of California, Los Angeles", "url": "https://www.ucla.edu"}, "knowsLanguage": ["Cantonese", "Mandarin", "English"], "sameAs": ["https://github.com/holokcheung", "https://www.linkedin.com/in/holokcheung", "https://www.instagram.com/holok.cheung/"]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -107,6 +113,20 @@
     }
     .link-arrow span, .btn span { transition: transform 0.15s; }
     .link-arrow:hover span, .btn:hover span { transform: translateX(3px); }
+
+    .skip {
+      position: absolute;
+      left: 16px;
+      top: -60px;
+      z-index: 200;
+      background: var(--ink);
+      color: #fff;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 10px 14px;
+      border-radius: 10px;
+    }
+    .skip:focus { top: 12px; }
 
     /* ── Nav ── */
     .nav {
@@ -342,7 +362,16 @@
       padding: 12px 18px 12px 12px;
       box-shadow: 0 10px 28px rgba(16,18,20,0.08);
       animation: float 7s ease-in-out infinite;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.15s, box-shadow 0.15s, background 0.15s;
     }
+    .chip:hover { border-color: var(--blue); box-shadow: 0 14px 34px rgba(24,104,219,0.16); }
+    .chip-go { font-size: 14px; color: #A3A6AD; margin-left: auto; padding-left: 4px; align-self: flex-start; transition: color 0.15s; }
+    .chip:hover .chip-go { color: var(--blue); }
+    .chip.dark .chip-go { color: #8C8F97; align-self: center; margin-left: 8px; }
+    .chip.dark:hover { background: #22262B; border-color: #22262B; }
+    .chip.dark:hover .chip-go { color: #fff; }
     .chip-icon {
       width: 38px; height: 38px;
       border-radius: 10px;
@@ -676,6 +705,8 @@
     .job ul { margin-top: 12px; padding-left: 18px; }
     .job li { font-size: 15.5px; color: var(--text); margin-top: 4px; }
     .job li::marker { color: #B7B9BE; }
+    .job li a { color: var(--ink); text-decoration: underline; text-decoration-color: #B7B9BE; text-underline-offset: 3px; }
+    .job li a:hover { color: var(--blue); text-decoration-color: var(--blue); }
 
     /* ── Education & skills ── */
     .edu { padding: 112px 0 0; }
@@ -840,6 +871,8 @@
 </head>
 <body>
 
+<a class="skip" href="#top">Skip to content</a>
+
 <header class="nav" id="nav">
   <div class="wrap nav-inner">
     <a class="brand" href="#top"><span class="brand-mark">HL</span><span class="brand-name">Ho Lok Cheung</span></a>
@@ -888,6 +921,7 @@
           <div class="mega-col">
             <h3>Experience</h3>
             <ul>
+              <li><a href="#job-dts">UCLA DTS · now</a></li>
               <li><a href="#job-ceed">UCLA CEED</a></li>
               <li><a href="#job-deanza">De Anza College</a></li>
               <li><a href="#job-nasa">NASA L'SPACE</a></li>
@@ -908,7 +942,7 @@
             <h3>Connect</h3>
             <ul>
               <li><a href="https://github.com/holokcheung" target="_blank" rel="noopener">GitHub&nbsp;<span class="ext" aria-hidden="true">↗</span></a></li>
-              <li><a href="https://www.linkedin.com/in/thomascheung86" target="_blank" rel="noopener">LinkedIn&nbsp;<span class="ext" aria-hidden="true">↗</span></a></li>
+              <li><a href="https://www.linkedin.com/in/holokcheung" target="_blank" rel="noopener">LinkedIn&nbsp;<span class="ext" aria-hidden="true">↗</span></a></li>
               <li><a href="mailto:holokcheung@ucla.edu">Email</a></li>
               <li><a href="resume.pdf" target="_blank" rel="noopener">Resume (PDF)&nbsp;<span class="ext" aria-hidden="true">↗</span></a></li>
               <li><a href="https://www.instagram.com/holok.cheung/" target="_blank" rel="noopener">Instagram&nbsp;<span class="ext" aria-hidden="true">↗</span></a></li>
@@ -939,7 +973,8 @@
       <a class="status" href="mailto:holokcheung@ucla.edu"><span class="dot"></span>Open to SWE &amp; research opportunities</a>
       <h1>I build at the intersection of language, code, and sport.</h1>
       <p class="lede">
-        I'm Ho Lok, a CS + Linguistics student at <a class="hl" href="https://www.ucla.edu" target="_blank" rel="noopener">UCLA</a>.
+        I'm Ho Lok, a CS + Linguistics student at <a class="hl" href="https://www.ucla.edu" target="_blank" rel="noopener">UCLA</a>
+        and a software developer at <a class="hl" href="https://dts.ucla.edu/" target="_blank" rel="noopener">UCLA Digital and Technology Solutions</a>.
         Previously a <a class="hl" href="https://engineering.stanford.edu" target="_blank" rel="noopener">Stanford</a> research intern
         and a <a class="hl" href="https://www.lspace.asu.edu/" target="_blank" rel="noopener">NASA L'SPACE</a> project manager.
         I'm an eight-time hackathon prize winner, a <a class="hl" href="https://www.usateamhandball.org/" target="_blank" rel="noopener">USA Team Handball</a> Academic All-American,
@@ -958,11 +993,11 @@
             Ho Lok
           </span>
         </div>
-        <div class="chip c1"><span class="chip-icon bg-yellow">🏆</span><div><b>Claude for Public Benefit Prize</b><small>TouchSpace · Cal Hacks 13.0</small></div></div>
-        <div class="chip c2"><span class="chip-icon bg-lime">🥇</span><div><b>1st Place</b><small>GreenMate · Columbia Hackathon</small></div></div>
-        <div class="chip c3"><span class="chip-icon bg-blue">🤾</span><div><b>Academic All-American</b><small>USA Team Handball · 1st Team</small></div></div>
-        <div class="chip c4"><span class="chip-icon bg-lav">🎓</span><div><b>4.0 GPA · Regents Scholar</b><small>UCLA · top 2% of admits</small></div></div>
-        <div class="chip dark c5">React · Node.js · C++ · Python</div>
+        <a class="chip c1" href="https://devpost.com/software/touchspace" target="_blank" rel="noopener"><span class="chip-icon bg-yellow">🏆</span><div><b>Claude for Public Benefit Prize</b><small>TouchSpace · Cal Hacks 13.0</small></div><span class="chip-go" aria-hidden="true">↗</span></a>
+        <a class="chip c2" href="https://dorahacks.io/buidl/16986" target="_blank" rel="noopener"><span class="chip-icon bg-lime">🥇</span><div><b>1st Place</b><small>GreenMate · Columbia Hackathon</small></div><span class="chip-go" aria-hidden="true">↗</span></a>
+        <a class="chip c3" href="https://www.usateamhandball.org/news/2026/april/27/usath-names-college-all-tournament-teams-academic-all-americans" target="_blank" rel="noopener"><span class="chip-icon bg-blue">🤾</span><div><b>Academic All-American</b><small>USA Team Handball · 1st Team</small></div><span class="chip-go" aria-hidden="true">↗</span></a>
+        <a class="chip c4" href="#education"><span class="chip-icon bg-lav">🎓</span><div><b>4.0 GPA · Regents Scholar</b><small>UCLA · top 2% of admits</small></div><span class="chip-go" aria-hidden="true">→</span></a>
+        <a class="chip dark c5" href="https://github.com/holokcheung" target="_blank" rel="noopener">React · Node.js · C++ · Python<span class="chip-go" aria-hidden="true">↗</span></a>
       </div>
     </div>
   </section>
@@ -1038,11 +1073,14 @@
       <div class="panel" role="tabpanel" id="p-naccent" aria-labelledby="t-naccent" hidden>
         <div class="panel-text">
           <p class="eyebrow">Hackathon · SB Hacks XI · 2025</p>
-          <div class="stack"><span><i class="sq bg-blue"></i>Python</span><span><i class="sq bg-lime"></i>Speech recognition</span><span><i class="sq bg-lav"></i>AI</span></div>
+          <div class="stack"><span><i class="sq bg-blue"></i>Next.js</span><span><i class="sq bg-lime"></i>Python</span><span><i class="sq bg-yellow"></i>Flask</span><span><i class="sq bg-lav"></i>Whisper API</span></div>
           <h3>An AI pronunciation trainer for English learners</h3>
-          <p>naccent listens while you speak and gives instant feedback, comparing the sounds it expected to hear with the ones you actually said.</p>
+          <p>naccent transcribes your speech with the OpenAI Whisper API and scores it sound by sound through SpeechAce and a Flask service, so you can see how each sound compares with a native speaker. The Next.js frontend tracks your progress over time.</p>
           <p class="award"><span class="em" aria-hidden="true">🏆</span>Best Student Life Hack</p>
-          <a class="link-arrow" href="https://devpost.com/software/naccent" target="_blank" rel="noopener">View on Devpost <span>→</span></a>
+          <div class="links">
+            <a class="link-arrow" href="https://devpost.com/software/naccent" target="_blank" rel="noopener">View on Devpost <span>→</span></a>
+            <a class="link-arrow" href="https://github.com/enkhbold470/naccent" target="_blank" rel="noopener">Code <span>→</span></a>
+          </div>
         </div>
         <div class="panel-visual bg-blue"><img src="naccent.jpg" alt="naccent showing expected and heard sounds for a spoken sentence"></div>
       </div>
@@ -1088,7 +1126,7 @@
           <p class="eyebrow">Team project · 2026</p>
           <div class="stack"><span><i class="sq bg-blue"></i>React</span><span><i class="sq bg-lime"></i>Node.js</span><span><i class="sq bg-yellow"></i>Express</span><span><i class="sq bg-lav"></i>MongoDB</span><span><i class="sq bg-blue"></i>JWT</span></div>
           <h3>Your photos, pinned to where you took them</h3>
-          <p>A full-stack web app that maps uploaded photos to the places they were taken, backed by MongoDB and a REST API with secure JWT login. Built with a five-person team using Git and weekly agile reviews.</p>
+          <p>A full-stack web app that pins uploaded photos to the places they were taken. I owned authentication end to end, building the JWT auth service in Node.js and Express plus the React login and signup pages, and built the photo detail and gallery views. Shipped with a five-person team against a sprint plan with UML design docs and weekly reviews.</p>
           <p class="award"><span class="em" aria-hidden="true">👥</span>Five-person team</p>
         </div>
         <div class="panel-visual bg-blue">
@@ -1194,7 +1232,7 @@
         <div class="feat">
           <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="8 6 2 12 8 18"/><polyline points="16 6 22 12 16 18"/><line x1="14" y1="4" x2="10" y2="20"/></svg>
           <h3>Full-stack engineering</h3>
-          <p>React, Node.js, Express, and MongoDB on the web. C++, C, and x86 assembly when I need to get closer to the hardware.</p>
+          <p>React, Next.js, Node.js, Express, Flask, and MongoDB on the web. C++, C, and x86 assembly when I need to get closer to the hardware.</p>
         </div>
         <div class="feat">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.5L3 20.5l1.6-5.2A8.4 8.4 0 1 1 21 11.5z"/><path d="M8.5 11.5h.01M12.5 11.5h.01M16.5 11.5h.01" stroke-width="2.6"/></svg>
@@ -1204,7 +1242,7 @@
         <div class="feat">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6"/><path d="M10 3v6.5L4.6 18.4A1.8 1.8 0 0 0 6.2 21h11.6a1.8 1.8 0 0 0 1.6-2.6L14 9.5V3"/><path d="M7.2 15h9.6"/></svg>
           <h3>Research rigor</h3>
-          <p>At Stanford I set up genetic-algorithm simulations of mutation and natural selection, then benchmarked the evolved organisms against reinforcement-learning agents.</p>
+          <p>At Stanford I built a grid-based evolutionary simulator in Python and was first author of the paper on it, which showed populations re-adapting after their survival zone moved.</p>
         </div>
         <div class="feat">
           <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17.2" cy="9" r="2.6"/><path d="M16.4 14.1c2.8-.2 4.8 2 4.8 5"/></svg>
@@ -1220,6 +1258,18 @@
     <div class="wrap">
       <h2 class="h2">Experience</h2>
       <div class="exp-list">
+
+        <article class="job" id="job-dts">
+          <span class="badge bg-lime" aria-hidden="true">U</span>
+          <div>
+            <div class="job-top"><h3>Software Developer</h3><span class="job-date">Aug 2026 – now</span></div>
+            <p class="job-org"><a href="https://dts.ucla.edu/" target="_blank" rel="noopener">UCLA Digital and Technology Solutions</a> · Digital Spaces · Los Angeles</p>
+            <ul>
+              <li>Debug and resolve software issues in classroom-facing applications for the UCLA Learning Spaces Modernization Project.</li>
+              <li>Write and document code for campus learning infrastructure alongside full-time engineers, using version control and keeping shared codebases documented.</li>
+            </ul>
+          </div>
+        </article>
 
         <article class="job" id="job-ceed">
           <span class="badge bg-blue" aria-hidden="true">U</span>
@@ -1248,7 +1298,7 @@
         <article class="job" id="job-nasa">
           <span class="badge bg-lav" aria-hidden="true">N</span>
           <div>
-            <div class="job-top"><h3>Project Manager</h3><span class="job-date">Summer 2024</span></div>
+            <div class="job-top"><h3>Project Manager</h3><span class="job-date">Sep – Dec 2024</span></div>
             <p class="job-org"><a href="https://www.lspace.asu.edu/" target="_blank" rel="noopener">NASA L'SPACE Academy</a> · Tempe, AZ</p>
             <ul>
               <li>Led a 20-person team spanning Chief Scientist, Deputy Program Manager, and Chief Engineer roles.</li>
@@ -1264,9 +1314,9 @@
             <div class="job-top"><h3>Research Intern</h3><span class="job-date">Jun – Aug 2024</span></div>
             <p class="job-org"><a href="https://engineering.stanford.edu" target="_blank" rel="noopener">Stanford University</a> · Palo Alto</p>
             <ul>
-              <li>Defined genetic algorithm parameters and initial conditions for evolutionary simulations.</li>
-              <li>Ran simulations modeling mutation and natural selection, then benchmarked the evolved organisms against reinforcement learning agents.</li>
-              <li>Published findings in the Stanford Journal.</li>
+              <li>Built a grid-based evolutionary simulator in Python modeling mutation, genome recombination, and natural selection under configurable mutation rates and spatial constraints.</li>
+              <li>Structured it around modular Creature, State, and Action classes with a real-time visualization canvas.</li>
+              <li>First author of the paper <a href="https://compression.stanford.edu/sites/g/files/sbiybj26591/files/media/file/final_evolution_simulator.pdf" target="_blank" rel="noopener">“Simulating Evolutionary Processes Using Genetic Algorithms and Variable Constraints”</a>, which showed populations re-adapting after the survival zone was relocated.</li>
             </ul>
           </div>
         </article>
@@ -1277,8 +1327,7 @@
             <div class="job-top"><h3>Operations Intern</h3><span class="job-date">Jun – Aug 2023</span></div>
             <p class="job-org"><a href="https://www.hangseng.com/en-hk/home/" target="_blank" rel="noopener">Hang Seng Bank</a> · Hong Kong</p>
             <ul>
-              <li>Queried trade data with SQL, then cleaned and analyzed it in Excel to support the operations team's daily workflow.</li>
-              <li>Built and maintained spreadsheets tracking daily trade records.</li>
+              <li>Wrote SQL queries to extract trade data and built Excel workflows that tracked daily trade records for the operations team.</li>
             </ul>
           </div>
         </article>
@@ -1297,19 +1346,19 @@
           <h3><a href="https://www.ucla.edu" target="_blank" rel="noopener">UCLA</a></h3>
           <p class="deg">B.S. Computer Science &amp; Linguistics (Honors)</p>
           <ul class="facts">
-            <li><b>4.0 GPA</b></li>
+            <li><b>4.0 GPA</b> · Dean's Honors List (Spring 2026)</li>
             <li><b>Regents Scholar</b> — UCLA's most prestigious merit scholarship, awarded to the top 2% of admitted students</li>
             <li>UCLA Mathematics Achievement Program, Henry Samueli School of Engineering and Applied Science</li>
-            <li>Coursework: Algorithms, Data Structures, Software Construction, Computer Systems</li>
+            <li>Coursework: Algorithms and Complexity, Software Construction, Computer Organization, Programming Languages, Artificial Intelligence, Computational Linguistics</li>
             <li><b><a class="plain" href="https://uclaclubsports.com/sports/mens-rugby" target="_blank" rel="noopener">UCLA Rugby</a></b> — NCAA Division I, top-20 nationally ranked program (2025–now)</li>
           </ul>
         </div>
         <div class="card-p outlined">
           <p class="eyebrow">Technical skills</p>
           <h4 class="skill-h">Programming</h4>
-          <div class="chips"><span>C++</span><span>C</span><span>Python</span><span>JavaScript</span><span>x86 Assembly</span></div>
+          <div class="chips"><span>C++</span><span>C</span><span>Python</span><span>JavaScript</span><span>SQL</span><span>x86 Assembly</span></div>
           <h4 class="skill-h">Web &amp; data</h4>
-          <div class="chips"><span>React</span><span>Node.js</span><span>Express.js</span><span>MongoDB</span><span>REST APIs</span><span>JWT auth</span></div>
+          <div class="chips"><span>React</span><span>Next.js</span><span>Node.js</span><span>Express.js</span><span>Flask</span><span>MongoDB</span><span>REST APIs</span><span>JWT auth</span></div>
           <h4 class="skill-h">Tools</h4>
           <div class="chips"><span>Git</span><span>Bash</span><span>Regex</span><span>Linux</span><span>SSH</span></div>
           <h4 class="skill-h">Concepts</h4>
@@ -1329,7 +1378,7 @@
         <p class="sub center">I'm always happy to talk about SWE and research roles, hackathons, or handball. Reach me at <a class="hl" href="mailto:holokcheung@ucla.edu">holokcheung@ucla.edu</a>.</p>
         <div class="cta-row">
           <a class="btn btn-primary" href="mailto:holokcheung@ucla.edu">Email me</a>
-          <a class="btn btn-outline" href="https://www.linkedin.com/in/thomascheung86" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn btn-outline" href="https://www.linkedin.com/in/holokcheung" target="_blank" rel="noopener">LinkedIn</a>
           <a class="btn btn-outline" href="https://github.com/holokcheung" target="_blank" rel="noopener">GitHub</a>
         </div>
       </div>
@@ -1348,7 +1397,7 @@
       <div>
         <h4>Elsewhere</h4>
         <a href="https://github.com/holokcheung" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://www.linkedin.com/in/thomascheung86" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.linkedin.com/in/holokcheung" target="_blank" rel="noopener">LinkedIn</a>
         <a href="https://www.instagram.com/holok.cheung/" target="_blank" rel="noopener">Instagram</a>
         <a href="https://vsco.co/holokbbbb/gallery" target="_blank" rel="noopener">VSCO</a>
       </div>
