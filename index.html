@@ -168,6 +168,80 @@
       place-items: center;
     }
     .menu-btn:hover { background: var(--fill); }
+    .nav-drop {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 8px 10px 8px 12px;
+      border: 0;
+      border-radius: 8px;
+      background: transparent;
+      font-family: var(--sans);
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text);
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .nav-drop:hover, .nav-drop[aria-expanded="true"] { background: var(--fill); }
+    .nav-drop svg { transition: transform 0.2s; }
+    .nav-drop[aria-expanded="true"] svg { transform: rotate(180deg); }
+
+    /* Explore menu (also the phone menu) */
+    .mega { position: absolute; top: 100%; left: 0; right: 0; padding-top: 8px; }
+    .mega[hidden] { display: none; }
+    .mega-panel {
+      background: #fff;
+      border: 1px solid var(--line-soft);
+      border-radius: 24px;
+      box-shadow: 0 24px 60px rgba(16,18,20,0.12), 0 2px 8px rgba(16,18,20,0.04);
+      padding: 40px 48px 32px;
+      animation: drop 0.18s ease-out;
+    }
+    @keyframes drop { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+    .mega-sections { display: none; }
+    .mega-cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px 48px; }
+    .mega-col h3 {
+      font-family: var(--sans);
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--ink);
+      padding-bottom: 12px;
+      margin-bottom: 8px;
+      border-bottom: 1px solid var(--line);
+    }
+    .mega-col ul { list-style: none; }
+    .mega-col a {
+      display: block;
+      padding: 8px 0;
+      font-size: 16px;
+      color: var(--ink);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .mega-col a:hover { color: var(--blue); }
+    .ext { font-size: 13px; color: #A3A6AD; margin-left: 3px; transition: color 0.15s; }
+    .mega-col a:hover .ext { color: var(--blue); }
+    .mega-promo {
+      margin-top: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px 20px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 22px 28px;
+      text-decoration: none;
+      color: var(--muted);
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .mega-promo:hover { border-color: var(--blue); background: #F7FAFF; }
+    .mega-promo svg { flex-shrink: 0; }
+    .mega-promo b { font-family: var(--display); font-size: 20px; font-weight: 700; letter-spacing: -0.01em; color: var(--ink); }
+    .mega-promo span { font-size: 16px; }
 
     /* ── Hero ── */
     .hero { padding: 84px 0 0; text-align: center; }
@@ -680,23 +754,32 @@
       .stat { min-width: 0; }
       .plus { display: none; }
     }
-    @media (max-width: 900px) {
-      .nav-links {
-        display: none;
-        position: absolute;
-        top: 64px; left: 0; right: 0;
-        flex-direction: column;
-        gap: 0;
-        background: #fff;
-        padding: 8px 16px 16px;
-        border-bottom: 1px solid var(--line);
-        box-shadow: 0 12px 24px rgba(16,18,20,0.06);
-      }
-      .nav-links.open { display: flex; }
-      .nav-links a { padding: 12px; font-size: 16px; }
+    @media (max-width: 1024px) {
+      .nav-links { display: none; }
       .menu-btn { display: grid; }
+      .mega-sections {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 0 16px;
+        padding-bottom: 14px;
+        margin-bottom: 22px;
+        border-bottom: 1px solid var(--line);
+      }
+      .mega-sections a {
+        padding: 11px 0;
+        font-family: var(--display);
+        font-size: 17px;
+        font-weight: 600;
+        color: var(--ink);
+        text-decoration: none;
+      }
+      .mega-sections a:hover { color: var(--blue); }
+      .mega-cols { gap: 28px 32px; }
+    }
+    @media (max-width: 900px) {
       .nav-text { display: none; }
       .nav-actions { gap: 8px; }
+      .mega-cols { grid-template-columns: 1fr 1fr; }
 
       .link-arrow { padding: 10px 0; }
       .panel-text > .link-arrow, .links { margin-top: 12px; }
@@ -712,6 +795,23 @@
       .shot-wide { grid-column: 1 / -1; aspect-ratio: 3 / 2; }
       .shot-tall { grid-column: 2; grid-row: 2 / 4; aspect-ratio: auto; }
       .edu-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 700px) {
+      .mega { padding-top: 0; }
+      .mega > .wrap { padding: 0; }
+      .mega-panel {
+        border-radius: 0 0 20px 20px;
+        border-width: 0 0 1px;
+        padding: 16px 22px 22px;
+        max-height: calc(100vh - 64px);
+        max-height: calc(100dvh - 64px);
+        overflow-y: auto;
+      }
+      .mega-cols { grid-template-columns: 1fr 1fr; gap: 24px 20px; }
+      .mega-col a { font-size: 15px; padding: 9px 0; }
+      .mega-promo { justify-content: flex-start; padding: 16px 18px; gap: 6px 12px; margin-top: 24px; border-radius: 16px; }
+      .mega-promo b { font-size: 18px; }
+      .mega-promo span { font-size: 14px; flex-basis: 100%; }
     }
     @media (max-width: 560px) {
       .wrap { padding: 0 18px; }
@@ -743,7 +843,10 @@
 <header class="nav" id="nav">
   <div class="wrap nav-inner">
     <a class="brand" href="#top"><span class="brand-mark">HL</span><span class="brand-name">Ho Lok Cheung</span></a>
-    <nav class="nav-links" id="nav-links" aria-label="Main">
+    <nav class="nav-links" aria-label="Main">
+      <button class="nav-drop" id="explore-btn" type="button" aria-expanded="false" aria-controls="mega">Explore
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
       <a href="#work">Work</a>
       <a href="#athletics">Athletics</a>
       <a href="#how">How I work</a>
@@ -753,9 +856,77 @@
     <div class="nav-actions">
       <a class="nav-text" href="mailto:holokcheung@ucla.edu">Email</a>
       <a class="btn btn-primary btn-sm" href="resume.pdf" target="_blank" rel="noopener">Resume</a>
-      <button class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+      <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="mega" aria-label="Open menu">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
       </button>
+    </div>
+  </div>
+
+  <div class="mega" id="mega" hidden>
+    <div class="wrap">
+      <div class="mega-panel">
+        <nav class="mega-sections" aria-label="Sections">
+          <a href="#work">Work</a>
+          <a href="#calhacks">Cal Hacks photos</a>
+          <a href="#athletics">Athletics</a>
+          <a href="#how">How I work</a>
+          <a href="#experience">Experience</a>
+          <a href="#education">Education</a>
+        </nav>
+        <div class="mega-cols">
+          <div class="mega-col">
+            <h3>Projects</h3>
+            <ul>
+              <li><a href="#work" data-tab="touchspace">TouchSpace</a></li>
+              <li><a href="#work" data-tab="naccent">naccent</a></li>
+              <li><a href="#work" data-tab="greenmate">GreenMate</a></li>
+              <li><a href="#work" data-tab="neuralnurse">NeuralNurse</a></li>
+              <li><a href="#work" data-tab="biomyo">BioMyo</a></li>
+              <li><a href="#work" data-tab="momento">Momento</a></li>
+            </ul>
+          </div>
+          <div class="mega-col">
+            <h3>Experience</h3>
+            <ul>
+              <li><a href="#job-ceed">UCLA CEED</a></li>
+              <li><a href="#job-deanza">De Anza College</a></li>
+              <li><a href="#job-nasa">NASA L'SPACE</a></li>
+              <li><a href="#job-stanford">Stanford research</a></li>
+              <li><a href="#job-hangseng">Hang Seng Bank</a></li>
+            </ul>
+          </div>
+          <div class="mega-col">
+            <h3>Athletics</h3>
+            <ul>
+              <li><a href="https://www.usateamhandball.org/" target="_blank" rel="noopener">USA Team Handball&nbsp;<span class="ext" aria-hidden="true">↗</span></a></li>
+              <li><a href="https://www.usateamhandball.org/news/2026/april/27/usath-names-college-all-tournament-teams-academic-all-americans" target="_blank" rel="noopener">2026 All-American&nbsp;<span class="ext" aria-hidden="true">↗</span></a></li>
+              <li><a href="https://uclaclubsports.com/sports/mens-rugby" target="_blank" rel="noopener">UCLA Rugby&nbsp;<span class="ext" aria-hidden="true">↗</span></a></li>
+              <li><a href="#athletics">What is handball? (video)</a></li>
+            </ul>
+          </div>
+          <div class="mega-col">
+            <h3>Connect</h3>
+            <ul>
+              <li><a href="https://github.com/holokcheung" target="_blank" rel="noopener">GitHub&nbsp;<span class="ext" aria-hidden="true">↗</span></a></li>
+              <li><a href="https://www.linkedin.com/in/thomascheung86" target="_blank" rel="noopener">LinkedIn&nbsp;<span class="ext" aria-hidden="true">↗</span></a></li>
+              <li><a href="mailto:holokcheung@ucla.edu">Email</a></li>
+              <li><a href="resume.pdf" target="_blank" rel="noopener">Resume (PDF)&nbsp;<span class="ext" aria-hidden="true">↗</span></a></li>
+              <li><a href="https://www.instagram.com/holok.cheung/" target="_blank" rel="noopener">Instagram&nbsp;<span class="ext" aria-hidden="true">↗</span></a></li>
+              <li><a href="https://vsco.co/holokbbbb/gallery" target="_blank" rel="noopener">VSCO&nbsp;<span class="ext" aria-hidden="true">↗</span></a></li>
+            </ul>
+          </div>
+        </div>
+        <a class="mega-promo" href="https://devpost.com/software/touchspace" target="_blank" rel="noopener">
+          <svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true">
+            <rect width="40" height="40" rx="11" fill="#1868DB"/>
+            <circle cx="11" cy="11" r="3.4" fill="#fff"/><circle cx="20" cy="11" r="3.4" fill="#D3F1A7"/><circle cx="29" cy="11" r="3.4" fill="#fff"/>
+            <circle cx="11" cy="20" r="3.4" fill="#FFE48F"/><circle cx="20" cy="20" r="3.4" fill="#fff"/><circle cx="29" cy="20" r="3.4" fill="#EED7FC"/>
+            <circle cx="11" cy="29" r="3.4" fill="#fff"/><circle cx="20" cy="29" r="3.4" fill="#EED7FC"/><circle cx="29" cy="29" r="3.4" fill="#fff"/>
+          </svg>
+          <b>TouchSpace</b>
+          <span>Tactile maps for blind and visually impaired people · won Anthropic's Claude for Public Benefit Prize&nbsp;↗</span>
+        </a>
+      </div>
     </div>
   </div>
 </header>
@@ -1050,7 +1221,7 @@
       <h2 class="h2">Experience</h2>
       <div class="exp-list">
 
-        <article class="job">
+        <article class="job" id="job-ceed">
           <span class="badge bg-blue" aria-hidden="true">U</span>
           <div>
             <div class="job-top"><h3>Mathematics Instructor</h3><span class="job-date">Sep 2025 – Jun 2026</span></div>
@@ -1062,7 +1233,7 @@
           </div>
         </article>
 
-        <article class="job">
+        <article class="job" id="job-deanza">
           <span class="badge bg-yellow" aria-hidden="true">D</span>
           <div>
             <div class="job-top"><h3>Senior Writing &amp; Reading Tutor</h3><span class="job-date">Sep 2024 – Jul 2025</span></div>
@@ -1074,7 +1245,7 @@
           </div>
         </article>
 
-        <article class="job">
+        <article class="job" id="job-nasa">
           <span class="badge bg-lav" aria-hidden="true">N</span>
           <div>
             <div class="job-top"><h3>Project Manager</h3><span class="job-date">Summer 2024</span></div>
@@ -1087,7 +1258,7 @@
           </div>
         </article>
 
-        <article class="job">
+        <article class="job" id="job-stanford">
           <span class="badge bg-lime" aria-hidden="true">S</span>
           <div>
             <div class="job-top"><h3>Research Intern</h3><span class="job-date">Jun – Aug 2024</span></div>
@@ -1100,7 +1271,7 @@
           </div>
         </article>
 
-        <article class="job">
+        <article class="job" id="job-hangseng">
           <span class="badge bg-blue" aria-hidden="true">H</span>
           <div>
             <div class="job-top"><h3>Operations Intern</h3><span class="job-date">Jun – Aug 2023</span></div>
@@ -1192,23 +1363,30 @@
 </footer>
 
 <script>
-  // Nav: border on scroll, mobile menu
+  // Nav: border on scroll; Explore menu, which is also the phone menu
   const nav = document.getElementById('nav');
+  const mega = document.getElementById('mega');
   const menuBtn = document.getElementById('menu-btn');
-  const navLinks = document.getElementById('nav-links');
+  const menuTriggers = [document.getElementById('explore-btn'), menuBtn];
+  let lastTrigger = null;
   addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 8), { passive: true });
-  menuBtn.addEventListener('click', () => {
-    const open = navLinks.classList.toggle('open');
-    menuBtn.setAttribute('aria-expanded', open);
+  function setMenu(open, trigger) {
+    mega.hidden = !open;
+    menuTriggers.forEach(t => t.setAttribute('aria-expanded', open));
     menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-  });
-  function closeMenu() {
-    navLinks.classList.remove('open');
-    menuBtn.setAttribute('aria-expanded', false);
-    menuBtn.setAttribute('aria-label', 'Open menu');
+    if (trigger) lastTrigger = trigger;
   }
-  navLinks.addEventListener('click', e => { if (e.target.tagName === 'A') closeMenu(); });
-  addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+  menuTriggers.forEach(t => t.addEventListener('click', () => setMenu(mega.hidden, t)));
+  mega.addEventListener('click', e => {
+    const a = e.target.closest('a');
+    if (!a) return;
+    if (a.dataset.tab) select(document.getElementById('t-' + a.dataset.tab));
+    setMenu(false);
+  });
+  document.addEventListener('click', e => { if (!mega.hidden && !nav.contains(e.target)) setMenu(false); });
+  addEventListener('keydown', e => {
+    if (e.key === 'Escape' && !mega.hidden) { setMenu(false); lastTrigger?.focus(); }
+  });
 
   // Project tabs
   const tabs = [...document.querySelectorAll('[role="tab"]')];
