@@ -530,7 +530,7 @@
     .watch:hover { background: var(--ink); color: #fff; }
 
     /* ── Cal Hacks photos ── */
-    .photos { padding: 0 0 112px; }
+    .photos { padding: 112px 0 0; }
     .photo-grid {
       margin-top: 40px;
       display: grid;
@@ -677,7 +677,7 @@
     .feat p { font-size: 15.5px; color: var(--muted); }
 
     /* ── Experience ── */
-    .exp { padding: 112px 0 0; }
+    .exp { padding: 0; }
     .exp-list { margin-top: 40px; border-top: 1px solid var(--line); }
     .job { display: grid; grid-template-columns: 48px 1fr; gap: 22px; padding: 28px 0; border-bottom: 1px solid var(--line); }
     .badge {
@@ -712,7 +712,7 @@
     .job li a:hover { color: var(--blue); text-decoration-color: var(--blue); }
 
     /* ── Education & skills ── */
-    .edu { padding: 112px 0 0; }
+    .edu { padding: 112px 0; }
     .edu-grid { margin-top: 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
     .card-p { border-radius: 24px; padding: 40px; }
     .card-p.outlined { border: 1px solid var(--line); }
@@ -855,7 +855,7 @@
       .hero { padding-top: 56px; }
       .stage { grid-template-columns: 1fr; padding: 24px 16px; border-radius: 22px; }
       .feat-grid { grid-template-columns: 1fr; gap: 36px; }
-      .how, .exp, .edu { padding-top: 88px; }
+      .how, .edu { padding-top: 88px; }
       .dark, .cta { padding: 88px 0; }
       .card-p { padding: 28px 22px; }
       .card-p h3 { font-size: 48px; }
@@ -887,10 +887,10 @@
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
       </button>
       <a href="#work">Work</a>
-      <a href="#athletics">Athletics</a>
-      <a href="#how">How I work</a>
       <a href="#experience">Experience</a>
       <a href="#education">Education</a>
+      <a href="#athletics">Athletics</a>
+      <a href="#how">How I work</a>
     </nav>
     <div class="nav-actions">
       <a class="nav-text" href="mailto:holokcheung@ucla.edu">Email</a>
@@ -906,11 +906,11 @@
       <div class="mega-panel">
         <nav class="mega-sections" aria-label="Sections">
           <a href="#work">Work</a>
-          <a href="#calhacks">Cal Hacks photos</a>
-          <a href="#athletics">Athletics</a>
-          <a href="#how">How I work</a>
           <a href="#experience">Experience</a>
           <a href="#education">Education</a>
+          <a href="#athletics">Athletics</a>
+          <a href="#calhacks">Cal Hacks photos</a>
+          <a href="#how">How I work</a>
         </nav>
         <div class="mega-cols">
           <div class="mega-col">
@@ -918,9 +918,6 @@
             <ul>
               <li><a href="#work" data-tab="touchspace">TouchSpace</a></li>
               <li><a href="#work" data-tab="naccent">naccent</a></li>
-              <li><a href="#work" data-tab="greenmate">GreenMate</a></li>
-              <li><a href="#work" data-tab="neuralnurse">NeuralNurse</a></li>
-              <li><a href="#work" data-tab="biomyo">BioMyo</a></li>
               <li><a href="#work" data-tab="momento">Momento</a></li>
             </ul>
           </div>
@@ -1051,9 +1048,6 @@
         <div class="tabs" role="tablist" aria-label="Projects">
           <button class="tab" role="tab" id="t-touchspace" aria-controls="p-touchspace" aria-selected="true">TouchSpace</button>
           <button class="tab" role="tab" id="t-naccent" aria-controls="p-naccent" aria-selected="false" tabindex="-1">naccent</button>
-          <button class="tab" role="tab" id="t-greenmate" aria-controls="p-greenmate" aria-selected="false" tabindex="-1">GreenMate</button>
-          <button class="tab" role="tab" id="t-neuralnurse" aria-controls="p-neuralnurse" aria-selected="false" tabindex="-1">NeuralNurse</button>
-          <button class="tab" role="tab" id="t-biomyo" aria-controls="p-biomyo" aria-selected="false" tabindex="-1">BioMyo</button>
           <button class="tab" role="tab" id="t-momento" aria-controls="p-momento" aria-selected="false" tabindex="-1">Momento</button>
         </div>
       </div>
@@ -1092,43 +1086,6 @@
           </div>
         </div>
         <div class="panel-visual bg-blue"><img src="naccent.jpg" width="681" height="1400" loading="lazy" alt="naccent showing expected and heard sounds for a spoken sentence"></div>
-      </div>
-
-      <div class="panel" role="tabpanel" id="p-greenmate" aria-labelledby="t-greenmate" hidden>
-        <div class="panel-text">
-          <p class="eyebrow">Hackathon · Columbia University · 2024</p>
-          <div class="stack"><span><i class="sq bg-lime"></i>Snap Spectacles</span><span><i class="sq bg-yellow"></i>Lens Studio</span><span><i class="sq bg-blue"></i>AR</span></div>
-          <h3>Live plant health, right in your field of view</h3>
-          <p>GreenMate runs on Snap Spectacles and overlays real-time plant-health data in the wearer's view, so you can see what a plant needs just by looking at it.</p>
-          <p><strong>My part:</strong> I built the Spectacles app in Lens Studio.</p>
-          <p class="award"><span class="em" aria-hidden="true">🥇</span>1st Place</p>
-          <a class="link-arrow" href="https://dorahacks.io/buidl/16986" target="_blank" rel="noopener">View on DoraHacks <span>→</span></a>
-        </div>
-        <div class="panel-visual bg-lime"><img src="greenmate.jpg" width="1198" height="1400" loading="lazy" alt="GreenMate AR demo at the Columbia hackathon"></div>
-      </div>
-
-      <div class="panel" role="tabpanel" id="p-neuralnurse" aria-labelledby="t-neuralnurse" hidden>
-        <div class="panel-text">
-          <p class="eyebrow">Hackathon · UC Berkeley Hack for Impact · 2024</p>
-          <div class="stack"><span><i class="sq bg-lav"></i>Python</span><span><i class="sq bg-blue"></i>Computer vision</span><span><i class="sq bg-yellow"></i>Facial recognition</span></div>
-          <h3>A social memory assistant</h3>
-          <p>An AI assistant that recognizes the people around you and recalls how you know them, to make in-person conversations easier. My first hackathon win, at an event hosted by Cal Hacks.</p>
-          <p class="award"><span class="em" aria-hidden="true">🥈</span>2nd Place Overall</p>
-          <a class="link-arrow" href="https://github.com/NeuralNurse/CV-Module" target="_blank" rel="noopener">View on GitHub <span>→</span></a>
-        </div>
-        <div class="panel-visual bg-lav"><img src="cv-module.jpg" width="931" height="1400" loading="lazy" alt="NeuralNurse detecting a face in a live camera feed"></div>
-      </div>
-
-      <div class="panel" role="tabpanel" id="p-biomyo" aria-labelledby="t-biomyo" hidden>
-        <div class="panel-text">
-          <p class="eyebrow">Hackathon · De Anza Hacks 2.5 · 2024</p>
-          <div class="stack"><span><i class="sq bg-yellow"></i>3D printing</span><span><i class="sq bg-lime"></i>EMG sensors</span><span><i class="sq bg-lav"></i>Hardware</span></div>
-          <h3>A low-cost prosthetic arm</h3>
-          <p>A 3D-printed prosthetic arm driven by muscle (EMG) sensors, built to move naturally while keeping costs low.</p>
-          <p class="award"><span class="em" aria-hidden="true">🥉</span>3rd Place</p>
-          <a class="link-arrow" href="https://devpost.com/software/biomyo" target="_blank" rel="noopener">View on Devpost <span>→</span></a>
-        </div>
-        <div class="panel-visual bg-yellow"><img src="biomyo.jpg" width="646" height="1400" loading="lazy" alt="BioMyo prosthetic arm prototype"></div>
       </div>
 
       <div class="panel" role="tabpanel" id="p-momento" aria-labelledby="t-momento" hidden>
@@ -1181,89 +1138,6 @@
   </section>
 
   <!-- CAL HACKS PHOTOS -->
-  <section class="photos" id="calhacks">
-    <div class="wrap">
-      <h2 class="h2">Cal Hacks 13.0, in photos</h2>
-      <p class="sub">Building TouchSpace in San Francisco with James Zheng and Sunghyuk Yoon. It won Anthropic's Claude for Public Benefit Prize.</p>
-      <div class="photo-grid">
-        <figure class="shot shot-wide">
-          <img src="calhacks-group.jpg" alt="Ho Lok and three others at the Palace of Fine Arts" loading="lazy" style="object-position: 50% 38%">
-          <figcaption>Palace of Fine Arts, San Francisco</figcaption>
-        </figure>
-        <figure class="shot shot-tall">
-          <img src="calhacks-dotpad.jpg" alt="Ho Lok holding a Dot Pad showing a floor plan as raised pins" loading="lazy">
-          <figcaption>A scanned floor plan, raised as pins on the Dot Pad</figcaption>
-        </figure>
-        <figure class="shot">
-          <img src="calhacks-building.jpg" alt="A teammate pointing at the laptop screen while Ho Lok works" loading="lazy" style="object-position: 50% 30%">
-          <figcaption>Building with the team</figcaption>
-        </figure>
-        <figure class="shot">
-          <img src="calhacks-webapp.jpg" alt="The TouchSpace web app's walkthrough of the venue on a laptop" loading="lazy">
-          <figcaption>The web app walking through the venue</figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
-
-  <!-- ATHLETICS (dark band) -->
-  <section class="dark" id="athletics">
-    <div class="wrap dark-inner">
-      <div>
-        <p class="eyebrow-mono">Off the screen</p>
-        <h2 class="h2">Team USA handball. UCLA rugby. Rock music.</h2>
-        <p class="sub">Team handball is one of the fastest-growing sports in the U.S. and a featured sport at the LA 2028 Olympics. I've been selected to represent both Hong Kong and the USA.</p>
-        <ul class="honors">
-          <li><span class="yr">2026</span><a href="https://www.usateamhandball.org/news/2026/april/27/usath-names-college-all-tournament-teams-academic-all-americans" target="_blank" rel="noopener">USA Team Handball Academic All-American, 1st Team</a></li>
-          <li><span class="yr">2025</span><span><a href="https://www.usateamhandball.org/" target="_blank" rel="noopener">USA Team Handball</a> Academic All-American, 2nd Team</span></li>
-          <li><span class="yr">2025–now</span><span><a href="https://uclaclubsports.com/sports/mens-rugby" target="_blank" rel="noopener">UCLA Rugby</a> <span class="muted">· NCAA Division I, top-20 nationally ranked</span></span></li>
-          <li><span class="yr">Former</span><span>Hong Kong National Handball Team</span></li>
-          <li><span class="yr">Ongoing</span><span>Rock music producer 🎸</span></li>
-        </ul>
-      </div>
-      <div class="video" id="video">
-        <button class="video-btn" type="button" data-id="zWh4tmKtIuw" data-start="9" data-title="What is Handball? America's Next Great Sport" aria-label="Play video: What is Handball? America's Next Great Sport">
-          <img src="https://i.ytimg.com/vi/zWh4tmKtIuw/maxresdefault.jpg" alt="" loading="lazy">
-          <span class="play"><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="#101214"/></svg></span>
-        </button>
-        <p class="video-cap">“What is Handball? America's Next Great Sport” · <a href="https://www.usateamhandball.org/" target="_blank" rel="noopener">USA Team Handball</a></p>
-      </div>
-    </div>
-  </section>
-
-  <!-- HOW I WORK -->
-  <section class="how" id="how">
-    <div class="wrap">
-      <div class="how-head">
-        <h2 class="h2">How I work</h2>
-        <a class="btn btn-outline" href="resume.pdf" target="_blank" rel="noopener">Read my resume <span>→</span></a>
-      </div>
-      <div class="feat-grid">
-        <div class="feat">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="8 6 2 12 8 18"/><polyline points="16 6 22 12 16 18"/><line x1="14" y1="4" x2="10" y2="20"/></svg>
-          <h3>Full-stack engineering</h3>
-          <p>React, Next.js, TypeScript, Node.js, FastAPI, Flask, and MongoDB on the web. C++, C, and x86 assembly when I need to get closer to the hardware.</p>
-        </div>
-        <div class="feat">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.5L3 20.5l1.6-5.2A8.4 8.4 0 1 1 21 11.5z"/><path d="M8.5 11.5h.01M12.5 11.5h.01M16.5 11.5h.01" stroke-width="2.6"/></svg>
-          <h3>Language meets AI</h3>
-          <p>Studying CS and linguistics means I care about how people actually talk. naccent turns speech recognition into feedback a learner can use.</p>
-        </div>
-        <div class="feat">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6"/><path d="M10 3v6.5L4.6 18.4A1.8 1.8 0 0 0 6.2 21h11.6a1.8 1.8 0 0 0 1.6-2.6L14 9.5V3"/><path d="M7.2 15h9.6"/></svg>
-          <h3>Research rigor</h3>
-          <p>At Stanford I built a grid-based evolutionary simulator in Python and was first author of the paper on it, which showed populations re-adapting after their survival zone moved.</p>
-        </div>
-        <div class="feat">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17.2" cy="9" r="2.6"/><path d="M16.4 14.1c2.8-.2 4.8 2 4.8 5"/></svg>
-          <h3>Leading teams</h3>
-          <p>I led a 20-person team at NASA L'SPACE, and I've spent years on handball and rugby teams where everyone has a role.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- EXPERIENCE -->
   <section class="exp" id="experience">
     <div class="wrap">
       <h2 class="h2">Experience</h2>
@@ -1381,6 +1255,89 @@
   </section>
 
   <!-- CTA -->
+  <section class="dark" id="athletics">
+    <div class="wrap dark-inner">
+      <div>
+        <p class="eyebrow-mono">Off the screen</p>
+        <h2 class="h2">Team USA handball. UCLA rugby. Rock music.</h2>
+        <p class="sub">Team handball is one of the fastest-growing sports in the U.S. and a featured sport at the LA 2028 Olympics. I've been selected to represent both Hong Kong and the USA.</p>
+        <ul class="honors">
+          <li><span class="yr">2026</span><a href="https://www.usateamhandball.org/news/2026/april/27/usath-names-college-all-tournament-teams-academic-all-americans" target="_blank" rel="noopener">USA Team Handball Academic All-American, 1st Team</a></li>
+          <li><span class="yr">2025</span><span><a href="https://www.usateamhandball.org/" target="_blank" rel="noopener">USA Team Handball</a> Academic All-American, 2nd Team</span></li>
+          <li><span class="yr">2025–now</span><span><a href="https://uclaclubsports.com/sports/mens-rugby" target="_blank" rel="noopener">UCLA Rugby</a> <span class="muted">· NCAA Division I, top-20 nationally ranked</span></span></li>
+          <li><span class="yr">Former</span><span>Hong Kong National Handball Team</span></li>
+          <li><span class="yr">Ongoing</span><span>Rock music producer 🎸</span></li>
+        </ul>
+      </div>
+      <div class="video" id="video">
+        <button class="video-btn" type="button" data-id="zWh4tmKtIuw" data-start="9" data-title="What is Handball? America's Next Great Sport" aria-label="Play video: What is Handball? America's Next Great Sport">
+          <img src="https://i.ytimg.com/vi/zWh4tmKtIuw/maxresdefault.jpg" alt="" loading="lazy">
+          <span class="play"><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="#101214"/></svg></span>
+        </button>
+        <p class="video-cap">“What is Handball? America's Next Great Sport” · <a href="https://www.usateamhandball.org/" target="_blank" rel="noopener">USA Team Handball</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW I WORK -->
+  <section class="photos" id="calhacks">
+    <div class="wrap">
+      <h2 class="h2">Cal Hacks 13.0, in photos</h2>
+      <p class="sub">Building TouchSpace in San Francisco with James Zheng and Sunghyuk Yoon. It won Anthropic's Claude for Public Benefit Prize.</p>
+      <div class="photo-grid">
+        <figure class="shot shot-wide">
+          <img src="calhacks-group.jpg" alt="Ho Lok and three others at the Palace of Fine Arts" loading="lazy" style="object-position: 50% 38%">
+          <figcaption>Palace of Fine Arts, San Francisco</figcaption>
+        </figure>
+        <figure class="shot shot-tall">
+          <img src="calhacks-dotpad.jpg" alt="Ho Lok holding a Dot Pad showing a floor plan as raised pins" loading="lazy">
+          <figcaption>A scanned floor plan, raised as pins on the Dot Pad</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="calhacks-building.jpg" alt="A teammate pointing at the laptop screen while Ho Lok works" loading="lazy" style="object-position: 50% 30%">
+          <figcaption>Building with the team</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="calhacks-webapp.jpg" alt="The TouchSpace web app's walkthrough of the venue on a laptop" loading="lazy">
+          <figcaption>The web app walking through the venue</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ATHLETICS (dark band) -->
+  <section class="how" id="how">
+    <div class="wrap">
+      <div class="how-head">
+        <h2 class="h2">How I work</h2>
+        <a class="btn btn-outline" href="resume.pdf" target="_blank" rel="noopener">Read my resume <span>→</span></a>
+      </div>
+      <div class="feat-grid">
+        <div class="feat">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="8 6 2 12 8 18"/><polyline points="16 6 22 12 16 18"/><line x1="14" y1="4" x2="10" y2="20"/></svg>
+          <h3>Full-stack engineering</h3>
+          <p>React, Next.js, TypeScript, Node.js, FastAPI, Flask, and MongoDB on the web. C++, C, and x86 assembly when I need to get closer to the hardware.</p>
+        </div>
+        <div class="feat">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.5L3 20.5l1.6-5.2A8.4 8.4 0 1 1 21 11.5z"/><path d="M8.5 11.5h.01M12.5 11.5h.01M16.5 11.5h.01" stroke-width="2.6"/></svg>
+          <h3>Language meets AI</h3>
+          <p>Studying CS and linguistics means I care about how people actually talk. naccent turns speech recognition into feedback a learner can use.</p>
+        </div>
+        <div class="feat">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6"/><path d="M10 3v6.5L4.6 18.4A1.8 1.8 0 0 0 6.2 21h11.6a1.8 1.8 0 0 0 1.6-2.6L14 9.5V3"/><path d="M7.2 15h9.6"/></svg>
+          <h3>Research rigor</h3>
+          <p>At Stanford I built a grid-based evolutionary simulator in Python and was first author of the paper on it, which showed populations re-adapting after their survival zone moved.</p>
+        </div>
+        <div class="feat">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17.2" cy="9" r="2.6"/><path d="M16.4 14.1c2.8-.2 4.8 2 4.8 5"/></svg>
+          <h3>Leading teams</h3>
+          <p>I led a 20-person team at NASA L'SPACE, and I've spent years on handball and rugby teams where everyone has a role.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
   <section class="cta">
     <div class="wrap">
       <div class="cta-box">
