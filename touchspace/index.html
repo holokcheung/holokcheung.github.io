@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TouchSpace case study · Ho Lok Cheung</title>
+  <meta name="description" content="How TouchSpace turns a LiDAR room scan into tactile and audio maps for blind and visually impaired people, what I built, and the design decision that keeps the AI honest. Winner of Anthropic's Claude for Public Benefit Prize at Cal Hacks 13.0.">
+  <link rel="canonical" href="https://holokcheung.com/touchspace/">
+  <meta property="og:title" content="TouchSpace case study · Ho Lok Cheung">
+  <meta property="og:description" content="Tactile and audio maps for blind and visually impaired people, built at Cal Hacks 13.0. What I built and why the AI can never invent a route.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://holokcheung.com/touchspace/">
+  <meta property="og:image" content="https://holokcheung.com/touchspace-team.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" type="image/png" sizes="32x32" href="/icon-32.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --blue: #1868DB; --blue-hover: #1558BC; --ink: #101214; --text: #292A2E; --muted: #505258; --subtle: #6B6E76;
+      --line: #DDDEE1; --line-soft: #EBECF0; --fill: #F1F2F4;
+      --p-blue: #CFE1FD; --p-lime: #D3F1A7; --p-yellow: #FFE48F; --p-lav: #EED7FC;
+      --display: 'Inter Tight', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: #fff; color: var(--text); font-family: var(--sans); font-size: 17px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+    img { display: block; max-width: 100%; height: auto; }
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; text-underline-offset: 4px; }
+    :focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; border-radius: 6px; }
+    .skip { position: absolute; left: 16px; top: -60px; background: var(--ink); color: #fff; padding: 10px 16px; border-radius: 999px; z-index: 100; }
+    .skip:focus { top: 12px; }
+    .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+    .nav { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,0.94); backdrop-filter: saturate(180%) blur(10px); -webkit-backdrop-filter: saturate(180%) blur(10px); border-bottom: 1px solid var(--line-soft); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .brand { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); font-weight: 600; text-decoration: none; }
+    .brand-mark { width: 32px; height: 32px; border-radius: 9px; background: var(--blue); color: #fff; display: grid; place-items: center; font: 700 13px var(--display); }
+    .nav a.back { color: var(--muted); font-size: 15px; }
+    .nav a.back:hover { color: var(--ink); }
+    header.hero { padding: 72px 0 40px; }
+    .eyebrow { font-family: var(--mono); font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+    h1 { font-family: var(--display); font-weight: 700; font-size: clamp(34px, 5.5vw, 54px); line-height: 1.05; letter-spacing: -0.03em; color: var(--ink); margin-top: 14px; }
+    .lede { font-size: 20px; color: var(--muted); margin-top: 18px; }
+    .award { display: inline-flex; align-items: center; gap: 8px; background: var(--fill); border-radius: 10px; padding: 8px 14px; font-weight: 600; color: var(--ink); font-size: 15px; margin-top: 22px; }
+    .links { display: flex; flex-wrap: wrap; gap: 10px 22px; margin-top: 22px; font-weight: 600; }
+    .stack { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-top: 22px; font-size: 14px; color: var(--muted); }
+    .stack span { display: inline-flex; align-items: center; gap: 7px; }
+    .sq { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+    .bg-blue { background: var(--p-blue); } .bg-lime { background: var(--p-lime); } .bg-yellow { background: var(--p-yellow); } .bg-lav { background: var(--p-lav); }
+    figure { margin: 40px 0; }
+    figure img { border-radius: 20px; }
+    figcaption { font-size: 14px; color: var(--muted); margin-top: 10px; }
+    section { padding: 36px 0 0; }
+    h2 { font-family: var(--display); font-weight: 600; font-size: clamp(26px, 3.4vw, 34px); line-height: 1.12; letter-spacing: -0.025em; color: var(--ink); margin-bottom: 14px; }
+    h3 { font-family: var(--display); font-weight: 600; font-size: 20px; color: var(--ink); margin: 26px 0 8px; }
+    p + p { margin-top: 14px; }
+    ul, ol { padding-left: 22px; margin-top: 10px; }
+    li { margin-top: 8px; }
+    li::marker { color: var(--subtle); }
+    strong { color: var(--ink); font-weight: 600; }
+    .numbers { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 14px; margin-top: 18px; }
+    .num { background: var(--fill); border-radius: 16px; padding: 18px 18px 16px; }
+    .num b { display: block; font-family: var(--mono); font-size: 30px; font-weight: 500; color: var(--ink); line-height: 1; }
+    .num span { display: block; font-size: 14px; color: var(--muted); margin-top: 8px; }
+    .callout { background: var(--p-lav); border-radius: 20px; padding: 24px 26px; margin-top: 20px; }
+    .callout p { color: var(--ink); }
+    .flow { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-top: 18px; }
+    .step { border: 1px solid var(--line); border-radius: 16px; padding: 16px 16px 14px; }
+    .step b { display: block; font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--blue); }
+    .step strong { display: block; margin-top: 6px; }
+    .step span { display: block; font-size: 14px; color: var(--muted); margin-top: 4px; }
+    code { font-family: var(--mono); font-size: 0.92em; background: var(--fill); padding: 1px 6px; border-radius: 5px; }
+    .foot { margin-top: 72px; border-top: 1px solid var(--line); padding: 28px 0 40px; font-size: 14px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 10px 24px; justify-content: space-between; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    @media (max-width: 560px) { header.hero { padding-top: 48px; } body { font-size: 16px; } .lede { font-size: 18px; } }
+    @media print { .nav, .skip, .foot { display: none; } }
+  </style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<nav class="nav" aria-label="Site">
+  <div class="nav-inner">
+    <a class="brand" href="/"><span class="brand-mark">HL</span><span>Ho Lok Cheung</span></a>
+    <a class="back" href="/#work">&larr; All work</a>
+  </div>
+</nav>
+
+<main id="main" class="wrap">
+  <header class="hero">
+    <p class="eyebrow">Case study · Cal Hacks 13.0 · October 2026</p>
+    <h1>TouchSpace: tactile and audio maps for blind and visually impaired people</h1>
+    <p class="lede">Scan a room with a LiDAR iPhone, and TouchSpace turns it into a floor plan you can feel on a Dot Pad tactile display, hear through spatial audio, and ask questions about out loud. Built in a weekend with James Zheng and Sunghyuk Yoon.</p>
+    <p class="award"><span aria-hidden="true">🏆</span>Claude for Public Benefit Prize · $5K from Anthropic</p>
+    <div class="links">
+      <a href="https://www.youtube.com/watch?v=zCSkCPO-3cc" target="_blank" rel="noopener">Watch the demo &rarr;</a>
+      <a href="https://github.com/holokcheung/touchspace" target="_blank" rel="noopener">Code on GitHub &rarr;</a>
+      <a href="https://devpost.com/software/touchspace" target="_blank" rel="noopener">Devpost &rarr;</a>
+    </div>
+    <div class="stack"><span><i class="sq bg-blue"></i>Python</span><span><i class="sq bg-lime"></i>FastAPI</span><span><i class="sq bg-yellow"></i>React + Three.js</span><span><i class="sq bg-lav"></i>TypeScript</span><span><i class="sq bg-blue"></i>Claude API</span><span><i class="sq bg-lime"></i>Apple RoomPlan</span><span><i class="sq bg-yellow"></i>Web Bluetooth</span></div>
+  </header>
+
+  <figure>
+    <img src="/touchspace-team.jpg" width="1200" height="801" alt="Ho Lok holding the Dot Pad between teammates holding the TouchSpace web app and the iPhone scanner" fetchpriority="high">
+    <figcaption>The team at the Palace of Fine Arts, San Francisco. I'm in the middle, holding the Dot Pad.</figcaption>
+  </figure>
+
+  <section>
+    <h2>The problem</h2>
+    <p>Turn-by-turn directions tell you where to go next, but they never give you the shape of a building. Sighted people glance at a floor plan before visiting an unfamiliar place; blind and visually impaired people rarely get that chance. TouchSpace is a way to learn a space <strong>before you arrive</strong>, from home, through touch, sound and a first-person walkthrough.</p>
+  </section>
+
+  <section>
+    <h2>How it works</h2>
+    <div class="flow">
+      <div class="step"><b>1 · Scan</b><strong>iPhone LiDAR</strong><span>Apple RoomPlan captures walls, doorways, floor boundaries and furniture.</span></div>
+      <div class="step"><b>2 · Review</b><strong>Label the map</strong><span>Name rooms and destinations, confirm which doorways are passable.</span></div>
+      <div class="step"><b>3 · Share</b><strong>Map package</strong><span>Geometry, labels and navigation data travel as one file others can download.</span></div>
+      <div class="step"><b>4 · Explore</b><strong>Feel, hear, ask</strong><span>Dot Pad pins, stereo audio cues and spoken questions in the web walkthrough.</span></div>
+    </div>
+    <h3>Three ways to read the same map</h3>
+    <ul>
+      <li><strong>Touch.</strong> The web app drives a Dot Pad with a 60&times;40 pin display over Bluetooth. Walls rise as lines, doorway gaps stay flat, landmarks get symbols, an X marks where you stand, and a planned route appears as spaced dots. A braille line shows the current room and heading.</li>
+      <li><strong>Sound.</strong> With headphones on, nearby walls and furniture are placed in stereo, with cues for obstacles ahead, doorway crossings and the edge of the mapped area.</li>
+      <li><strong>Voice.</strong> Ask "Where is the restroom?" or "Take me to the elevator." Claude works out what you mean; the answer and the route come from the recorded map, and the route is highlighted in the 3D view, the floor plan and the tactile display at once.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>The design decision that mattered most</h2>
+    <div class="callout">
+      <p><strong>The AI is never allowed to invent a route.</strong> Claude only interprets the spoken question: which landmark, which destination, what kind of answer. Every direction is then computed by Dijkstra's algorithm over the navigation graph recorded during the scan, and every description comes from deterministic functions over the map data. If the map has no path, the app says so instead of guessing. For a tool that blind users would trust with their safety, a confident wrong answer is worse than no answer.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>What I built</h2>
+    <ul>
+      <li>The <strong>FastAPI backend</strong>: 20 endpoints for map import, storage, spatial questions, routes, speech and the community catalog, with 153 automated tests.</li>
+      <li>The <strong>React web app</strong> and the walkthrough: floor plan, audio and Dot Pad panels kept together.</li>
+      <li>The <strong>map schema and floor-plan processing</strong>, including import of RoomPlan scans into a normalized map format.</li>
+      <li><strong>Dijkstra routing</strong> over the recorded path graph, and the <strong>route editor</strong> for recording and fixing paths.</li>
+      <li>The <strong>Claude question interpreter</strong> that maps free-form speech to map operations.</li>
+      <li>The <strong>60&times;40 Dot Pad preview</strong>, so the tactile output can be developed and tested without the hardware.</li>
+    </ul>
+    <p>James built the Bluetooth Dot Pad driver. The backend, routing and the "no invented routes" rule are pieces I can walk through line by line.</p>
+    <div class="numbers">
+      <div class="num"><b>20</b><span>API endpoints</span></div>
+      <div class="num"><b>153</b><span>automated tests</span></div>
+      <div class="num"><b>2,400</b><span>pins on the Dot Pad (60&times;40)</span></div>
+      <div class="num"><b>3</b><span>person team, one weekend</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>What's honest to say about it</h2>
+    <p>TouchSpace is a hackathon prototype. The web walkthrough is virtual practice on recorded maps; it does not track a real position or detect live obstacles, and it is not a replacement for a cane or a guide dog. The iOS scanner and the web app still use different map formats, so the full scan-to-tactile handoff is not finished, and the system has not yet been tested with blind and visually impaired users. Those are the next steps, along with richer braille labels and support for other tactile displays.</p>
+  </section>
+
+  <section>
+    <h2>Try it</h2>
+    <p>The web demo runs without an iPhone, a Dot Pad or any API keys: clone the <a href="https://github.com/holokcheung/touchspace" target="_blank" rel="noopener">repository</a>, start the backend and frontend as described in the README, and choose <strong>Try Demo</strong>. The Dot Pad panel shows a pin preview on screen even with no hardware connected.</p>
+  </section>
+
+  <footer class="foot">
+    <span>&copy; 2026 Ho Lok Cheung</span>
+    <span><a href="/">Home</a> &middot; <a href="/#work">All work</a> &middot; <a href="mailto:holokcheung@ucla.edu">holokcheung@ucla.edu</a></span>
+  </footer>
+</main>
+</body>
+</html>

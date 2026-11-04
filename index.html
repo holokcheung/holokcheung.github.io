@@ -1064,8 +1064,10 @@
           <div class="stack"><span><i class="sq bg-blue"></i>Python</span><span><i class="sq bg-lime"></i>FastAPI</span><span><i class="sq bg-yellow"></i>React</span><span><i class="sq bg-lav"></i>TypeScript</span><span><i class="sq bg-blue"></i>Claude API</span><span><i class="sq bg-lime"></i>RoomPlan</span></div>
           <h3>Tactile and audio maps for blind and visually impaired people</h3>
           <p>Scan a room with a LiDAR iPhone and TouchSpace turns it into a floor plan and walkable navigation graph that rises as pins on a 2,400-pin Dot Pad tactile display. Ask questions out loud and Claude answers from the real map data, while Dijkstra route planning computes every path from the map, so the AI can never make one up. A FastAPI backend with 20 endpoints and 153 automated tests powers the React web app. Built with James Zheng and Sunghyuk Yoon.</p>
+          <p><strong>My part:</strong> the FastAPI backend, the React web app, the map schema and floor-plan processing, RoomPlan import, Dijkstra routing, the Claude question interpreter, the route editor and the 60&times;40 Dot Pad preview. James built the Bluetooth Dot Pad driver. <strong>On AI:</strong> Claude only interprets the question; every answer and route comes from deterministic map functions, and the 153 tests cover all 20 endpoints.</p>
           <p class="award"><span class="em" aria-hidden="true">🏆</span>Claude for Public Benefit Prize · $5K from Anthropic</p>
           <div class="links">
+            <a class="link-arrow" href="/touchspace/">Read the case study <span>→</span></a>
             <a class="link-arrow" href="https://devpost.com/software/touchspace" target="_blank" rel="noopener">View on Devpost <span>→</span></a>
             <a class="link-arrow" href="https://github.com/holokcheung/touchspace" target="_blank" rel="noopener">GitHub <span>→</span></a>
           </div>
@@ -1082,6 +1084,7 @@
           <div class="stack"><span><i class="sq bg-blue"></i>Next.js</span><span><i class="sq bg-lime"></i>Python</span><span><i class="sq bg-yellow"></i>Flask</span><span><i class="sq bg-lav"></i>Whisper API</span></div>
           <h3>An AI pronunciation trainer for English learners</h3>
           <p>naccent transcribes your speech with the OpenAI Whisper API and scores it sound by sound through SpeechAce and a Flask service, so you can see how each sound compares with a native speaker. The Next.js frontend tracks your progress over time.</p>
+          <p><strong>My part:</strong> I built the Whisper transcription and SpeechAce scoring pipeline behind the Flask service and shipped the Next.js frontend with Chart.js progress charts, after replacing a first version that scored with an LLM alone and handled accents and phonetic detail poorly.</p>
           <p class="award"><span class="em" aria-hidden="true">🏆</span>Best Student Life Hack</p>
           <div class="links">
             <a class="link-arrow" href="https://devpost.com/software/naccent" target="_blank" rel="noopener">View on Devpost <span>→</span></a>
@@ -1097,6 +1100,7 @@
           <div class="stack"><span><i class="sq bg-lime"></i>Snap Spectacles</span><span><i class="sq bg-yellow"></i>Lens Studio</span><span><i class="sq bg-blue"></i>AR</span></div>
           <h3>Live plant health, right in your field of view</h3>
           <p>GreenMate runs on Snap Spectacles and overlays real-time plant-health data in the wearer's view, so you can see what a plant needs just by looking at it.</p>
+          <p><strong>My part:</strong> I built the Spectacles app in Lens Studio.</p>
           <p class="award"><span class="em" aria-hidden="true">🥇</span>1st Place</p>
           <a class="link-arrow" href="https://dorahacks.io/buidl/16986" target="_blank" rel="noopener">View on DoraHacks <span>→</span></a>
         </div>
