@@ -29,7 +29,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Radio+Canada+Big:wght@400;700&family=Radio+Canada:wght@400;500&display=swap" rel="stylesheet">
   <style>
     /* Hallmark · shape: Feature Stack · genre: editorial · theme: Grid (deal 3/3, seed personal-computer-science-linguistics-e464·c9a0927f·2026-11-11·r0) · redesign: full
-     * hero: Ledge · nav: edge-aligned · footer: index columns · imagery: the owner's photographs, duotone · signature: the project names as an index, the chosen one in red
+     * hero: Ledge · nav: edge-aligned · footer: index columns · imagery: the owner's photographs, in colour at his request · signature: the project names as an index, the chosen one in red
      * axes: light/grotesk-sans/cool · posture: full-palette · contrast: pass · fold: pass · v2.0.0 */
     /* Hallmark · pre-emit critique: P4 H5 E4 S4 R5 V4 · weakest: E, a ten-word head cannot run at poster scale; it sits at display size on the base of the hero and the field above it takes the height */
     /* Hallmark · brand kept: the HL mark and its blue flood the fields in place of the theme's ultramarine */
@@ -93,11 +93,8 @@
     @media (max-width: 60rem) { :root { --gutter: 24px; --section-gap-s: 80px; --section-gap: 96px; --section-gap-l: 120px; } }
     @media (max-width: 40rem) { :root { --gutter: 16px; --section-gap-s: 56px; --section-gap: 72px; --section-gap-l: 96px; --gap-columns: 16px; } }
     @media (prefers-reduced-motion: reduce) { *:not(.keep-motion), *:not(.keep-motion)::before, *:not(.keep-motion)::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; } }
-    /* photographs: duotone ink paper-2 con=12 */
-    [data-slot]:has(> img) { isolation: isolate; background: var(--color-paper-2); outline: 1px solid color-mix(in oklab, var(--color-ink) 8%, transparent); outline-offset: -1px; }
-    [data-slot] > img { z-index: 0; filter: grayscale(1) contrast(1.12); mix-blend-mode: multiply; }
-    [data-slot]:has(> img)::before { content: ""; position: absolute; inset: 0; z-index: 1; background: var(--color-ink); mix-blend-mode: lighten; pointer-events: none; }
-    [data-slot].lift > img { filter: grayscale(1) contrast(1.04) brightness(1.4); } /* taken in a dim hall: printed lighter */
+    /* photographs: in colour, as the owner asked (the theme's own rule is a black-and-white print) */
+    [data-slot]:has(> img) { background: var(--color-paper-2); outline: 1px solid color-mix(in oklab, var(--color-ink) 8%, transparent); outline-offset: -1px; }
 
     /* ── The column system: twelve columns; everything below the nav hangs from line 1 or line 5 ── */
     .cols { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap-columns); }
@@ -195,7 +192,7 @@
     /* Experience, education, how I work: catalogue rows */
     .job { align-items: start; }
     .job-head { grid-column: 3 / 9; display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: var(--space-md); align-items: center; }
-    .job-logo img { inline-size: 48px; block-size: 48px; filter: grayscale(1) contrast(1.1); mix-blend-mode: multiply; }
+    .job-logo img { inline-size: 48px; block-size: 48px; mix-blend-mode: multiply; }
     .job-org { color: var(--color-ink-2); }
     .job-date { grid-column: 1 / 3; grid-row: 1 / span 2; }
     .bullets { grid-column: 3 / 9; display: grid; gap: var(--space-xs); margin-top: var(--space-sm); padding-left: 1.15em; list-style: square; color: var(--color-ink-2); }
@@ -433,7 +430,7 @@
 
       <div class="reel">
         <div class="panel row8 case" role="tabpanel" id="p-touchspace" aria-labelledby="t-touchspace">
-          <div class="case-visual case-visual--wide lift" data-slot="photo">
+          <div class="case-visual case-visual--wide" data-slot="photo">
             <img src="touchspace-team.jpg" width="1200" height="801" loading="lazy" alt="Ho Lok holding the Dot Pad between teammates holding the TouchSpace web app and iPhone scanner">
           </div>
           <div class="case-main">
@@ -690,15 +687,15 @@
           <figcaption>Palace of Fine Arts, San Francisco</figcaption>
         </figure>
         <figure class="shot shot--tall">
-          <div class="frame lift" data-slot="photo"><img src="calhacks-dotpad.jpg" alt="Ho Lok holding a Dot Pad showing a floor plan as raised pins" loading="lazy"></div>
+          <div class="frame" data-slot="photo"><img src="calhacks-dotpad.jpg" alt="Ho Lok holding a Dot Pad showing a floor plan as raised pins" loading="lazy"></div>
           <figcaption>A scanned floor plan, raised as pins on the Dot Pad</figcaption>
         </figure>
         <figure class="shot shot--a">
-          <div class="frame pos-30 lift" data-slot="photo"><img src="calhacks-building.jpg" alt="A teammate pointing at the laptop screen while Ho Lok works" loading="lazy"></div>
+          <div class="frame pos-30" data-slot="photo"><img src="calhacks-building.jpg" alt="A teammate pointing at the laptop screen while Ho Lok works" loading="lazy"></div>
           <figcaption>Building with the team</figcaption>
         </figure>
         <figure class="shot shot--b">
-          <div class="frame lift" data-slot="photo"><img src="calhacks-webapp.jpg" alt="The TouchSpace web app's walkthrough of the venue on a laptop" loading="lazy"></div>
+          <div class="frame" data-slot="photo"><img src="calhacks-webapp.jpg" alt="The TouchSpace web app's walkthrough of the venue on a laptop" loading="lazy"></div>
           <figcaption>The web app walking through the venue</figcaption>
         </figure>
       </div>
