@@ -12,7 +12,7 @@
   <meta property="og:image" content="https://holokcheung.com/og-image.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Ho Lok Cheung — CS + Linguistics at UCLA">
+  <meta property="og:image:alt" content="Ho Lok Cheung, CS + Linguistics at UCLA">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Ho Lok Cheung">
   <meta name="twitter:description" content="CS + Linguistics @ UCLA. I build at the intersection of language, code, and sport.">
@@ -28,6 +28,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
+    /* Hallmark · checked: 2026-11-10 · genre: modern-minimal (inferred)
+     * floor: 0 FAIL · fixed: 12 (2a, 19, 29, 30a, 34, 48, 50, 54, 62, 63, 64, 67) · structural: 1 printed (58)
+     * built: the project · redesign: polish · v2.0.0 */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
@@ -49,17 +52,46 @@
       --display: 'Inter Tight', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+      --black: #000;
+      --black-a35: rgba(0,0,0,0.35);
+      --blue-50: #F7FAFF;
+      --blue-a16: rgba(24,104,219,0.16);
+      --blue-a30: rgba(24,104,219,0.3);
+      --grey-200: #E3E4E8;
+      --grey-400: #B7B9BE;
+      --grey-50: #FCFCFD;
+      --grey-500: #8C8F97;
+      --ink-750: #22272B;
+      --ink-800: #22262B;
+      --ink-950: #0A0B0D;
+      --ink-a04: rgba(16,18,20,0.04);
+      --ink-a06: rgba(16,18,20,0.06);
+      --ink-a08: rgba(16,18,20,0.08);
+      --ink-a10: rgba(16,18,20,0.1);
+      --ink-a12: rgba(16,18,20,0.12);
+      --ink-a16: rgba(16,18,20,0.16);
+      --ink-a18: rgba(16,18,20,0.18);
+      --ink-a25: rgba(16,18,20,0.25);
+      --lime-100: #EFFFD6;
+      --lime-600: #6A9A23;
+      --lime-800: #4C6B1F;
+      --white: #fff;
+      --white-a10: rgba(255,255,255,0.1);
+      --white-a12: rgba(255,255,255,0.12);
+      --white-a45: rgba(255,255,255,0.45);
+      --white-a94: rgba(255,255,255,0.94);
     }
 
-    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; overflow-x: clip; }
     body {
-      background: #fff;
+      background: var(--white);
       color: var(--text);
       font-family: var(--sans);
       font-size: 16px;
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
+      overflow-x: clip;
     }
     img { display: block; max-width: 100%; }
     a { color: inherit; }
@@ -76,6 +108,7 @@
       letter-spacing: -0.025em;
       color: var(--ink);
     }
+    h1, h2, h3 { text-wrap: balance; }
     .sub { font-size: 18px; color: var(--muted); margin-top: 14px; max-width: 640px; }
     .center { text-align: center; margin-left: auto; margin-right: auto; }
     .eyebrow { font-size: 14px; font-weight: 500; color: var(--subtle); }
@@ -99,11 +132,14 @@
       white-space: nowrap;
       transition: background 0.15s, color 0.15s, border-color 0.15s;
     }
-    .btn-primary { background: var(--blue); color: #fff; }
+    .btn-primary { background: var(--blue); color: var(--white); }
     .btn-primary:hover { background: var(--blue-hover); }
     .btn-outline { border-color: var(--ink); color: var(--ink); background: transparent; }
-    .btn-outline:hover { background: var(--ink); color: #fff; }
+    .btn-outline:hover { background: var(--ink); color: var(--white); }
     .btn-sm { padding: 10px 18px; font-size: 14px; }
+    .btn:active, .tab:active { transform: translateY(1px); }
+    .link-arrow:active { opacity: 0.75; }
+    button:disabled { opacity: 0.5; cursor: not-allowed; }
     .link-arrow {
       display: inline-flex;
       align-items: center;
@@ -112,8 +148,7 @@
       font-weight: 600;
       text-decoration: none;
     }
-    .link-arrow span, .btn span { transition: transform 0.15s; }
-    .link-arrow:hover span, .btn:hover span { transform: translateX(3px); }
+    .link-arrow:hover { text-decoration: underline; text-underline-offset: 4px; }
 
     .skip {
       position: absolute;
@@ -121,7 +156,7 @@
       top: -60px;
       z-index: 200;
       background: var(--ink);
-      color: #fff;
+      color: var(--white);
       font-weight: 600;
       text-decoration: none;
       padding: 10px 14px;
@@ -134,13 +169,11 @@
       position: sticky;
       top: 0;
       z-index: 50;
-      background: rgba(255,255,255,0.94);
-      backdrop-filter: saturate(180%) blur(10px);
-      -webkit-backdrop-filter: saturate(180%) blur(10px);
+      background: var(--white);
       border-bottom: 1px solid transparent;
       transition: border-color 0.2s, box-shadow 0.2s;
     }
-    .nav.scrolled { border-bottom-color: var(--line-soft); box-shadow: 0 2px 12px rgba(16,18,20,0.04); }
+    .nav.scrolled { border-bottom-color: var(--line-soft); box-shadow: 0 2px 12px var(--ink-a04); }
     .nav-inner { display: flex; align-items: center; gap: 36px; height: 64px; }
     .brand {
       display: flex;
@@ -158,7 +191,7 @@
       width: 28px; height: 28px;
       border-radius: 8px;
       background: var(--blue);
-      color: #fff;
+      color: var(--white);
       display: grid;
       place-items: center;
       font-size: 12.5px;
@@ -212,10 +245,9 @@
     .mega { position: absolute; top: 100%; left: 0; right: 0; padding-top: 8px; }
     .mega[hidden] { display: none; }
     .mega-panel {
-      background: #fff;
-      border: 1px solid var(--line-soft);
+      background: var(--white);
       border-radius: 24px;
-      box-shadow: 0 24px 60px rgba(16,18,20,0.12), 0 2px 8px rgba(16,18,20,0.04);
+      box-shadow: 0 24px 60px var(--ink-a12), 0 2px 8px var(--ink-a06);
       padding: 40px 48px 32px;
       animation: drop 0.18s ease-out;
       max-height: calc(100vh - 80px);
@@ -225,13 +257,11 @@
     }
     @keyframes drop { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
     .mega-sections { display: none; }
-    .mega-cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px 48px; }
+    .mega-cols { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px 48px; }
     .mega-col h3 {
-      font-family: var(--sans);
-      font-size: 13px;
+      font-family: var(--display);
+      font-size: 16px;
       font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
       color: var(--ink);
       padding-bottom: 12px;
       margin-bottom: 8px;
@@ -247,7 +277,7 @@
       transition: color 0.15s;
     }
     .mega-col a:hover { color: var(--blue); }
-    .ext { font-size: 13px; color: #8C8F97; margin-left: 3px; transition: color 0.15s; }
+    .ext { font-size: 13px; color: var(--grey-500); margin-left: 3px; transition: color 0.15s; }
     .mega-col a:hover .ext { color: var(--blue); }
     .mega-promo {
       margin-top: 30px;
@@ -263,7 +293,7 @@
       color: var(--muted);
       transition: border-color 0.15s, background 0.15s;
     }
-    .mega-promo:hover { border-color: var(--blue); background: #F7FAFF; }
+    .mega-promo:hover { border-color: var(--blue); background: var(--blue-50); }
     .mega-promo svg { flex-shrink: 0; }
     .mega-promo b { font-family: var(--display); font-size: 20px; font-weight: 700; letter-spacing: -0.01em; color: var(--ink); }
     .mega-promo span { font-size: 16px; }
@@ -276,15 +306,15 @@
       gap: 8px;
       font-size: 14px;
       font-weight: 500;
-      color: #4C6B1F;
-      background: #EFFFD6;
+      color: var(--lime-800);
+      background: var(--lime-100);
       border-radius: 999px;
       padding: 6px 14px;
       margin-bottom: 28px;
       text-decoration: none;
       text-wrap: balance;
     }
-    .status .dot { width: 8px; height: 8px; border-radius: 50%; background: #6A9A23; animation: pulse 2.4s infinite; }
+    .status .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--lime-600); animation: pulse 2.4s infinite; }
     @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
     .hero h1 {
       font-family: var(--display);
@@ -313,7 +343,7 @@
       border: 1px solid var(--line-soft);
       border-radius: 28px;
       overflow: hidden;
-      background: #FCFCFD;
+      background: var(--grey-50);
     }
     .stage::before {
       content: "";
@@ -324,8 +354,8 @@
         linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
       background-size: 44px 44px;
       background-position: center;
-      -webkit-mask-image: radial-gradient(ellipse at center, #000 35%, transparent 78%);
-      mask-image: radial-gradient(ellipse at center, #000 35%, transparent 78%);
+      -webkit-mask-image: radial-gradient(ellipse at center, var(--black) 35%, transparent 78%);
+      mask-image: radial-gradient(ellipse at center, var(--black) 35%, transparent 78%);
     }
     .stage-photo {
       position: absolute;
@@ -341,19 +371,19 @@
       object-fit: cover;
       object-position: center 18%;
       border-radius: 22px;
-      box-shadow: 0 28px 64px rgba(16,18,20,0.16);
+      box-shadow: 0 28px 64px var(--ink-a16);
     }
     .name-tag {
       position: absolute;
       top: 34px;
       right: -30px;
       background: var(--blue);
-      color: #fff;
+      color: var(--white);
       font-size: 13px;
       font-weight: 600;
       padding: 6px 12px;
       border-radius: 4px 999px 999px 999px;
-      box-shadow: 0 6px 16px rgba(24,104,219,0.3);
+      box-shadow: 0 6px 16px var(--blue-a30);
     }
     .name-tag svg { position: absolute; top: -14px; left: -12px; }
     .chip {
@@ -362,40 +392,41 @@
       align-items: center;
       gap: 12px;
       text-align: left;
-      background: #fff;
+      background: var(--white);
       border: 1px solid var(--line);
       border-radius: 14px;
       padding: 12px 18px 12px 12px;
-      box-shadow: 0 10px 28px rgba(16,18,20,0.08);
+      box-shadow: 0 10px 28px var(--ink-a08);
       animation: float 7s ease-in-out infinite;
       text-decoration: none;
       color: inherit;
       transition: border-color 0.15s, box-shadow 0.15s, background 0.15s;
     }
-    .chip:hover { border-color: var(--blue); box-shadow: 0 14px 34px rgba(24,104,219,0.16); }
-    .chip-go { font-size: 14px; color: #8C8F97; margin-left: auto; padding-left: 4px; align-self: flex-start; transition: color 0.15s; }
+    .chip:hover { border-color: var(--blue); box-shadow: 0 14px 34px var(--blue-a16); }
+    .chip-go { font-size: 14px; color: var(--grey-500); margin-left: auto; padding-left: 4px; align-self: flex-start; transition: color 0.15s; }
     .chip:hover .chip-go { color: var(--blue); }
-    .chip.dark .chip-go { color: #8C8F97; align-self: center; margin-left: 8px; }
-    .chip.dark:hover { background: #22262B; border-color: #22262B; }
-    .chip.dark:hover .chip-go { color: #fff; }
+    .chip.dark .chip-go { color: var(--grey-500); align-self: center; margin-left: 8px; }
+    .chip.dark:hover { background: var(--ink-800); border-color: var(--ink-800); }
+    .chip.dark:hover .chip-go { color: var(--white); }
     .chip-icon {
       width: 38px; height: 38px;
       border-radius: 10px;
       display: grid;
       place-items: center;
-      font-size: 19px;
       flex-shrink: 0;
     }
+    .chip-icon svg, .award .em svg { fill: none; stroke: var(--ink); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .chip-icon svg { width: 21px; height: 21px; }
     .chip b { display: block; font-size: 15px; font-weight: 600; color: var(--ink); line-height: 1.3; }
     .chip small { display: block; font-size: 13px; color: var(--subtle); line-height: 1.35; }
     .chip.dark {
       background: var(--ink);
       border-color: var(--ink);
-      color: #fff;
+      color: var(--white);
       padding: 10px 16px;
       border-radius: 999px;
-      font-family: var(--mono);
-      font-size: 13px;
+      font-size: 14px;
+      font-weight: 500;
     }
     .c1 { right: calc(50% + 200px); top: 15%; }
     .c2 { right: calc(50% + 172px); bottom: 19%; animation-delay: -2s; }
@@ -418,7 +449,7 @@
       font-weight: 700;
       font-size: 21px;
       letter-spacing: -0.015em;
-      color: #8C8F97;
+      color: var(--grey-500);
       white-space: nowrap;
     }
 
@@ -442,16 +473,13 @@
       color: var(--ink);
       font-variant-numeric: tabular-nums;
     }
-    .num.pre { opacity: 0; }
-    @media print { .num.pre { opacity: 1; } }
+    .js .num.pre { opacity: 0; }
+    @media print { .js .num.pre { opacity: 1; } }
     .label {
-      font-family: var(--mono);
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--text);
-      margin-top: 18px;
-      line-height: 1.5;
+      font-size: 16px;
+      color: var(--muted);
+      margin-top: 16px;
+      line-height: 1.45;
     }
     .plus {
       font-family: var(--display);
@@ -467,7 +495,7 @@
     .work { padding: 40px 0 112px; }
     .tabs-scroll { margin-top: 36px; overflow-x: auto; scrollbar-width: none; margin-left: -24px; margin-right: -24px; padding: 2px 24px; }
     .tabs-scroll::-webkit-scrollbar { display: none; }
-    .tabs-scroll.more { -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 56px), transparent); mask-image: linear-gradient(to right, #000 calc(100% - 56px), transparent); }
+    .tabs-scroll.more { -webkit-mask-image: linear-gradient(to right, var(--black) calc(100% - 56px), transparent); mask-image: linear-gradient(to right, var(--black) calc(100% - 56px), transparent); }
     .tabs { display: inline-flex; gap: 4px; padding: 6px; background: var(--fill); border-radius: 999px; }
     .tab {
       border: 0;
@@ -482,12 +510,12 @@
       white-space: nowrap;
       transition: background 0.15s, color 0.15s;
     }
-    .tab:hover { background: #E3E4E8; }
-    .tab[aria-selected="true"] { background: var(--ink); color: #fff; }
+    .tab:hover { background: var(--grey-200); }
+    .tab[aria-selected="true"] { background: var(--ink); color: var(--white); }
     .panel {
       margin-top: 40px;
       display: grid;
-      grid-template-columns: 1fr 1.15fr;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
       gap: 56px;
       align-items: center;
     }
@@ -515,7 +543,8 @@
       padding: 7px 14px;
     }
     .panel-text > .link-arrow { display: flex; width: fit-content; margin-top: 24px; }
-    .award .em { margin-right: 7px; }
+    .award .em { display: inline-block; margin-right: 7px; vertical-align: -3px; }
+    .award .em svg { display: block; width: 17px; height: 17px; }
     .links { display: flex; flex-wrap: wrap; gap: 10px 28px; margin-top: 24px; }
     .watch {
       position: absolute;
@@ -524,24 +553,24 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: #fff;
+      background: var(--white);
       color: var(--ink);
       font-size: 14px;
       font-weight: 600;
       text-decoration: none;
       padding: 10px 16px;
       border-radius: 999px;
-      box-shadow: 0 8px 24px rgba(16,18,20,0.18);
+      box-shadow: 0 8px 24px var(--ink-a18);
       transition: background 0.15s, color 0.15s;
     }
-    .watch:hover { background: var(--ink); color: #fff; }
+    .watch:hover { background: var(--ink); color: var(--white); }
 
     /* ── Cal Hacks photos ── */
     .photos { padding: 112px 0 0; }
     .photo-grid {
       margin-top: 40px;
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       grid-auto-rows: 270px;
       gap: 16px;
     }
@@ -553,7 +582,7 @@
       bottom: 14px;
       right: 14px;
       width: fit-content;
-      background: rgba(255,255,255,0.94);
+      background: var(--white-a94);
       color: var(--ink);
       font-size: 13.5px;
       font-weight: 500;
@@ -571,12 +600,12 @@
       bottom: 24px;
       translate: -50% 16px;
       background: var(--ink);
-      color: #fff;
+      color: var(--white);
       font-size: 14px;
       font-weight: 500;
       padding: 12px 18px;
       border-radius: 12px;
-      box-shadow: 0 12px 32px rgba(16,18,20,0.25);
+      box-shadow: 0 12px 32px var(--ink-a25);
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.2s, translate 0.2s;
@@ -597,7 +626,7 @@
     }
     .panel-visual > img {
       border-radius: 14px;
-      box-shadow: 0 22px 50px rgba(16,18,20,0.18);
+      box-shadow: 0 22px 50px var(--ink-a18);
     }
     .panel-visual > img { width: auto; height: auto; max-width: 100%; max-height: 100%; }
 
@@ -605,64 +634,56 @@
     .film { padding: 72px 0 0; }
     .film-card {
       background: var(--ink);
-      color: #fff;
+      color: var(--white);
       border-radius: 28px;
       padding: 56px;
     }
-    .film-head { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 48px; align-items: end; margin-bottom: 36px; }
-    .film-card .h2 { color: #fff; }
-    .film-card .sub { color: #B7B9BE; margin-top: 0; max-width: none; }
+    .film-head { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: 48px; align-items: end; margin-bottom: 36px; }
+    .film-card .h2 { color: var(--white); }
+    .film-card .sub { color: var(--grey-400); margin-top: 0; max-width: none; }
     .film-frame {
       position: relative;
       aspect-ratio: 16 / 9;
       border-radius: 16px;
       overflow: hidden;
-      background: #0A0B0D;
-      box-shadow: 0 0 0 1px rgba(255,255,255,0.1);
+      background: var(--ink-950);
+      box-shadow: 0 0 0 1px var(--white-a10);
     }
     .film-frame video { display: block; width: 100%; height: 100%; }
-    .film-frame video:focus-visible { outline: 3px solid #fff; outline-offset: -3px; border-radius: 16px; }
+    .film-frame video:focus-visible { outline: 3px solid var(--white); outline-offset: -3px; border-radius: 16px; }
     .film-play { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; padding: 0; background: transparent; cursor: pointer; }
     .film-play:hover .play { transform: translate(-50%, -50%) scale(1.07); }
-    .film-play:focus-visible { outline: 3px solid #fff; outline-offset: -8px; border-radius: 16px; }
-    .film-text { margin-top: 22px; font-size: 14px; color: #B7B9BE; }
-    .film-text summary { cursor: pointer; color: #fff; font-weight: 500; padding: 6px 0; width: fit-content; }
-    .film-text summary:focus-visible { outline-color: #fff; }
+    .film-play:focus-visible { outline: 3px solid var(--white); outline-offset: -8px; border-radius: 16px; }
+    .film-text { margin-top: 22px; font-size: 14px; color: var(--grey-400); }
+    .film-text summary { cursor: pointer; color: var(--white); font-weight: 500; padding: 6px 0; width: fit-content; }
+    .film-text summary:focus-visible { outline-color: var(--white); }
     .film-text ul { margin: 10px 0 0 18px; display: grid; gap: 8px; }
 
     /* ── Dark band: athletics ── */
-    .dark { background: var(--ink); color: #fff; padding: 112px 0; }
-    .dark .h2 { color: #fff; }
-    .dark .sub { color: #B7B9BE; }
-    .dark-inner { display: grid; grid-template-columns: 1fr 1.1fr; gap: 64px; align-items: center; }
-    .eyebrow-mono {
-      font-family: var(--mono);
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: #94C748;
-      margin-bottom: 18px;
-    }
+    .dark { background: var(--ink); color: var(--white); padding: 112px 0; }
+    .dark .h2 { color: var(--white); }
+    .dark .sub { color: var(--grey-400); }
+    .dark-inner { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 64px; align-items: center; }
     .honors { list-style: none; margin-top: 36px; }
     .honors li {
       display: grid;
-      grid-template-columns: 96px 1fr;
+      grid-template-columns: 96px minmax(0, 1fr);
       gap: 16px;
       padding: 14px 0;
-      border-top: 1px solid rgba(255,255,255,0.12);
+      border-top: 1px solid var(--white-a12);
       font-size: 16px;
     }
-    .honors li:last-child { border-bottom: 1px solid rgba(255,255,255,0.12); }
-    .yr { font-family: var(--mono); font-size: 13px; color: #8C8F97; padding-top: 2px; }
+    .honors li:last-child { border-bottom: 1px solid var(--white-a12); }
+    .yr { font-family: var(--mono); font-size: 13px; color: var(--grey-500); padding-top: 2px; }
     .honors a {
-      color: #fff;
+      color: var(--white);
       text-decoration: underline;
       text-decoration-style: dotted;
-      text-decoration-color: rgba(255,255,255,0.45);
+      text-decoration-color: var(--white-a45);
       text-underline-offset: 4px;
     }
-    .honors a:hover { text-decoration-style: solid; text-decoration-color: #fff; }
-    .honors .muted { color: #B7B9BE; }
+    .honors a:hover { text-decoration-style: solid; text-decoration-color: var(--white); }
+    .honors .muted { color: var(--grey-400); }
     .video-btn {
       position: relative;
       display: block;
@@ -672,7 +693,7 @@
       padding: 0;
       border-radius: 20px;
       overflow: hidden;
-      background: #22272B;
+      background: var(--ink-750);
       cursor: pointer;
     }
     .video-btn img { width: 100%; height: 100%; object-fit: cover; opacity: 0.82; transition: opacity 0.2s; }
@@ -683,22 +704,22 @@
       transform: translate(-50%, -50%);
       width: 76px; height: 76px;
       border-radius: 50%;
-      background: #fff;
+      background: var(--white);
       display: grid;
       place-items: center;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+      box-shadow: 0 10px 30px var(--black-a35);
       transition: transform 0.2s;
     }
     .video-btn:hover .play { transform: translate(-50%, -50%) scale(1.07); }
     .video iframe { width: 100%; aspect-ratio: 16 / 9; border: 0; border-radius: 20px; display: block; }
-    .video-cap { font-size: 14px; color: #8C8F97; margin-top: 14px; }
-    .video-cap a { color: #B7B9BE; text-underline-offset: 3px; }
-    .video-cap a:hover { color: #fff; }
+    .video-cap { font-size: 14px; color: var(--grey-500); margin-top: 14px; }
+    .video-cap a { color: var(--grey-400); text-underline-offset: 3px; }
+    .video-cap a:hover { color: var(--white); }
 
     /* ── How I work ── */
     .how { padding: 112px 0 40px; }
     .how-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; }
-    .feat-grid { margin-top: 60px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; }
+    .feat-grid { margin-top: 60px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 40px; }
     .feat svg { width: 36px; height: 36px; stroke: var(--ink); stroke-width: 1.6; fill: none; stroke-linecap: round; stroke-linejoin: round; }
     .feat h3 {
       font-family: var(--display);
@@ -714,7 +735,7 @@
     /* ── Experience ── */
     .exp { padding: 0; }
     .exp-list { margin-top: 40px; border-top: 1px solid var(--line); }
-    .job { display: grid; grid-template-columns: 48px 1fr; gap: 22px; padding: 28px 0; border-bottom: 1px solid var(--line); }
+    .job { display: grid; grid-template-columns: 48px minmax(0, 1fr); gap: 22px; padding: 28px 0; border-bottom: 1px solid var(--line); }
     .badge {
       width: 48px; height: 48px;
       border-radius: 12px;
@@ -725,7 +746,7 @@
       font-size: 20px;
       color: var(--ink);
     }
-    .badge.logo { background: #fff; border: 1px solid var(--line); overflow: hidden; }
+    .badge.logo { background: var(--white); border: 1px solid var(--line); overflow: hidden; }
     .badge.logo img { width: 100%; height: 100%; object-fit: contain; }
     .job-top { display: flex; justify-content: space-between; align-items: baseline; gap: 6px 16px; flex-wrap: wrap; }
     .job h3 { font-family: var(--display); font-weight: 600; font-size: 21px; letter-spacing: -0.01em; color: var(--ink); }
@@ -736,25 +757,25 @@
       font-weight: 500;
       text-decoration: underline;
       text-decoration-style: dotted;
-      text-decoration-color: #B7B9BE;
+      text-decoration-color: var(--grey-400);
       text-underline-offset: 4px;
     }
     .job-org a:hover { color: var(--blue); text-decoration-color: var(--blue); text-decoration-style: solid; }
     .job ul { margin-top: 12px; padding-left: 18px; }
     .job li { font-size: 15.5px; color: var(--text); margin-top: 4px; }
-    .job li::marker { color: #B7B9BE; }
-    .job li a { color: var(--ink); text-decoration: underline; text-decoration-color: #B7B9BE; text-underline-offset: 3px; }
+    .job li::marker { color: var(--grey-400); }
+    .job li a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--grey-400); text-underline-offset: 3px; }
     .job li a:hover { color: var(--blue); text-decoration-color: var(--blue); }
 
     /* ── Education & skills ── */
     .edu { padding: 112px 0; }
-    .edu-grid { margin-top: 40px; display: grid; grid-template-columns: 1.3fr 0.7fr; gap: 24px; }
+    .edu-grid { margin-top: 40px; display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr); gap: 24px; }
     .edu-grid > .card-p.outlined { grid-column: 1 / -1; }
     .edu-photo { position: relative; border-radius: 24px; overflow: hidden; min-height: 340px; background: var(--p-blue); }
     .edu-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
     .card-p { border-radius: 24px; padding: 40px; }
-    .card-p.outlined { border: 1px solid var(--line); display: grid; grid-template-columns: max-content 1fr; gap: 14px 32px; align-items: start; }
-    .card-p.outlined .eyebrow { grid-column: 1 / -1; margin-bottom: 4px; }
+    .card-p.outlined { border: 1px solid var(--line); display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 14px 32px; align-items: start; }
+    .card-p.outlined .skills-title { grid-column: 1 / -1; font-family: var(--display); font-weight: 600; font-size: 24px; line-height: 1.15; letter-spacing: -0.02em; color: var(--ink); margin: 0 0 4px; }
     .card-p.outlined .skill-h { margin: 0; padding-top: 9px; }
     .card-p h3 {
       font-family: var(--display);
@@ -770,15 +791,12 @@
     .card-p .eyebrow { color: var(--muted); }
     .deg { font-size: 18px; font-weight: 600; color: var(--ink); margin-top: 10px; }
     .facts { list-style: none; margin-top: 24px; }
-    .facts li { font-size: 15.5px; color: var(--text); padding: 11px 0; border-top: 1px solid rgba(16,18,20,0.1); }
+    .facts li { font-size: 15.5px; color: var(--text); padding: 11px 0; border-top: 1px solid var(--ink-a10); }
     .facts b { color: var(--ink); }
     .skill-h {
-      font-family: var(--mono);
-      font-size: 12px;
-      font-weight: 400;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--subtle);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--muted);
       margin: 20px 0 8px;
     }
     .skill-h:first-of-type { margin-top: 16px; }
@@ -791,44 +809,28 @@
     .cta-box .hl { color: var(--blue-hover); }
 
     /* ── Footer ── */
-    .foot { background: var(--ink); color: #B7B9BE; padding: 64px 0 32px; }
+    .foot { background: var(--ink); color: var(--grey-400); padding: 64px 0 32px; }
     .foot-inner { display: flex; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
-    .foot .brand { color: #fff; }
+    .foot .brand { color: var(--white); }
     .foot-small { font-size: 14px; margin-top: 12px; }
     .foot-cols { display: flex; gap: 72px; flex-wrap: wrap; }
     .foot h2 {
-      font-family: var(--mono);
-      font-size: 12px;
-      font-weight: 400;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: #8C8F97;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--grey-500);
       margin-bottom: 14px;
     }
-    .foot-cols a { display: block; color: #fff; text-decoration: none; font-size: 15px; margin-bottom: 10px; }
+    .foot-cols a { display: block; color: var(--white); text-decoration: none; font-size: 15px; margin-bottom: 10px; }
     .foot-cols a:hover { text-decoration: underline; text-underline-offset: 4px; }
-    .foot-bottom { margin-top: 48px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.12); font-size: 13px; }
+    .foot-bottom { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--white-a12); font-size: 13px; }
 
     /* ── Motion and atmosphere ──
        One page-load sequence in the hero, a pin field behind the photo, and sections that ease in as they are
        scrolled to. All of it is off for people who ask for reduced motion, and nothing is hidden without JS. */
-    .hero { position: relative; isolation: isolate; }
-    .hero::before {
-      content: "";
-      position: absolute;
-      left: 0; right: 0; top: -64px;
-      height: 660px;
-      z-index: -1;
-      pointer-events: none;
-      background:
-        radial-gradient(46% 58% at 20% 6%, rgba(207,225,253,0.5), transparent 72%),
-        radial-gradient(42% 52% at 82% 0%, rgba(211,241,167,0.36), transparent 72%),
-        radial-gradient(36% 46% at 56% 34%, rgba(238,215,252,0.28), transparent 72%);
-    }
     .stage .pins { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
     .stage.has-pins::before { display: none; }
-    .rv { opacity: 0; transform: translateY(18px); }
-    .rv.in {
+    .js .rv { opacity: 0; transform: translateY(18px); }
+    .js .rv.in {
       opacity: 1;
       transform: none;
       transition: opacity 0.7s cubic-bezier(0.2, 0.7, 0.2, 1), transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
@@ -836,7 +838,7 @@
     }
     .feat svg.draw * { stroke-dasharray: 1; stroke-dashoffset: 1; }
     .feat svg.draw.on * { stroke-dashoffset: 0; transition: stroke-dashoffset 0.9s cubic-bezier(0.3, 0.6, 0.2, 1) 0.2s; }
-    @media print { .rv { opacity: 1 !important; transform: none !important; } }
+    @media print { .js .rv { opacity: 1 !important; transform: none !important; } }
     @media (prefers-reduced-motion: no-preference) {
       @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
       @keyframes word { from { opacity: 0; transform: translateY(0.4em); } to { opacity: 1; transform: none; } }
@@ -863,11 +865,11 @@
 
     /* ── Responsive ── */
     @media (max-width: 1100px) {
-      .feat-grid { grid-template-columns: repeat(2, 1fr); }
+      .feat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .stage {
         height: auto;
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
         gap: 12px;
         padding: 28px 20px;
       }
@@ -878,7 +880,7 @@
       .chip { max-width: 520px; width: 100%; justify-self: center; }
     }
     @media (max-width: 1000px) {
-      .stat-row { display: grid; grid-template-columns: 1fr 1fr; gap: 44px 16px; }
+      .stat-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 44px 16px; }
       .stat { min-width: 0; }
       .plus { display: none; }
     }
@@ -907,7 +909,7 @@
     @media (max-width: 900px) {
       .nav-text { display: none; }
       .nav-actions { gap: 8px; }
-      .mega-cols { grid-template-columns: 1fr 1fr; }
+      .mega-cols { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
 
       .link-arrow { padding: 10px 0; }
       .panel-text > .link-arrow, .links { margin-top: 12px; }
@@ -915,16 +917,16 @@
       .foot-cols a { padding: 9px 0; margin-bottom: 0; }
       .foot-cols { gap: 48px; }
 
-      .panel { grid-template-columns: 1fr; gap: 28px; }
+      .panel { grid-template-columns: minmax(0, 1fr); gap: 28px; }
       .panel-visual { padding: 22px; aspect-ratio: 1 / 1; }
-      .dark-inner { grid-template-columns: 1fr; gap: 48px; }
+      .dark-inner { grid-template-columns: minmax(0, 1fr); gap: 48px; }
       .film-card { padding: 40px; }
-      .film-head { grid-template-columns: 1fr; gap: 16px; margin-bottom: 28px; }
-      .photo-grid { grid-template-columns: 1fr 1fr; grid-auto-rows: auto; }
+      .film-head { grid-template-columns: minmax(0, 1fr); gap: 16px; margin-bottom: 28px; }
+      .photo-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-auto-rows: auto; }
       .shot { aspect-ratio: 4 / 3; }
       .shot-wide { grid-column: 1 / -1; aspect-ratio: 3 / 2; }
       .shot-tall { grid-column: 2; grid-row: 2 / 4; aspect-ratio: auto; }
-      .edu-grid { grid-template-columns: 1fr; }
+      .edu-grid { grid-template-columns: minmax(0, 1fr); }
       .edu-photo { min-height: 0; aspect-ratio: 3 / 2; }
     }
     @media (max-width: 700px) {
@@ -938,7 +940,7 @@
         max-height: calc(100dvh - 64px);
         overflow-y: auto;
       }
-      .mega-cols { grid-template-columns: 1fr 1fr; gap: 24px 20px; }
+      .mega-cols { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px 20px; }
       .mega-col a { font-size: 15px; padding: 9px 0; }
       .mega-promo { justify-content: flex-start; padding: 16px 18px; gap: 6px 12px; margin-top: 24px; border-radius: 16px; }
       .mega-promo b { font-size: 18px; }
@@ -948,8 +950,8 @@
       .wrap { padding: 0 18px; }
       .tabs-scroll { margin-left: -18px; margin-right: -18px; padding: 2px 18px; }
       .hero { padding-top: 56px; }
-      .stage { grid-template-columns: 1fr; padding: 24px 16px; border-radius: 22px; }
-      .feat-grid { grid-template-columns: 1fr; gap: 36px; }
+      .stage { grid-template-columns: minmax(0, 1fr); padding: 24px 16px; border-radius: 22px; }
+      .feat-grid { grid-template-columns: minmax(0, 1fr); gap: 36px; }
       .how, .edu { padding-top: 88px; }
       .dark, .cta { padding: 88px 0; }
       .film { padding-top: 56px; }
@@ -963,11 +965,11 @@
       .edu-photo { aspect-ratio: 4 / 3; border-radius: 20px; }
       .card-p h3 { font-size: 48px; }
       .cta-box { padding: 60px 22px; border-radius: 24px; }
-      .honors li { grid-template-columns: 78px 1fr; gap: 12px; }
+      .honors li { grid-template-columns: 78px minmax(0, 1fr); gap: 12px; }
       .award { border-radius: 14px; }
       .status { border-radius: 14px; }
       .chip.dark { border-radius: 14px; }
-      .photo-grid { grid-template-columns: 1fr; gap: 12px; }
+      .photo-grid { grid-template-columns: minmax(0, 1fr); gap: 12px; }
       .shot { aspect-ratio: 3 / 2; }
       .shot-tall { grid-column: 1 / -1; grid-row: auto; aspect-ratio: 4 / 5; }
       .watch { left: 14px; bottom: 14px; }
@@ -1033,10 +1035,10 @@
           <div class="mega-col">
             <h3>Experience</h3>
             <ul>
-              <li><a href="#job-dts">UCLA DTS · now</a></li>
-              <li><a href="#job-ceed">UCLA CEED</a></li>
+              <li><a href="#job-dts">UCLA DTS, now</a></li>
+              <li><a class="wordmark" href="#job-ceed">UCLA CEED</a></li>
               <li><a href="#job-deanza">De Anza College</a></li>
-              <li><a href="#job-nasa">NASA L'SPACE</a></li>
+              <li><a class="wordmark" href="#job-nasa">NASA L’SPACE</a></li>
               <li><a href="#job-stanford">Stanford research</a></li>
               <li><a href="#job-hangseng">Hang Seng Bank</a></li>
             </ul>
@@ -1070,7 +1072,7 @@
             <circle cx="11" cy="29" r="3.4" fill="#fff"/><circle cx="20" cy="29" r="3.4" fill="#EED7FC"/><circle cx="29" cy="29" r="3.4" fill="#fff"/>
           </svg>
           <b>TouchSpace</b>
-          <span>Tactile maps for blind and visually impaired people · won Anthropic's Claude for Public Benefit Prize&nbsp;↗</span>
+          <span>Tactile maps for blind and visually impaired people. Won Anthropic’s Claude for Public Benefit Prize&nbsp;↗</span>
         </a>
       </div>
     </div>
@@ -1085,16 +1087,16 @@
       <a class="status" href="mailto:holokcheung@ucla.edu"><span class="dot"></span>Open to SWE internships (any&nbsp;season) &amp; full&#8209;time roles</a>
       <h1>I build at the intersection of <span class="k k1">language,</span> <span class="k k2">code,</span> <span class="k k3">and sport.</span></h1>
       <p class="lede">
-        I'm Ho Lok, a CS + Linguistics student at <a class="hl" href="https://www.ucla.edu" target="_blank" rel="noopener">UCLA</a>
+        I’m Ho Lok, a CS + Linguistics student at <a class="hl" href="https://www.ucla.edu" target="_blank" rel="noopener">UCLA</a>
         and a student software developer at <a class="hl" href="https://dts.ucla.edu/" target="_blank" rel="noopener">UCLA Digital and Technology Solutions</a>.
         Previously a <a class="hl" href="https://engineering.stanford.edu" target="_blank" rel="noopener">Stanford</a> research intern
-        and a <a class="hl" href="https://www.lspace.asu.edu/" target="_blank" rel="noopener">NASA L'SPACE</a> project manager.
-        I'm an eight-time hackathon prize winner, a <a class="hl" href="https://www.usateamhandball.org/" target="_blank" rel="noopener">USA Team Handball</a> Academic All-American,
+        and a <a class="wordmark hl" href="https://www.lspace.asu.edu/" target="_blank" rel="noopener">NASA L’SPACE</a> project manager.
+        I’m an eight-time hackathon prize winner, a <a class="hl" href="https://www.usateamhandball.org/" target="_blank" rel="noopener">USA Team Handball</a> Academic All-American,
         and I play for the <a class="hl" href="https://uclaclubsports.com/sports/mens-rugby" target="_blank" rel="noopener">UCLA Rugby</a> team.
       </p>
       <div class="cta-row">
         <a class="btn btn-primary" href="resume.pdf" target="_blank" rel="noopener">View my resume</a>
-        <a class="link-arrow" href="mailto:holokcheung@ucla.edu">Email me <span aria-hidden="true">→</span></a>
+        <a class="link-arrow" href="mailto:holokcheung@ucla.edu">Email me</a>
       </div>
 
       <div class="stage">
@@ -1105,11 +1107,11 @@
             Ho Lok
           </span>
         </div>
-        <a class="chip c1" href="https://devpost.com/software/touchspace" target="_blank" rel="noopener"><span class="chip-icon bg-yellow" aria-hidden="true">🏆</span><div><b>Claude for Public Benefit Prize</b><small>TouchSpace · Cal Hacks 13.0</small></div><span class="chip-go" aria-hidden="true">↗</span></a>
-        <a class="chip c2" href="https://dorahacks.io/buidl/16986" target="_blank" rel="noopener"><span class="chip-icon bg-lime" aria-hidden="true">🥇</span><div><b>1st Place</b><small>GreenMate · Columbia Hackathon</small></div><span class="chip-go" aria-hidden="true">↗</span></a>
-        <a class="chip c3" href="https://www.usateamhandball.org/news/2026/april/27/usath-names-college-all-tournament-teams-academic-all-americans" target="_blank" rel="noopener"><span class="chip-icon bg-blue" aria-hidden="true">🤾</span><div><b>Academic All-American</b><small>USA Team Handball · 1st Team</small></div><span class="chip-go" aria-hidden="true">↗</span></a>
-        <a class="chip c4" href="#education"><span class="chip-icon bg-lav" aria-hidden="true">🎓</span><div><b>4.0 GPA · Regents Scholar</b><small>UCLA · top 2% of admits</small></div><span class="chip-go" aria-hidden="true">→</span></a>
-        <a class="chip dark c5" href="https://github.com/holokcheung" target="_blank" rel="noopener">React · Node.js · C++ · Python<span class="chip-go" aria-hidden="true">↗</span></a>
+        <a class="chip c1" href="https://devpost.com/software/touchspace" target="_blank" rel="noopener"><span class="chip-icon bg-yellow" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4h8v6a4 4 0 0 1-8 0z"/><path d="M8 6H5a3 3 0 0 0 3 4.5"/><path d="M16 6h3a3 3 0 0 1-3 4.5"/><path d="M12 14v4"/><path d="M8.5 20h7"/></svg></span><div><b>Claude for Public Benefit Prize</b><small>TouchSpace, Cal Hacks 13.0</small></div><span class="chip-go" aria-hidden="true">↗</span></a>
+        <a class="chip c2" href="https://dorahacks.io/buidl/16986" target="_blank" rel="noopener"><span class="chip-icon bg-lime" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3l2.2 5.2"/><path d="M15 3l-2.2 5.2"/><circle cx="12" cy="14.5" r="5.5"/><path d="M12 12.3v4.4"/></svg></span><div><b>1st Place</b><small>GreenMate, Columbia Hackathon</small></div><span class="chip-go" aria-hidden="true">↗</span></a>
+        <a class="chip c3" href="https://www.usateamhandball.org/news/2026/april/27/usath-names-college-all-tournament-teams-academic-all-americans" target="_blank" rel="noopener"><span class="chip-icon bg-blue" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M5.2 7.5c3.5 1.2 5.3 4.2 5.2 9.8"/><path d="M18.8 7.5c-3.5 1.2-5.3 4.2-5.2 9.8"/><path d="M8 4.8c2.6 1.4 5.4 1.4 8 0"/></svg></span><div><b>Academic All-American</b><small>USA Team Handball, 1st Team</small></div><span class="chip-go" aria-hidden="true">↗</span></a>
+        <a class="chip c4" href="#education"><span class="chip-icon bg-lav" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 9.5 12 5l9.5 4.5L12 14z"/><path d="M6.5 11.8V16c1.6 1.4 3.4 2 5.5 2s3.9-.6 5.5-2v-4.2"/><path d="M21.5 9.5V15"/></svg></span><div><b>4.0 GPA, Regents Scholar</b><small>UCLA, top 2% of admits</small></div><span class="chip-go" aria-hidden="true">→</span></a>
+        <a class="chip dark c5" href="https://github.com/holokcheung" target="_blank" rel="noopener">React, Node.js, C++, Python<span class="chip-go" aria-hidden="true">↗</span></a>
       </div>
     </div>
   </section>
@@ -1117,11 +1119,11 @@
   <!-- LOGO STRIP -->
   <section class="logos" aria-label="Affiliations">
     <div class="wrap">
-      <p class="logos-label">Where I've studied, researched, and competed</p>
+      <p class="logos-label">Where I’ve studied, researched, and competed</p>
       <ul class="logo-row">
         <li>UCLA</li>
         <li>Stanford University</li>
-        <li>NASA L'SPACE</li>
+        <li>NASA L’SPACE</li>
         <li>Hang Seng Bank</li>
         <li>USA Team Handball</li>
         <li>De Anza College</li>
@@ -1135,11 +1137,10 @@
       <div class="film-card">
         <div class="film-head">
           <div>
-            <p class="eyebrow-mono">32-second intro · has sound</p>
-            <h2 class="h2" id="film-h">2,400 pins, in motion.</h2>
+            <h2 class="h2" id="film-h">A 32-second intro film</h2>
           </div>
           <div>
-            <p class="sub" id="film-desc">One dot becomes 2,400, the number of pins on the Dot Pad tactile display that TouchSpace drives. The same points then re-form into what I work on: a speech waveform, a floor plan with a route through it, and a handball goal.</p>
+            <p class="sub" id="film-desc">One dot becomes 2,400, the number of pins on the Dot Pad tactile display that TouchSpace drives. The same points then re-form into what I work on: a speech waveform, a floor plan with a route through it, and a handball goal. It has sound.</p>
           </div>
         </div>
         <div class="film-frame">
@@ -1156,7 +1157,7 @@
           <ul>
             <li>One dot unfolds into a row of 60, then 40 rows: 2,400 pins.</li>
             <li>Language: a speech waveform turns into “hello”, then its pronunciation /həˈloʊ/, scored sound by sound, then 你好. naccent is an AI pronunciation trainer for English learners. I speak Cantonese, Mandarin, and English.</li>
-            <li>Code: a floor plan rises on the pins and Dijkstra's algorithm finds a route through it. TouchSpace makes tactile maps for blind and visually impaired people. Our team won Anthropic's Claude for Public Benefit Prize at Cal Hacks 13.0. The pins then count to 8, for eight hackathon prizes.</li>
+            <li>Code: a floor plan rises on the pins and Dijkstra’s algorithm finds a route through it. TouchSpace makes tactile maps for blind and visually impaired people. Our team won Anthropic’s Claude for Public Benefit Prize at Cal Hacks 13.0. The pins then count to 8, for eight hackathon prizes.</li>
             <li>Sport: the grid stands up as a handball goal and the 8 becomes the ball. 2026 Academic All-American, 1st Team, from USA Team Handball. I play for the UCLA Rugby team.</li>
             <li>The points gather into the HL mark. Some then spell “Ho Lok Cheung”, and the rest form a photo of Royce Hall at UCLA, which turns into a portrait of me in my UCLA Rugby jersey, next to holokcheung.com.</li>
           </ul>
@@ -1175,11 +1176,11 @@
         <div class="plus" aria-hidden="true">+</div>
         <div class="stat"><div class="num" data-to="8">8</div><div class="label">Hackathon prizes</div></div>
         <div class="plus" aria-hidden="true">+</div>
-        <div class="stat"><div class="num" data-to="20">20</div><div class="label">People led at<br>NASA L'SPACE</div></div>
+        <div class="stat"><div class="num" data-to="20">20</div><div class="label">People led at<br>NASA L’SPACE</div></div>
         <div class="plus" aria-hidden="true">+</div>
-        <div class="stat"><div class="num">1st</div><div class="label">Team · <a class="hl" href="https://www.usateamhandball.org/" target="_blank" rel="noopener">USA Handball</a><br>Academic All-American</div></div>
+        <div class="stat"><div class="num">1st</div><div class="label">Team Academic All&#8209;American<br><a class="hl" href="https://www.usateamhandball.org/" target="_blank" rel="noopener">USA Team Handball</a></div></div>
       </div>
-      <p class="footnote">Prizes include Anthropic's Claude for Public Benefit Prize at Cal Hacks 13.0, 1st Place at the Columbia University Hackathon, 2nd Place at UC Berkeley Hack for Impact, Best Student Life Hack at SB Hacks XI, and 3rd Place at De Anza Hacks 2.5. Also a finalist at HackHarvard and HackMIT.</p>
+      <p class="footnote">Prizes include Anthropic’s Claude for Public Benefit Prize at Cal Hacks 13.0, 1st Place at the Columbia University Hackathon, 2nd Place at UC Berkeley Hack for Impact, Best Student Life Hack at SB Hacks XI, and 3rd Place at De Anza Hacks 2.5. Also a finalist at HackHarvard and HackMIT.</p>
     </div>
   </section>
 
@@ -1200,16 +1201,16 @@
 
       <div class="panel" role="tabpanel" id="p-touchspace" aria-labelledby="t-touchspace">
         <div class="panel-text">
-          <p class="eyebrow">Hackathon · Cal Hacks 13.0 · 2026</p>
+          <p class="eyebrow">Hackathon, Cal Hacks 13.0, 2026</p>
           <div class="stack"><span><i class="sq bg-blue"></i>Python</span><span><i class="sq bg-lime"></i>FastAPI</span><span><i class="sq bg-yellow"></i>React</span><span><i class="sq bg-lav"></i>TypeScript</span><span><i class="sq bg-blue"></i>Claude API</span><span><i class="sq bg-lime"></i>RoomPlan</span></div>
           <h3>Tactile and audio maps for blind and visually impaired people</h3>
           <p>Scan a room with a LiDAR iPhone and TouchSpace turns it into a floor plan and walkable navigation graph that rises as pins on a 2,400-pin Dot Pad tactile display. Ask a question out loud and Claude works out what you mean; the answer comes from the real map data and Dijkstra route planning computes every path, so the AI can never make one up. A FastAPI backend with 20 endpoints and 153 automated tests powers the React web app. Built with James Zheng and Sunghyuk Yoon.</p>
           <p><strong>My part:</strong> the FastAPI backend, the React web app, the map schema and floor-plan processing, RoomPlan import, Dijkstra routing, the Claude question interpreter, the route editor, and the 60&times;40 Dot Pad preview. James built the Bluetooth Dot Pad driver. <strong>On AI:</strong> Claude only interprets the question; every answer and route comes from deterministic map functions, and the 153 tests cover all 20 endpoints.</p>
-          <p class="award"><span class="em" aria-hidden="true">🏆</span>Claude for Public Benefit Prize · $5K from Anthropic</p>
+          <p class="award"><span class="em" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4h8v6a4 4 0 0 1-8 0z"/><path d="M8 6H5a3 3 0 0 0 3 4.5"/><path d="M16 6h3a3 3 0 0 1-3 4.5"/><path d="M12 14v4"/><path d="M8.5 20h7"/></svg></span>Claude for Public Benefit Prize, $5K from Anthropic</p>
           <div class="links">
-            <a class="link-arrow" href="/touchspace/">Read the case study <span aria-hidden="true">→</span></a>
-            <a class="link-arrow" href="https://devpost.com/software/touchspace" target="_blank" rel="noopener">View on Devpost <span aria-hidden="true">→</span></a>
-            <a class="link-arrow" href="https://github.com/holokcheung/touchspace" target="_blank" rel="noopener">GitHub <span aria-hidden="true">→</span></a>
+            <a class="link-arrow" href="/touchspace/">Read the case study</a>
+            <a class="link-arrow" href="https://devpost.com/software/touchspace" target="_blank" rel="noopener">View on Devpost</a>
+            <a class="link-arrow" href="https://github.com/holokcheung/touchspace" target="_blank" rel="noopener">View on GitHub</a>
           </div>
         </div>
         <div class="panel-visual bg-lav">
@@ -1220,15 +1221,15 @@
 
       <div class="panel" role="tabpanel" id="p-naccent" aria-labelledby="t-naccent" hidden>
         <div class="panel-text">
-          <p class="eyebrow">Hackathon · SB Hacks XI · 2025</p>
+          <p class="eyebrow">Hackathon, SB Hacks XI, 2025</p>
           <div class="stack"><span><i class="sq bg-blue"></i>Next.js</span><span><i class="sq bg-lime"></i>Python</span><span><i class="sq bg-yellow"></i>Flask</span><span><i class="sq bg-lav"></i>Whisper API</span></div>
           <h3>An AI pronunciation trainer for English learners</h3>
           <p>naccent transcribes your speech with the OpenAI Whisper API and scores it sound by sound through SpeechAce and a Flask service, so you can see how each sound compares with a native speaker. The Next.js frontend tracks your progress over time.</p>
           <p><strong>My part:</strong> I built the Whisper transcription and SpeechAce scoring pipeline behind the Flask service and shipped the Next.js frontend with Chart.js progress charts, after replacing a first version that scored with an LLM alone and handled accents and phonetic detail poorly.</p>
-          <p class="award"><span class="em" aria-hidden="true">🏆</span>Best Student Life Hack</p>
+          <p class="award"><span class="em" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4h8v6a4 4 0 0 1-8 0z"/><path d="M8 6H5a3 3 0 0 0 3 4.5"/><path d="M16 6h3a3 3 0 0 1-3 4.5"/><path d="M12 14v4"/><path d="M8.5 20h7"/></svg></span>Best Student Life Hack</p>
           <div class="links">
-            <a class="link-arrow" href="https://devpost.com/software/naccent" target="_blank" rel="noopener">View on Devpost <span aria-hidden="true">→</span></a>
-            <a class="link-arrow" href="https://github.com/enkhbold470/naccent" target="_blank" rel="noopener">Code <span aria-hidden="true">→</span></a>
+            <a class="link-arrow" href="https://devpost.com/software/naccent" target="_blank" rel="noopener">View on Devpost</a>
+            <a class="link-arrow" href="https://github.com/enkhbold470/naccent" target="_blank" rel="noopener">View the code</a>
           </div>
         </div>
         <div class="panel-visual bg-blue"><img src="naccent.jpg" width="681" height="1400" loading="lazy" alt="naccent showing expected and heard sounds for a spoken sentence"></div>
@@ -1236,13 +1237,13 @@
 
       <div class="panel" role="tabpanel" id="p-greenmate" aria-labelledby="t-greenmate" hidden>
         <div class="panel-text">
-          <p class="eyebrow">Hackathon · Columbia University · 2024</p>
+          <p class="eyebrow">Hackathon, Columbia University, 2024</p>
           <div class="stack"><span><i class="sq bg-lime"></i>Snap Spectacles</span><span><i class="sq bg-yellow"></i>Lens Studio</span><span><i class="sq bg-blue"></i>AR</span></div>
           <h3>Live plant health, right in your field of view</h3>
-          <p>GreenMate runs on Snap Spectacles and overlays real-time plant-health data in the wearer's view, so you can see what a plant needs just by looking at it.</p>
+          <p>GreenMate runs on Snap Spectacles and overlays real-time plant-health data in the wearer’s view, so you can see what a plant needs just by looking at it.</p>
           <p><strong>My part:</strong> I built the Spectacles app in Lens Studio.</p>
-          <p class="award"><span class="em" aria-hidden="true">🥇</span>1st Place</p>
-          <a class="link-arrow" href="https://dorahacks.io/buidl/16986" target="_blank" rel="noopener">View on DoraHacks <span aria-hidden="true">→</span></a>
+          <p class="award"><span class="em" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3l2.2 5.2"/><path d="M15 3l-2.2 5.2"/><circle cx="12" cy="14.5" r="5.5"/><path d="M12 12.3v4.4"/></svg></span>1st Place</p>
+          <a class="link-arrow" href="https://dorahacks.io/buidl/16986" target="_blank" rel="noopener">View on DoraHacks</a>
         </div>
         <div class="panel-visual bg-lime"><img src="greenmate.jpg" width="1198" height="1400" loading="lazy" alt="GreenMate AR demo at the Columbia University Hackathon"></div>
       </div>
@@ -1250,12 +1251,12 @@
 
       <div class="panel" role="tabpanel" id="p-neuralnurse" aria-labelledby="t-neuralnurse" hidden>
         <div class="panel-text">
-          <p class="eyebrow">Hackathon · UC Berkeley Hack for Impact · 2024</p>
+          <p class="eyebrow">Hackathon, UC Berkeley Hack for Impact, 2024</p>
           <div class="stack"><span><i class="sq bg-lav"></i>Python</span><span><i class="sq bg-blue"></i>Computer vision</span><span><i class="sq bg-yellow"></i>Facial recognition</span></div>
           <h3>A social memory assistant</h3>
           <p>An AI assistant that recognizes the people around you and recalls how you know them, to make in-person conversations easier. My first hackathon win, at an event hosted by Cal Hacks.</p>
-          <p class="award"><span class="em" aria-hidden="true">🥈</span>2nd Place Overall</p>
-          <a class="link-arrow" href="https://github.com/NeuralNurse/CV-Module" target="_blank" rel="noopener">View on GitHub <span aria-hidden="true">→</span></a>
+          <p class="award"><span class="em" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3l2.2 5.2"/><path d="M15 3l-2.2 5.2"/><circle cx="12" cy="14.5" r="5.5"/><path d="M12 12.3v4.4"/></svg></span>2nd Place Overall</p>
+          <a class="link-arrow" href="https://github.com/NeuralNurse/CV-Module" target="_blank" rel="noopener">View on GitHub</a>
         </div>
         <div class="panel-visual bg-lav"><img src="cv-module.jpg" width="931" height="1400" loading="lazy" alt="NeuralNurse detecting a face in a live camera feed"></div>
       </div>
@@ -1271,10 +1272,10 @@
         <article class="job" id="job-dts">
           <span class="badge logo" aria-hidden="true"><img src="logos/ucla.png" alt="" width="48" height="48" loading="lazy"></span>
           <div>
-            <div class="job-top"><h3>Student Software Developer</h3><span class="job-date">Aug 2026 – now</span></div>
-            <p class="job-org"><a href="https://dts.ucla.edu/" target="_blank" rel="noopener">UCLA Digital and Technology Solutions</a> · Digital Spaces · Los Angeles</p>
+            <div class="job-top"><h3>Student Software Developer</h3><span class="job-date">Aug 2026 to now</span></div>
+            <p class="job-org"><a href="https://dts.ucla.edu/" target="_blank" rel="noopener">UCLA Digital and Technology Solutions</a>, Digital Spaces, Los Angeles</p>
             <ul>
-              <li>Improve the reliability of classroom applications supporting UCLA's Learning Spaces Modernization Project by debugging issues and contributing fixes to shared codebases.</li>
+              <li>Improve the reliability of classroom applications supporting UCLA’s Learning Spaces Modernization Project by debugging issues and contributing fixes to shared codebases.</li>
               <li>Rewrite existing code in these classroom apps alongside full-time engineers on the Digital Spaces team, documenting each change so the team can maintain it.</li>
             </ul>
           </div>
@@ -1283,10 +1284,10 @@
         <article class="job" id="job-ceed">
           <span class="badge logo" aria-hidden="true"><img src="logos/ucla.png" alt="" width="48" height="48" loading="lazy"></span>
           <div>
-            <div class="job-top"><h3>Mathematics Instructor</h3><span class="job-date">Sep 2025 – Jun 2026</span></div>
-            <p class="job-org"><a href="https://www.ceed.ucla.edu/map-page/" target="_blank" rel="noopener">UCLA Center for Excellence in Engineering and Diversity</a> · Los Angeles</p>
+            <div class="job-top"><h3>Mathematics Instructor</h3><span class="job-date">Sep 2025 to Jun 2026</span></div>
+            <p class="job-org"><a href="https://www.ceed.ucla.edu/map-page/" target="_blank" rel="noopener">UCLA Center for Excellence in Engineering and Diversity</a>, Los Angeles</p>
             <ul>
-              <li>Taught and mentored K–12 students in mathematics through UCLA's engineering outreach program.</li>
+              <li>Taught and mentored K-12 students in mathematics through UCLA’s engineering outreach program.</li>
               <li>Guided a mentee to a full scholarship at Vanderbilt University.</li>
             </ul>
           </div>
@@ -1295,8 +1296,8 @@
         <article class="job" id="job-deanza">
           <span class="badge logo" aria-hidden="true"><img src="logos/deanza.png" alt="" width="48" height="48" loading="lazy"></span>
           <div>
-            <div class="job-top"><h3>Senior Writing &amp; Reading Tutor</h3><span class="job-date">Sep 2024 – Jul 2025</span></div>
-            <p class="job-org"><a href="https://www.deanza.edu/studentsuccess/wrc/" target="_blank" rel="noopener">De Anza College</a> · Cupertino</p>
+            <div class="job-top"><h3>Senior Writing &amp; Reading Tutor</h3><span class="job-date">Sep 2024 to Jul 2025</span></div>
+            <p class="job-org"><a href="https://www.deanza.edu/studentsuccess/wrc/" target="_blank" rel="noopener">De Anza College</a>, Cupertino</p>
             <ul>
               <li>Mentored new tutors and gave advanced academic writing guidance.</li>
               <li>Promoted from Writing &amp; Reading Tutor after six months.</li>
@@ -1307,11 +1308,11 @@
         <article class="job" id="job-nasa">
           <span class="badge logo" aria-hidden="true"><img src="logos/lspace.png" alt="" width="48" height="48" loading="lazy"></span>
           <div>
-            <div class="job-top"><h3>Project Manager</h3><span class="job-date">Sep – Dec 2024</span></div>
-            <p class="job-org"><a href="https://www.lspace.asu.edu/" target="_blank" rel="noopener">NASA L'SPACE Academy</a> · Tempe, AZ</p>
+            <div class="job-top"><h3>Project Manager</h3><span class="job-date">Sep to Dec 2024</span></div>
+            <p class="job-org"><a href="https://www.lspace.asu.edu/" target="_blank" rel="noopener">NASA L’SPACE Academy</a>, Tempe, AZ</p>
             <ul>
               <li>Led a 20-person team spanning Chief Scientist, Deputy Program Manager, and Chief Engineer roles.</li>
-              <li>Authored a full mission design review for a semi-autonomous lunar rover, defining and tracking benchmarks for its mission-critical operations.</li>
+              <li>Authored a full mission design review for a semi-autonomous lunar rover, defining and tracking benchmarks for its operations.</li>
               <li>Coordinated public mission outreach with NASA engineers and researchers.</li>
             </ul>
           </div>
@@ -1320,8 +1321,8 @@
         <article class="job" id="job-stanford">
           <span class="badge logo" aria-hidden="true"><img src="logos/stanford.png" alt="" width="48" height="48" loading="lazy"></span>
           <div>
-            <div class="job-top"><h3>Research Intern</h3><span class="job-date">Jun – Aug 2024</span></div>
-            <p class="job-org"><a href="https://engineering.stanford.edu" target="_blank" rel="noopener">Stanford University</a> · Palo Alto</p>
+            <div class="job-top"><h3>Research Intern</h3><span class="job-date">Jun to Aug 2024</span></div>
+            <p class="job-org"><a href="https://engineering.stanford.edu" target="_blank" rel="noopener">Stanford University</a>, Palo Alto</p>
             <ul>
               <li>Built a grid-based evolutionary simulator in Python modeling mutation, genome recombination, and natural selection under configurable mutation rates and spatial constraints.</li>
               <li>Structured it around modular Creature, State, and Action classes with a real-time visualization canvas.</li>
@@ -1333,8 +1334,8 @@
         <article class="job" id="job-hangseng">
           <span class="badge logo" aria-hidden="true"><img src="logos/hangseng.png" alt="" width="48" height="48" loading="lazy"></span>
           <div>
-            <div class="job-top"><h3>Operations Intern</h3><span class="job-date">Jun – Aug 2023</span></div>
-            <p class="job-org"><a href="https://www.hangseng.com/en-hk/home/" target="_blank" rel="noopener">Hang Seng Bank</a> · Hong Kong</p>
+            <div class="job-top"><h3>Operations Intern</h3><span class="job-date">Jun to Aug 2023</span></div>
+            <p class="job-org"><a href="https://www.hangseng.com/en-hk/home/" target="_blank" rel="noopener">Hang Seng Bank</a>, Hong Kong</p>
             <ul>
               <li>Wrote SQL queries to extract trade data and built Excel workflows that cleaned and tracked daily trade records.</li>
             </ul>
@@ -1355,16 +1356,16 @@
           <h3><a href="https://www.ucla.edu" target="_blank" rel="noopener">UCLA</a></h3>
           <p class="deg">B.S. Computer Science and Linguistics (Honors)</p>
           <ul class="facts">
-            <li><b>4.0 GPA</b> · Dean's Honors List (Spring 2026)</li>
-            <li><b>Regents Scholar</b> — UCLA's most prestigious merit scholarship, awarded to the top 2% of admitted students</li>
+            <li><b>4.0 GPA</b>, Dean’s Honors List (Spring 2026)</li>
+            <li><b>Regents Scholar</b>: UCLA’s most prestigious merit scholarship, awarded to the top 2% of admitted students</li>
             <li>UCLA Mathematics Achievement Program, Henry Samueli School of Engineering and Applied Science</li>
             <li>Coursework: Algorithms and Complexity, Software Construction, Computer Organization, Programming Languages, Artificial Intelligence, Computational Linguistics</li>
-            <li><b><a class="plain" href="https://uclaclubsports.com/sports/mens-rugby" target="_blank" rel="noopener">UCLA Rugby</a></b> — NCAA Division I, top-20 nationally ranked program (2025–now)</li>
+            <li><b><a class="plain" href="https://uclaclubsports.com/sports/mens-rugby" target="_blank" rel="noopener">UCLA Rugby</a></b>: NCAA Division I, top-20 nationally ranked program (2025 to now)</li>
           </ul>
         </div>
         <figure class="edu-photo"><img src="royce-hall.jpg" width="724" height="1086" loading="lazy" alt="Royce Hall at UCLA, seen over bougainvillea"></figure>
         <div class="card-p outlined">
-          <p class="eyebrow">Technical skills</p>
+          <h3 class="skills-title">Technical skills</h3>
           <h4 class="skill-h">Programming</h4>
           <div class="chips"><span>C++</span><span>C</span><span>Python</span><span>JavaScript</span><span>TypeScript</span><span>SQL</span><span>x86 Assembly</span></div>
           <h4 class="skill-h">Web &amp; data</h4>
@@ -1384,13 +1385,12 @@
   <section class="dark" id="athletics">
     <div class="wrap dark-inner">
       <div>
-        <p class="eyebrow-mono">Off the screen</p>
         <h2 class="h2">Team USA handball. UCLA rugby. Rock music.</h2>
-        <p class="sub">Team handball is one of the fastest-growing sports in the U.S. and a featured sport at the LA 2028 Olympics. I've been selected to represent both Hong Kong and the USA.</p>
+        <p class="sub">Team handball is one of the fastest-growing sports in the U.S. and a featured sport at the LA 2028 Olympics. I’ve been selected to represent both Hong Kong and the USA.</p>
         <ul class="honors">
           <li><span class="yr">2026</span><a href="https://www.usateamhandball.org/news/2026/april/27/usath-names-college-all-tournament-teams-academic-all-americans" target="_blank" rel="noopener">USA Team Handball Academic All-American, 1st Team</a></li>
           <li><span class="yr">2025</span><span><a href="https://www.usateamhandball.org/" target="_blank" rel="noopener">USA Team Handball</a> Academic All-American, 2nd Team</span></li>
-          <li><span class="yr">2025–now</span><span><a href="https://uclaclubsports.com/sports/mens-rugby" target="_blank" rel="noopener">UCLA Rugby</a> <span class="muted">· NCAA Division I, top-20 nationally ranked</span></span></li>
+          <li><span class="yr">2025 to now</span><span><a href="https://uclaclubsports.com/sports/mens-rugby" target="_blank" rel="noopener">UCLA Rugby</a><span class="muted">, NCAA Division I, top-20 nationally ranked</span></span></li>
           <li><span class="yr">Former</span><span>Hong Kong National Handball Team</span></li>
           <li><span class="yr">Ongoing</span><span>Rock music producer 🎸</span></li>
         </ul>
@@ -1400,7 +1400,7 @@
           <img src="https://i.ytimg.com/vi/zWh4tmKtIuw/maxresdefault.jpg" alt="" loading="lazy">
           <span class="play"><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="#101214"/></svg></span>
         </button>
-        <p class="video-cap">“What is Handball? America's Next Great Sport” · <a href="https://www.usateamhandball.org/" target="_blank" rel="noopener">USA Team Handball</a></p>
+        <p class="video-cap">“What is Handball? America’s Next Great Sport”, from <a href="https://www.usateamhandball.org/" target="_blank" rel="noopener">USA Team Handball</a></p>
       </div>
     </div>
   </section>
@@ -1409,7 +1409,7 @@
   <section class="photos" id="calhacks">
     <div class="wrap">
       <h2 class="h2">Cal Hacks 13.0, in photos</h2>
-      <p class="sub">Building TouchSpace in San Francisco with James Zheng and Sunghyuk Yoon. It won Anthropic's Claude for Public Benefit Prize.</p>
+      <p class="sub">Building TouchSpace in San Francisco with James Zheng and Sunghyuk Yoon. It won Anthropic’s Claude for Public Benefit Prize.</p>
       <div class="photo-grid">
         <figure class="shot shot-wide">
           <img src="calhacks-group.jpg" alt="Ho Lok and three others at the Palace of Fine Arts" loading="lazy" style="object-position: 50% 38%">
@@ -1436,7 +1436,7 @@
     <div class="wrap">
       <div class="how-head">
         <h2 class="h2">How I work</h2>
-        <a class="btn btn-outline" href="resume.pdf" target="_blank" rel="noopener">Read my resume <span aria-hidden="true">→</span></a>
+        <a class="btn btn-outline" href="resume.pdf" target="_blank" rel="noopener">Read my resume</a>
       </div>
       <div class="feat-grid">
         <div class="feat">
@@ -1457,7 +1457,7 @@
         <div class="feat">
           <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17.2" cy="9" r="2.6"/><path d="M16.4 14.1c2.8-.2 4.8 2 4.8 5"/></svg>
           <h3>Leading teams</h3>
-          <p>I led a 20-person team at NASA L'SPACE, and I've spent years on handball and rugby teams where everyone has a role.</p>
+          <p>I led a 20-person team at NASA L’SPACE, and I’ve spent years on handball and rugby teams where everyone has a role.</p>
         </div>
       </div>
     </div>
@@ -1467,8 +1467,8 @@
   <section class="cta">
     <div class="wrap">
       <div class="cta-box">
-        <h2 class="h2">Let's build something.</h2>
-        <p class="sub center">I'm always happy to talk about SWE and research roles, hackathons, or handball. Reach me at <a class="hl" href="mailto:holokcheung@ucla.edu">holokcheung@ucla.edu</a>.</p>
+        <h2 class="h2">Let’s build something.</h2>
+        <p class="sub center">I’m always happy to talk about SWE and research roles, hackathons, or handball. Reach me at <a class="hl" href="mailto:holokcheung@ucla.edu">holokcheung@ucla.edu</a>.</p>
         <div class="cta-row">
           <a class="btn btn-primary" href="mailto:holokcheung@ucla.edu">Email me</a>
           <a class="btn btn-outline" href="https://www.linkedin.com/in/holokcheung" target="_blank" rel="noopener">LinkedIn</a>
@@ -1505,6 +1505,8 @@
 </footer>
 
 <script>
+  document.documentElement.classList.add('js'); // reveal styles only apply once this has run
+
   // Nav: border on scroll; Explore menu, which is also the phone menu
   const nav = document.getElementById('nav');
   const mega = document.getElementById('mega');
@@ -1698,17 +1700,32 @@
   if (!calm && 'IntersectionObserver' in window) {
     const blocks = [...document.querySelectorAll('section:not(.hero) .h2, section:not(.hero) .sub, .logos-label, .logo-row, .film-card, .stat, .plus, .footnote, .tabs-scroll, .panel:not([hidden]), .job, .edu-grid > *, .dark-inner > div:first-child, .video, .shot, .how-head, .feat, .cta-box')];
     const done = el => { el.classList.remove('rv', 'in'); el.style.removeProperty('--rv-i'); };
+    const show = (el, order) => {
+      io.unobserve(el);
+      el.style.setProperty('--rv-i', order);
+      el.classList.add('in');
+      setTimeout(done, 900 + order * 70, el);
+      const icon = el.matches('.feat') && el.querySelector('svg.draw'); // the line icons draw themselves
+      if (icon) { icon.classList.add('on'); setTimeout(() => icon.classList.remove('draw', 'on'), 1500 + order * 70); }
+    };
     const io = new IntersectionObserver(entries => {
-      entries.filter(e => e.isIntersecting).forEach((e, i) => {
-        const el = e.target, order = Math.min(i, 5);
-        io.unobserve(el);
-        el.style.setProperty('--rv-i', order);
-        el.classList.add('in');
-        setTimeout(done, 900 + order * 70, el);
-        const icon = el.matches('.feat') && el.querySelector('svg.draw'); // the line icons draw themselves
-        if (icon) { icon.classList.add('on'); setTimeout(() => icon.classList.remove('draw', 'on'), 1500 + order * 70); }
-      });
+      entries.filter(e => e.isIntersecting).forEach((e, i) => show(e.target, Math.min(i, 5)));
     }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+    // Safety net: if the observer is slow to report (a throttled tab), whatever is already on screen is shown anyway
+    let sweepTimer = 0;
+    const sweep = () => {
+      sweepTimer = 0;
+      let i = 0;
+      blocks.forEach(el => {
+        if (!el.classList.contains('rv') || el.classList.contains('in')) return;
+        const box = el.getBoundingClientRect();
+        if (!box.width && !box.height) return; // not laid out at this width
+        if (box.bottom <= 0) { io.unobserve(el); done(el); } // already scrolled past: just there when you scroll back
+        else if (box.top < innerHeight * 0.94) show(el, Math.min(i++, 5));
+      });
+    };
+    addEventListener('scroll', () => { if (!sweepTimer) sweepTimer = setTimeout(sweep, 250); }, { passive: true });
+    setTimeout(sweep, 600);
     blocks.forEach(el => {
       if (el.parentElement.closest('.rv')) return; // a block inside a block that already eases in
       el.classList.add('rv');
