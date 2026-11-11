@@ -15,176 +15,292 @@
   <meta property="og:image:height" content="801">
   <meta property="og:image:alt" content="Ho Lok holding the Dot Pad between teammates holding the TouchSpace web app and the iPhone scanner">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="theme-color" content="#ffffff">
+  <meta name="theme-color" content="#F8F7F3">
   <link rel="icon" type="image/png" sizes="32x32" href="/icon-32.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Radio+Canada+Big:wght@400;700&family=Radio+Canada:wght@400;500&display=swap" rel="stylesheet">
   <style>
-    /* Hallmark · checked: 2026-11-10 · genre: modern-minimal (inferred)
-     * floor: 0 FAIL · fixed: 7 (29, 30a, 34, 48, 63, 64, 67) · structural: 1 printed (58)
-     * built: the project · redesign: polish · v2.0.0 */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --blue: #1868DB; --ink: #101214; --text: #292A2E; --muted: #505258; --subtle: #6B6E76;
-      --line: #DDDEE1; --line-soft: #EBECF0; --fill: #F1F2F4;
-      --p-blue: #CFE1FD; --p-lime: #D3F1A7; --p-yellow: #FFE48F; --p-lav: #EED7FC;
-      --display: 'Inter Tight', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    /* Hallmark · shape: Long Document · genre: editorial · theme: Grid (deal 3/3, seed personal-computer-science-linguistics-e464·c9a0927f·2026-11-11·r0) · redesign: full
+     * hero: Banner · nav: edge-aligned · footer: colophon · imagery: the owner's photograph, duotone · signature: the one rule of the project, set on the blue field
+     * axes: light/grotesk-sans/cool · posture: full-palette · contrast: pass · fold: pass · v2.0.0 */
+    /* Hallmark · pre-emit critique: P4 H4 E4 S4 R5 V4 · weakest: H, an eleven-word title has to carry the first screen alone; it runs at display size across eleven columns and the picture starts under it */
+    /* Hallmark · brand kept: the HL mark and its blue flood the field in place of the theme's ultramarine */
+    /* Hallmark · waive 77 · a long document, its short sections one paragraph each · the case study is read top to bottom and those paragraphs are the owner's own text */
 
-      --white: #fff;
+    :root {
+      color-scheme: light;
+      --space-3xs: 2px; --space-2xs: 4px; --space-xs: 8px; --space-sm: 12px; --space-md: 16px; --space-lg: 24px; --space-xl: 40px; --space-2xl: 64px; --space-3xl: 96px; --space-4xl: 144px;
+      --text-xs: 0.8125rem; --text-sm: 0.875rem; --text-md: 1rem; --text-lg: 1.25rem; --text-xl: 1.5625rem; --text-2xl: 1.953rem; --text-3xl: 2.441rem;
+      --text-display-s: clamp(2.25rem, 4vw + 0.5rem, 3.75rem); --text-display: clamp(2.75rem, 5vw + 1rem, 5.25rem);
+      --text-section: clamp(2rem, 2.5vw + 1rem, 3.5rem); --text-title: clamp(1.25rem, 0.75vw + 0.875rem, 1.625rem); --text-lead: clamp(1.125rem, 0.35vw + 1rem, 1.375rem);
+      --text-body: 1.0625rem; --text-label: 0.9375rem;
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1); --ease-in: cubic-bezier(0.7, 0, 0.84, 0); --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+      --dur-micro: 120ms; --dur-short: 220ms; --dur-long: 420ms;
+      --color-error: oklch(52% 0.19 27); --color-success: oklch(50% 0.12 150);
+      --container: 1440px; --gutter: 64px; --gap-columns: 32px; --section-gap-s: 120px; --section-gap: 144px; --section-gap-l: 176px;
+      --z-base: 1; --z-raised: 10; --z-dropdown: 100; --z-sticky: 200; --z-sticky-nav: 300; --z-modal: 400; --z-toast: 500; --z-tooltip: 600;
+      --color-paper: oklch(97.5% 0.005 90); --color-paper-2: oklch(94.2% 0.006 90); --color-paper-3: oklch(90.5% 0.008 90);
+      --color-ink: oklch(19% 0.022 266); --color-ink-2: oklch(31% 0.02 266); --color-ink-lift: oklch(31% 0.02 266); --color-muted: oklch(47% 0.016 266);
+      --color-rule: oklch(87.5% 0.008 90);
+      --color-accent: #1868DB; --color-accent-ink: oklch(97.5% 0.005 90); --color-focus: #1868DB;
+      --color-field: #1868DB; --color-field-ink: oklch(97.5% 0.005 90);
+      --color-mark: oklch(57% 0.215 29); --color-mark-ink: oklch(97.5% 0.005 90);
+      --font-display: "Radio Canada Big", ui-sans-serif, system-ui, sans-serif; --font-body: "Radio Canada", ui-sans-serif, system-ui, sans-serif;
+      --font-outlier: var(--font-display);
+      --radius-card: 0; --radius-pill: 0; --rule-hair: 1px; --shadow-card: none;
+      --tracking-display: -0.035em; --display-weight: 700;
+      --nav-h: 72px;
+      /* from the container's edge out to the edge of the screen */
+      --bleed: calc(var(--gutter) + max(0px, (100vw - var(--container)) / 2));
     }
-    html { scroll-behavior: smooth; overflow-x: clip; }
-    body { background: var(--white); color: var(--text); font-family: var(--sans); font-size: 17px; line-height: 1.65; -webkit-font-smoothing: antialiased; overflow-x: clip; }
-    img { display: block; max-width: 100%; height: auto; }
-    a { color: var(--blue); text-decoration: none; }
-    a:hover { text-decoration: underline; text-underline-offset: 4px; }
-    a:active { opacity: 0.7; }
-    main p a, main li a { text-decoration: underline; text-underline-offset: 3px; }
-    :focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; border-radius: 6px; }
-    .skip { position: absolute; left: 16px; top: -60px; background: var(--ink); color: var(--white); padding: 10px 16px; border-radius: 999px; z-index: 100; }
-    .skip:focus { top: 12px; }
-    .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
-    .nav { position: sticky; top: 0; z-index: 50; background: var(--white); border-bottom: 1px solid var(--line-soft); }
-    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-    .brand { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); font-family: var(--display); font-weight: 700; font-size: 18px; letter-spacing: -0.01em; text-decoration: none; white-space: nowrap; }
-    .brand:hover { text-decoration: none; }
-    .brand-mark { width: 28px; height: 28px; border-radius: 8px; background: var(--blue); color: var(--white); display: grid; place-items: center; font-size: 12.5px; letter-spacing: -0.02em; }
-    .nav a.back { color: var(--muted); font-size: 15px; }
-    .nav a.back:hover { color: var(--ink); }
-    header.hero { padding: 72px 0 40px; }
-    .eyebrow { font-size: 15px; color: var(--muted); }
-    h1, h2 { text-wrap: balance; }
-    h1 { font-family: var(--display); font-weight: 700; font-size: clamp(34px, 5.5vw, 54px); line-height: 1.05; letter-spacing: -0.03em; color: var(--ink); margin-top: 14px; }
-    .lede { font-size: 20px; color: var(--muted); margin-top: 18px; }
-    .award { display: inline-flex; align-items: center; gap: 8px; background: var(--fill); border-radius: 10px; padding: 8px 14px; font-weight: 600; color: var(--ink); font-size: 15px; margin-top: 22px; }
-    .award svg { width: 17px; height: 17px; fill: none; stroke: var(--ink); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-    .links { display: flex; flex-wrap: wrap; gap: 10px 22px; margin-top: 22px; font-weight: 600; }
-    .stack { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-top: 22px; font-size: 14px; color: var(--muted); }
-    .stack span { display: inline-flex; align-items: center; gap: 7px; }
-    .sq { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
-    .bg-blue { background: var(--p-blue); } .bg-lime { background: var(--p-lime); } .bg-yellow { background: var(--p-yellow); } .bg-lav { background: var(--p-lav); }
-    figure { margin: 40px 0; }
-    figure img { border-radius: 20px; }
-    figcaption { font-size: 14px; color: var(--muted); margin-top: 10px; }
-    section { padding: 36px 0 0; }
-    h2 { font-family: var(--display); font-weight: 600; font-size: clamp(26px, 3.4vw, 34px); line-height: 1.12; letter-spacing: -0.025em; color: var(--ink); margin-bottom: 14px; }
-    h3 { font-family: var(--display); font-weight: 600; font-size: 20px; color: var(--ink); margin: 26px 0 8px; }
-    p + p { margin-top: 14px; }
-    ul { padding-left: 22px; margin-top: 10px; }
-    li { margin-top: 8px; }
-    li::marker { color: var(--subtle); }
-    strong { color: var(--ink); font-weight: 600; }
-    .numbers { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 14px; margin-top: 18px; }
-    .num { background: var(--fill); border-radius: 16px; padding: 18px 18px 16px; }
-    .num b { display: block; font-family: var(--mono); font-size: 30px; font-weight: 500; font-variant-numeric: tabular-nums; color: var(--ink); line-height: 1; }
-    .num span { display: block; font-size: 14px; color: var(--muted); margin-top: 8px; }
-    .callout { background: var(--p-lav); border-radius: 20px; padding: 24px 26px; margin-top: 20px; }
-    .callout p { color: var(--ink); }
-    .flow { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-top: 18px; }
-    .step { border: 1px solid var(--line); border-radius: 16px; padding: 16px 16px 14px; }
-    .step b { display: block; font-size: 14px; font-weight: 600; color: var(--blue); }
-    .step strong { display: block; margin-top: 6px; }
-    .step span { display: block; font-size: 14px; color: var(--muted); margin-top: 4px; }
-    .foot { margin-top: 72px; border-top: 1px solid var(--line); padding: 28px 0 40px; font-size: 14px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 10px 24px; justify-content: space-between; }
-    .foot-links { display: flex; flex-wrap: wrap; gap: 6px 18px; }
-    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-    @media (max-width: 560px) { header.hero { padding-top: 48px; } body { font-size: 16px; } .lede { font-size: 18px; } }
-    @media print { .nav, .skip, .foot { display: none; } }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { overflow-x: clip; }
+    html { scrollbar-color: var(--color-muted) var(--color-paper); scroll-padding-top: var(--space-3xl); }
+    body { margin: 0; background: var(--color-paper); color: var(--color-ink); font-family: var(--font-body); font-size: var(--text-body); line-height: 1.5; -webkit-font-smoothing: antialiased; caret-color: var(--color-accent); }
+    ::selection { background: var(--color-mark); color: var(--color-mark-ink); }
+    :focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+    a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.16em; transition: color var(--dur-short) var(--ease-out); }
+    a:hover { color: var(--color-mark); }
+    h1, h2, h3 { margin: 0; font-family: var(--font-display); font-weight: var(--display-weight, 700); font-synthesis: none; letter-spacing: var(--tracking-display); line-height: 1; overflow-wrap: break-word; min-width: 0; text-wrap: balance; text-align: start; }
+    h1 { max-width: 20ch; font-size: var(--text-display); } h2 { max-width: 30ch; font-size: var(--text-section); } h3 { max-width: 40ch; font-size: var(--text-title); line-height: 1.15; }
+    h4 { margin: 0; font: 500 var(--text-label)/1.4 var(--font-body); color: var(--color-muted); }
+    p { margin: 0; text-wrap: pretty; }
+    p:not([class]) { max-width: 65ch; }
+    ul, ol, figure { margin: 0; padding: 0; }
+    ul, ol { list-style: none; }
+    img, video { max-width: 100%; height: auto; display: block; }
+    svg { display: block; }
+    [hidden] { display: none !important; }
+    button, input, select, textarea { font: inherit; }
+    .container { width: 100%; max-width: var(--container); margin-inline: auto; padding-inline: var(--gutter); box-sizing: border-box; }
+    .num, .figure, td.num { font-variant-numeric: tabular-nums; }
+    .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+    [data-slot] { position: relative; overflow: hidden; background: linear-gradient(160deg, var(--color-paper-2, var(--color-paper)), var(--color-paper-3, var(--color-paper))); }
+    [data-slot] > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
+    [data-slot]:has(> img) > :not(img):not([data-keep]) { display: none !important; }
+    @media (max-width: 60rem) { :root { --gutter: 24px; --section-gap-s: 80px; --section-gap: 96px; --section-gap-l: 120px; } }
+    @media (max-width: 40rem) { :root { --gutter: 16px; --section-gap-s: 56px; --section-gap: 72px; --section-gap-l: 96px; --gap-columns: 16px; } }
+    @media (prefers-reduced-motion: reduce) { *:not(.keep-motion), *:not(.keep-motion)::before, *:not(.keep-motion)::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; } }
+    /* photographs: duotone ink paper-2 con=12 */
+    [data-slot]:has(> img) { isolation: isolate; background: var(--color-paper-2); outline: 1px solid color-mix(in oklab, var(--color-ink) 8%, transparent); outline-offset: -1px; }
+    [data-slot] > img { z-index: 0; filter: grayscale(1) contrast(1.12); mix-blend-mode: multiply; }
+    [data-slot]:has(> img)::before { content: ""; position: absolute; inset: 0; z-index: 1; background: var(--color-ink); mix-blend-mode: lighten; pointer-events: none; }
+    [data-slot].lift > img { filter: grayscale(1) contrast(1.04) brightness(1.4); } /* taken in a dim hall: printed lighter */
+
+    /* ── The column system: twelve columns; everything below the nav hangs from line 1 or line 5 ── */
+    .cols { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap-columns); }
+    .label { font: 500 var(--text-label)/1.4 var(--font-body); color: var(--color-muted); }
+    .skip { position: absolute; left: var(--space-md); top: calc(-1 * var(--space-4xl)); z-index: var(--z-tooltip); background: var(--color-ink); color: var(--color-paper); padding: var(--space-sm) var(--space-md); font-weight: 500; text-decoration: none; }
+    .skip:focus { top: var(--space-sm); color: var(--color-paper); }
+
+    /* Fields: one job each. Blue floods a sheet, red marks the one chosen thing. Inside a field the rule, muted and second-ink tokens follow the field's ink. */
+    .field { background: var(--color-field); color: var(--color-field-ink); --color-focus: var(--color-field-ink); --color-muted: var(--color-field-ink); --color-ink-2: var(--color-field-ink); --color-rule: color-mix(in oklab, var(--color-field-ink) 36%, transparent); }
+    .field--mark { background: var(--color-mark); color: var(--color-mark-ink); --color-focus: var(--color-ink); }
+    .field a:hover { color: inherit; text-decoration-thickness: 2px; }
+
+    /* Controls */
+    .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding-inline: var(--space-lg); border: 0; border-radius: 0; background: var(--color-ink); color: var(--color-paper); font: 500 var(--text-md)/1 var(--font-body); text-decoration: none; cursor: pointer; transition: background-color var(--dur-short) var(--ease-out); }
+    .btn:hover { background: var(--color-ink-lift); color: var(--color-paper); }
+    .btn:active { background: var(--color-ink); }
+    button:disabled, [aria-disabled="true"] { opacity: 0.5; cursor: not-allowed; }
+    .more { font-weight: 500; text-decoration: underline var(--rule-hair); text-underline-offset: 0.32em; }
+    .actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-md) var(--space-lg); }
+
+    /* Nav: one line, the wordmark at one edge and the links at the other */
+    .nav { position: sticky; top: 0; z-index: var(--z-sticky-nav); background: var(--color-paper); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: var(--space-lg); min-height: var(--nav-h); }
+    .brand { --wm: 1.25rem; display: inline-grid; grid-template-columns: auto auto; column-gap: var(--space-sm); align-items: center; font: 700 var(--wm)/0.92 var(--font-display); letter-spacing: -0.02em; text-decoration: none; color: var(--color-ink); }
+    .brand:hover { color: var(--color-ink); }
+    .brand-mark { grid-row: span 2; display: grid; place-items: center; inline-size: calc(var(--wm) * 1.84); block-size: calc(var(--wm) * 1.84); background: var(--color-field); color: var(--color-field-ink); font-size: 0.8em; }
+    .brand-b { font-weight: 400; }
+    .nav-end { display: flex; align-items: center; gap: var(--space-lg); }
+    .nav-links { display: flex; align-items: center; gap: var(--space-lg); }
+    .nav-links a { display: inline-flex; align-items: center; min-height: 44px; font: 500 var(--text-label)/1 var(--font-body); color: var(--color-ink-2); text-decoration: none; }
+    .nav-links a:hover { color: var(--color-mark); }
+
+    /* Sections: a heading pane held on four columns while the content runs past it on eight */
+    .stack { padding-top: var(--section-gap); }
+    .split { align-items: start; row-gap: var(--space-xl); }
+    .pane { grid-column: 1 / 5; position: sticky; top: calc(var(--nav-h) + var(--space-lg)); display: grid; gap: var(--space-md); justify-items: start; }
+    .reel { grid-column: 5 / 13; min-width: 0; }
+    .sub { max-width: 36ch; color: var(--color-ink-2); }
+    .rows > * { border-top: var(--rule-hair) solid var(--color-rule); padding-block: var(--space-lg); }
+    .rows > :first-child { border-top: 0; padding-top: 0; }
+    .row8 { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); column-gap: var(--gap-columns); row-gap: var(--space-xs); }
+
+    /* Case study */
+    .case-hero { row-gap: var(--space-xl); padding-top: var(--space-2xl); }
+    .case-hero h1 { grid-column: 1 / 12; max-width: none; font-size: var(--text-display); line-height: 0.95; letter-spacing: -0.04em; }
+    .case-hero .label { grid-column: 1 / 5; }
+    .lede { grid-column: 5 / 13; max-width: 34em; font-size: var(--text-lead); line-height: 1.45; }
+    .facts { gap: var(--space-lg); }
+    .award { font: 700 var(--text-lg)/1.2 var(--font-display); letter-spacing: -0.02em; color: var(--color-mark); }
+    .links { display: grid; justify-items: start; gap: var(--space-xs); }
+    .lead-photo { display: grid; gap: var(--space-xs); }
+    .frame { aspect-ratio: 3 / 2; }
+    figcaption { font: 500 var(--text-label)/1.4 var(--font-body); color: var(--color-muted); }
+    .prose { display: grid; gap: var(--space-md); }
+    .prose h3 { margin-top: var(--space-xl); font-size: var(--text-xl); }
+    .bullets { display: grid; gap: var(--space-xs); padding-left: 1.15em; list-style: square; }
+    .bullets ::marker { color: var(--color-muted); }
+    .step b { grid-column: 1 / 3; font: 700 var(--text-lg)/1.2 var(--font-display); letter-spacing: -0.02em; }
+    .step strong { grid-column: 3 / 5; font-weight: 500; }
+    .step span { grid-column: 5 / 9; color: var(--color-ink-2); }
+    .say { position: relative; isolation: isolate; background: none; padding: var(--space-2xl) 0 var(--space-2xl) var(--space-xl); }
+    .say::before { content: ""; position: absolute; inset: 0 calc(-1 * var(--bleed)) 0 0; background: var(--color-field); z-index: -1; }
+    .say p { max-width: 34em; font-size: var(--text-lead); line-height: 1.45; }
+    .say strong { display: block; max-width: 16em; margin-bottom: var(--space-lg); font: 700 var(--text-3xl)/1 var(--font-display); letter-spacing: var(--tracking-display); }
+    .counts { margin-top: var(--space-xl); }
+    .fact { align-items: baseline; }
+    .fig { grid-column: 1 / 5; font: 700 clamp(3rem, 6vw, 5.5rem)/0.9 var(--font-display); letter-spacing: -0.045em; }
+    .fact-label { grid-column: 5 / 9; font-weight: 500; }
+    .foot { margin-top: var(--section-gap); padding-block: var(--space-xl); background: var(--color-paper-2); font-size: var(--text-label); }
+    .foot-inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-sm) var(--space-lg); }
+    .foot-links { display: flex; flex-wrap: wrap; gap: var(--space-xs) var(--space-lg); }
+    .foot-links a { display: inline-flex; align-items: center; min-height: 44px; text-decoration: none; }
+
+    @media (max-width: 60rem) {
+      .pane, .reel { grid-column: 1 / -1; }
+      .pane { position: static; }
+      .case-hero { padding-top: var(--space-xl); }
+      .case-hero h1, .case-hero .label, .lede { grid-column: 1 / -1; }
+      .say { padding: var(--space-xl) 0; }
+      .say::before { left: calc(-1 * var(--bleed)); }
+    }
+    @media (max-width: 40rem) {
+      .row8 { grid-template-columns: minmax(0, 1fr); }
+      .row8 > *, .row8.step > *, .row8.fact > * { grid-column: 1 / -1; grid-row: auto; }
+      .fact .fig { font-size: 3rem; }
+      .brand { --wm: 1.125rem; }
+    }
+    @media print { .nav, .pane { position: static; } .skip { display: none; } }
   </style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <nav class="nav" aria-label="Site">
-  <div class="nav-inner">
-    <a class="brand" href="/"><span class="brand-mark">HL</span><span>Ho Lok Cheung</span></a>
-    <a class="back" href="/#work">&larr; All work</a>
+  <div class="container nav-inner">
+    <a class="brand" href="/" aria-label="Ho Lok Cheung, home"><span class="brand-mark" aria-hidden="true">HL</span><span class="brand-a">Ho Lok</span><span class="brand-b">Cheung</span></a>
+    <div class="nav-links"><a class="back" href="/#work">All work</a></div>
   </div>
 </nav>
 
-<main id="main" class="wrap">
-  <header class="hero">
-    <p class="eyebrow">Case study, Cal Hacks 13.0, October 2026</p>
+<main id="main">
+  <header class="hero container cols case-hero">
     <h1>TouchSpace: tactile and audio maps for blind and visually impaired people</h1>
+    <p class="label">Case study, Cal Hacks 13.0, October 2026</p>
     <p class="lede">Scan a room with a LiDAR iPhone, and TouchSpace turns it into a floor plan you can feel on a Dot Pad tactile display, hear through spatial audio, and ask questions about out loud. Built in a weekend with James Zheng and Sunghyuk Yoon.</p>
-    <p class="award"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4h8v6a4 4 0 0 1-8 0z"/><path d="M8 6H5a3 3 0 0 0 3 4.5"/><path d="M16 6h3a3 3 0 0 1-3 4.5"/><path d="M12 14v4"/><path d="M8.5 20h7"/></svg>Claude for Public Benefit Prize, $5K from Anthropic</p>
-    <div class="links">
-      <a href="https://www.youtube.com/watch?v=zCSkCPO-3cc" target="_blank" rel="noopener">Watch the demo</a>
-      <a href="https://github.com/holokcheung/touchspace" target="_blank" rel="noopener">View the code on GitHub</a>
-      <a href="https://devpost.com/software/touchspace" target="_blank" rel="noopener">View on Devpost</a>
-    </div>
-    <div class="stack"><span><i class="sq bg-blue"></i>Python</span><span><i class="sq bg-lime"></i>FastAPI</span><span><i class="sq bg-yellow"></i>React + Three.js</span><span><i class="sq bg-lav"></i>TypeScript</span><span><i class="sq bg-blue"></i>Claude API</span><span><i class="sq bg-lime"></i>Apple RoomPlan</span><span><i class="sq bg-yellow"></i>Web Bluetooth</span></div>
   </header>
 
-  <figure>
-    <img src="/touchspace-team.jpg" width="1200" height="801" alt="Ho Lok holding the Dot Pad between teammates holding the TouchSpace web app and the iPhone scanner" fetchpriority="high">
-    <figcaption>The team at the Palace of Fine Arts, San Francisco. I’m in the middle, holding the Dot Pad.</figcaption>
-  </figure>
-
-  <section>
-    <h2>The problem</h2>
-    <p>Turn-by-turn directions tell you where to go next, but they never give you the shape of a building. Sighted people glance at a floor plan before visiting an unfamiliar place; blind and visually impaired people rarely get that chance. TouchSpace is a way to learn a space <strong>before you arrive</strong>, from home, through touch, sound and a first-person walkthrough.</p>
-  </section>
-
-  <section>
-    <h2>How it works</h2>
-    <div class="flow">
-      <div class="step"><b>1. Scan</b><strong>iPhone LiDAR</strong><span>Apple RoomPlan captures walls, doorways, floor boundaries and furniture.</span></div>
-      <div class="step"><b>2. Review</b><strong>Label the map</strong><span>Name rooms and destinations, confirm which doorways are passable.</span></div>
-      <div class="step"><b>3. Share</b><strong>Map package</strong><span>Geometry, labels and navigation data travel as one file others can download.</span></div>
-      <div class="step"><b>4. Explore</b><strong>Feel, hear, ask</strong><span>Dot Pad pins, stereo audio cues and spoken questions in the web walkthrough.</span></div>
+  <div class="stack">
+    <div class="container cols split">
+      <div class="pane facts">
+        <p class="award">Claude for Public Benefit Prize, $5K from Anthropic</p>
+        <div class="links">
+          <a class="more" href="https://www.youtube.com/watch?v=zCSkCPO-3cc" target="_blank" rel="noopener">Watch the demo</a>
+          <a class="more" href="https://github.com/holokcheung/touchspace" target="_blank" rel="noopener">View the code on GitHub</a>
+          <a class="more" href="https://devpost.com/software/touchspace" target="_blank" rel="noopener">View on Devpost</a>
+        </div>
+        <p class="label">Python, FastAPI, React + Three.js, TypeScript, Claude API, Apple RoomPlan, Web Bluetooth</p>
+      </div>
+      <figure class="reel lead-photo">
+        <div class="frame lift" data-slot="photo"><img src="/touchspace-team.jpg" width="1200" height="801" alt="Ho Lok holding the Dot Pad between teammates holding the TouchSpace web app and the iPhone scanner" fetchpriority="high"></div>
+        <figcaption>The team at the Palace of Fine Arts, San Francisco. I’m in the middle, holding the Dot Pad.</figcaption>
+      </figure>
     </div>
-    <h3>Three ways to read the same map</h3>
-    <ul>
-      <li><strong>Touch.</strong> The web app drives a Dot Pad with a 60&times;40 pin display over Bluetooth. Walls rise as lines, doorway gaps stay flat, landmarks get symbols, an X marks where you stand, and a planned route appears as spaced dots. A braille line shows the current room and heading.</li>
-      <li><strong>Sound.</strong> With headphones on, nearby walls and furniture are placed in stereo, with cues for obstacles ahead, doorway crossings and the edge of the mapped area.</li>
-      <li><strong>Voice.</strong> Ask “Where is the restroom?” or “Take me to the elevator.” Claude works out what you mean; the answer and the route come from the recorded map, and the route is highlighted in the 3D view, the floor plan and the tactile display at once.</li>
-    </ul>
-  </section>
+  </div>
 
-  <section>
-    <h2>The design decision that mattered most</h2>
-    <div class="callout">
-      <p><strong>The AI is never allowed to invent a route.</strong> Claude only interprets the spoken question: which landmark, which destination, what kind of answer. Every direction is then computed by Dijkstra’s algorithm over the navigation graph recorded during the scan, and every description comes from deterministic functions over the map data. If the map has no path, the app says so instead of guessing. For a tool that blind users would trust with their safety, a confident wrong answer is worse than no answer.</p>
+  <section class="stack">
+    <div class="container cols split">
+      <div class="pane"><h2>The problem</h2></div>
+      <div class="reel prose">
+        <p>Turn-by-turn directions tell you where to go next, but they never give you the shape of a building. Sighted people glance at a floor plan before visiting an unfamiliar place; blind and visually impaired people rarely get that chance. TouchSpace is a way to learn a space <strong>before you arrive</strong>, from home, through touch, sound and a first-person walkthrough.</p>
+      </div>
     </div>
   </section>
 
-  <section>
-    <h2>What I built</h2>
-    <ul>
-      <li>The <strong>FastAPI backend</strong>: 20 endpoints for map import, storage, spatial questions, routes, speech and the community catalog, with 153 automated tests.</li>
-      <li>The <strong>React web app</strong> and the walkthrough: floor plan, audio and Dot Pad panels kept together.</li>
-      <li>The <strong>map schema and floor-plan processing</strong>, including import of RoomPlan scans into a normalized map format.</li>
-      <li><strong>Dijkstra routing</strong> over the recorded path graph, and the <strong>route editor</strong> for recording and fixing paths.</li>
-      <li>The <strong>Claude question interpreter</strong> that maps free-form speech to map operations.</li>
-      <li>The <strong>60&times;40 Dot Pad preview</strong>, so the tactile output can be developed and tested without the hardware.</li>
-    </ul>
-    <p>James built the Bluetooth Dot Pad driver. The backend, routing and the “no invented routes” rule are pieces I can walk through line by line.</p>
-    <div class="numbers">
-      <div class="num"><b>20</b><span>API endpoints</span></div>
-      <div class="num"><b>153</b><span>automated tests</span></div>
-      <div class="num"><b>2,400</b><span>pins on the Dot Pad (60&times;40)</span></div>
-      <div class="num"><b>3</b><span>people, one weekend</span></div>
+  <section class="stack">
+    <div class="container cols split">
+      <div class="pane"><h2>How it works</h2></div>
+      <div class="reel prose">
+        <div class="flow rows">
+          <div class="row8 step"><b>1. Scan</b><strong>iPhone LiDAR</strong><span>Apple RoomPlan captures walls, doorways, floor boundaries and furniture.</span></div>
+          <div class="row8 step"><b>2. Review</b><strong>Label the map</strong><span>Name rooms and destinations, confirm which doorways are passable.</span></div>
+          <div class="row8 step"><b>3. Share</b><strong>Map package</strong><span>Geometry, labels and navigation data travel as one file others can download.</span></div>
+          <div class="row8 step"><b>4. Explore</b><strong>Feel, hear, ask</strong><span>Dot Pad pins, stereo audio cues and spoken questions in the web walkthrough.</span></div>
+        </div>
+        <h3>Three ways to read the same map</h3>
+        <ul class="bullets">
+          <li><strong>Touch.</strong> The web app drives a Dot Pad with a 60&times;40 pin display over Bluetooth. Walls rise as lines, doorway gaps stay flat, landmarks get symbols, an X marks where you stand, and a planned route appears as spaced dots. A braille line shows the current room and heading.</li>
+          <li><strong>Sound.</strong> With headphones on, nearby walls and furniture are placed in stereo, with cues for obstacles ahead, doorway crossings and the edge of the mapped area.</li>
+          <li><strong>Voice.</strong> Ask “Where is the restroom?” or “Take me to the elevator.” Claude works out what you mean; the answer and the route come from the recorded map, and the route is highlighted in the 3D view, the floor plan and the tactile display at once.</li>
+        </ul>
+      </div>
     </div>
   </section>
 
-  <section>
-    <h2>What’s honest to say about it</h2>
-    <p>TouchSpace is a hackathon prototype. The web walkthrough is virtual practice on recorded maps; it does not track a real position or detect live obstacles, and it is not a replacement for a cane or a guide dog. The iOS scanner and the web app still use different map formats, so the full scan-to-tactile handoff is not finished, and the system has not yet been tested with blind and visually impaired users. Those are the next steps, along with richer braille labels and support for other tactile displays.</p>
+  <section class="stack">
+    <div class="container cols split">
+      <div class="pane"><h2>The design decision that mattered most</h2></div>
+      <div class="reel">
+        <div class="callout say field">
+          <p><strong>The AI is never allowed to invent a route.</strong> Claude only interprets the spoken question: which landmark, which destination, what kind of answer. Every direction is then computed by Dijkstra’s algorithm over the navigation graph recorded during the scan, and every description comes from deterministic functions over the map data. If the map has no path, the app says so instead of guessing. For a tool that blind users would trust with their safety, a confident wrong answer is worse than no answer.</p>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <section>
-    <h2>Try it</h2>
-    <p>The web demo runs without an iPhone, a Dot Pad or any API keys: clone the <a href="https://github.com/holokcheung/touchspace" target="_blank" rel="noopener">repository</a>, start the backend and frontend as described in the README, and choose <strong>Try Demo</strong>. The Dot Pad panel shows a pin preview on screen even with no hardware connected.</p>
+  <section class="stack">
+    <div class="container cols split">
+      <div class="pane"><h2>What I built</h2></div>
+      <div class="reel prose">
+        <ul class="bullets">
+          <li>The <strong>FastAPI backend</strong>: 20 endpoints for map import, storage, spatial questions, routes, speech and the community catalog, with 153 automated tests.</li>
+          <li>The <strong>React web app</strong> and the walkthrough: floor plan, audio and Dot Pad panels kept together.</li>
+          <li>The <strong>map schema and floor-plan processing</strong>, including import of RoomPlan scans into a normalized map format.</li>
+          <li><strong>Dijkstra routing</strong> over the recorded path graph, and the <strong>route editor</strong> for recording and fixing paths.</li>
+          <li>The <strong>Claude question interpreter</strong> that maps free-form speech to map operations.</li>
+          <li>The <strong>60&times;40 Dot Pad preview</strong>, so the tactile output can be developed and tested without the hardware.</li>
+        </ul>
+        <p>James built the Bluetooth Dot Pad driver. The backend, routing and the “no invented routes” rule are pieces I can walk through line by line.</p>
+        <div class="numbers rows counts">
+          <div class="row8 fact"><b class="fig num">20</b><span class="fact-label">API endpoints</span></div>
+          <div class="row8 fact"><b class="fig num">153</b><span class="fact-label">automated tests</span></div>
+          <div class="row8 fact"><b class="fig num">2,400</b><span class="fact-label">pins on the Dot Pad (60&times;40)</span></div>
+          <div class="row8 fact"><b class="fig num">3</b><span class="fact-label">people, one weekend</span></div>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <footer class="foot">
-    <span>&copy; 2026 Ho Lok Cheung</span>
-    <span class="foot-links"><a href="/">Home</a> <a href="/#work">All work</a> <a href="/resume.pdf">Resume (PDF)</a> <a href="https://github.com/holokcheung" target="_blank" rel="noopener">GitHub</a> <a href="https://www.linkedin.com/in/holokcheung" target="_blank" rel="noopener">LinkedIn</a> <a href="mailto:holokcheung@ucla.edu">holokcheung@ucla.edu</a></span>
-  </footer>
+  <section class="stack">
+    <div class="container cols split">
+      <div class="pane"><h2>What’s honest to say about it</h2></div>
+      <div class="reel prose">
+        <p>TouchSpace is a hackathon prototype. The web walkthrough is virtual practice on recorded maps; it does not track a real position or detect live obstacles, and it is not a replacement for a cane or a guide dog. The iOS scanner and the web app still use different map formats, so the full scan-to-tactile handoff is not finished, and the system has not yet been tested with blind and visually impaired users. Those are the next steps, along with richer braille labels and support for other tactile displays.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="stack">
+    <div class="container cols split">
+      <div class="pane"><h2>Try it</h2></div>
+      <div class="reel prose">
+        <p>The web demo runs without an iPhone, a Dot Pad or any API keys: clone the <a href="https://github.com/holokcheung/touchspace" target="_blank" rel="noopener">repository</a>, start the backend and frontend as described in the README, and choose <strong>Try Demo</strong>. The Dot Pad panel shows a pin preview on screen even with no hardware connected.</p>
+      </div>
+    </div>
+  </section>
 </main>
+
+<footer class="foot">
+  <div class="container foot-inner">
+    <span class="label">&copy; 2026 Ho Lok Cheung</span>
+    <span class="foot-links"><a href="/">Home</a> <a href="/#work">All work</a> <a href="/resume.pdf">Resume (PDF)</a> <a href="https://github.com/holokcheung" target="_blank" rel="noopener">GitHub</a> <a href="https://www.linkedin.com/in/holokcheung" target="_blank" rel="noopener">LinkedIn</a> <a href="mailto:holokcheung@ucla.edu">holokcheung@ucla.edu</a></span>
+  </div>
+</footer>
 <script data-goatcounter="https://holokcheung.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>
