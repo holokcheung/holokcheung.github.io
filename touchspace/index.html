@@ -4,13 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TouchSpace case study · Ho Lok Cheung</title>
-  <meta name="description" content="How TouchSpace turns a LiDAR room scan into tactile and audio maps for blind and visually impaired people, what I built, and the design decision that keeps the AI honest. Winner of Anthropic's Claude for Public Benefit Prize at Cal Hacks 13.0.">
+  <meta name="description" content="How TouchSpace turns a LiDAR room scan into tactile and audio maps for blind and visually impaired people. Claude for Public Benefit Prize, Cal Hacks 13.0.">
   <link rel="canonical" href="https://holokcheung.com/touchspace/">
   <meta property="og:title" content="TouchSpace case study · Ho Lok Cheung">
   <meta property="og:description" content="Tactile and audio maps for blind and visually impaired people, built at Cal Hacks 13.0. What I built and why the AI can never invent a route.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://holokcheung.com/touchspace/">
   <meta property="og:image" content="https://holokcheung.com/touchspace-team.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="801">
+  <meta property="og:image:alt" content="Ho Lok holding the Dot Pad between teammates holding the TouchSpace web app and the iPhone scanner">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#ffffff">
   <link rel="icon" type="image/png" sizes="32x32" href="/icon-32.png">
@@ -21,7 +24,7 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --blue: #1868DB; --blue-hover: #1558BC; --ink: #101214; --text: #292A2E; --muted: #505258; --subtle: #6B6E76;
+      --blue: #1868DB; --ink: #101214; --text: #292A2E; --muted: #505258; --subtle: #6B6E76;
       --line: #DDDEE1; --line-soft: #EBECF0; --fill: #F1F2F4;
       --p-blue: #CFE1FD; --p-lime: #D3F1A7; --p-yellow: #FFE48F; --p-lav: #EED7FC;
       --display: 'Inter Tight', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -33,14 +36,16 @@
     img { display: block; max-width: 100%; height: auto; }
     a { color: var(--blue); text-decoration: none; }
     a:hover { text-decoration: underline; text-underline-offset: 4px; }
+    main p a, main li a { text-decoration: underline; text-underline-offset: 3px; }
     :focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; border-radius: 6px; }
     .skip { position: absolute; left: 16px; top: -60px; background: var(--ink); color: #fff; padding: 10px 16px; border-radius: 999px; z-index: 100; }
     .skip:focus { top: 12px; }
     .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
     .nav { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,0.94); backdrop-filter: saturate(180%) blur(10px); -webkit-backdrop-filter: saturate(180%) blur(10px); border-bottom: 1px solid var(--line-soft); }
     .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-    .brand { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); font-weight: 600; text-decoration: none; }
-    .brand-mark { width: 32px; height: 32px; border-radius: 9px; background: var(--blue); color: #fff; display: grid; place-items: center; font: 700 13px var(--display); }
+    .brand { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); font-family: var(--display); font-weight: 700; font-size: 18px; letter-spacing: -0.01em; text-decoration: none; white-space: nowrap; }
+    .brand:hover { text-decoration: none; }
+    .brand-mark { width: 28px; height: 28px; border-radius: 8px; background: var(--blue); color: #fff; display: grid; place-items: center; font-size: 12.5px; letter-spacing: -0.02em; }
     .nav a.back { color: var(--muted); font-size: 15px; }
     .nav a.back:hover { color: var(--ink); }
     header.hero { padding: 72px 0 40px; }
@@ -60,7 +65,7 @@
     h2 { font-family: var(--display); font-weight: 600; font-size: clamp(26px, 3.4vw, 34px); line-height: 1.12; letter-spacing: -0.025em; color: var(--ink); margin-bottom: 14px; }
     h3 { font-family: var(--display); font-weight: 600; font-size: 20px; color: var(--ink); margin: 26px 0 8px; }
     p + p { margin-top: 14px; }
-    ul, ol { padding-left: 22px; margin-top: 10px; }
+    ul { padding-left: 22px; margin-top: 10px; }
     li { margin-top: 8px; }
     li::marker { color: var(--subtle); }
     strong { color: var(--ink); font-weight: 600; }
@@ -72,10 +77,9 @@
     .callout p { color: var(--ink); }
     .flow { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-top: 18px; }
     .step { border: 1px solid var(--line); border-radius: 16px; padding: 16px 16px 14px; }
-    .step b { display: block; font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--blue); }
+    .step b { display: block; font-family: var(--mono); font-weight: 500; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--blue); }
     .step strong { display: block; margin-top: 6px; }
     .step span { display: block; font-size: 14px; color: var(--muted); margin-top: 4px; }
-    code { font-family: var(--mono); font-size: 0.92em; background: var(--fill); padding: 1px 6px; border-radius: 5px; }
     .foot { margin-top: 72px; border-top: 1px solid var(--line); padding: 28px 0 40px; font-size: 14px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 10px 24px; justify-content: space-between; }
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
     @media (max-width: 560px) { header.hero { padding-top: 48px; } body { font-size: 16px; } .lede { font-size: 18px; } }
@@ -127,7 +131,7 @@
     <ul>
       <li><strong>Touch.</strong> The web app drives a Dot Pad with a 60&times;40 pin display over Bluetooth. Walls rise as lines, doorway gaps stay flat, landmarks get symbols, an X marks where you stand, and a planned route appears as spaced dots. A braille line shows the current room and heading.</li>
       <li><strong>Sound.</strong> With headphones on, nearby walls and furniture are placed in stereo, with cues for obstacles ahead, doorway crossings and the edge of the mapped area.</li>
-      <li><strong>Voice.</strong> Ask "Where is the restroom?" or "Take me to the elevator." Claude works out what you mean; the answer and the route come from the recorded map, and the route is highlighted in the 3D view, the floor plan and the tactile display at once.</li>
+      <li><strong>Voice.</strong> Ask “Where is the restroom?” or “Take me to the elevator.” Claude works out what you mean; the answer and the route come from the recorded map, and the route is highlighted in the 3D view, the floor plan and the tactile display at once.</li>
     </ul>
   </section>
 
@@ -148,12 +152,12 @@
       <li>The <strong>Claude question interpreter</strong> that maps free-form speech to map operations.</li>
       <li>The <strong>60&times;40 Dot Pad preview</strong>, so the tactile output can be developed and tested without the hardware.</li>
     </ul>
-    <p>James built the Bluetooth Dot Pad driver. The backend, routing and the "no invented routes" rule are pieces I can walk through line by line.</p>
+    <p>James built the Bluetooth Dot Pad driver. The backend, routing and the “no invented routes” rule are pieces I can walk through line by line.</p>
     <div class="numbers">
       <div class="num"><b>20</b><span>API endpoints</span></div>
       <div class="num"><b>153</b><span>automated tests</span></div>
       <div class="num"><b>2,400</b><span>pins on the Dot Pad (60&times;40)</span></div>
-      <div class="num"><b>3</b><span>person team, one weekend</span></div>
+      <div class="num"><b>3</b><span>people, one weekend</span></div>
     </div>
   </section>
 
@@ -169,8 +173,9 @@
 
   <footer class="foot">
     <span>&copy; 2026 Ho Lok Cheung</span>
-    <span><a href="/">Home</a> &middot; <a href="/#work">All work</a> &middot; <a href="mailto:holokcheung@ucla.edu">holokcheung@ucla.edu</a></span>
+    <span><a href="/">Home</a> &middot; <a href="/#work">All work</a> &middot; <a href="/resume.pdf">Resume (PDF)</a> &middot; <a href="https://github.com/holokcheung" target="_blank" rel="noopener">GitHub</a> &middot; <a href="https://www.linkedin.com/in/holokcheung" target="_blank" rel="noopener">LinkedIn</a> &middot; <a href="mailto:holokcheung@ucla.edu">holokcheung@ucla.edu</a></span>
   </footer>
 </main>
+<script data-goatcounter="https://holokcheung.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>

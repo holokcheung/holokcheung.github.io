@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ho Lok Cheung · CS + Linguistics at UCLA</title>
-  <meta name="description" content="Ho Lok Cheung — CS + Linguistics at UCLA and student software developer at UCLA Digital and Technology Solutions. Former Stanford research intern and NASA L'SPACE project manager, eight-time hackathon prize winner, USA Team Handball Academic All-American, and UCLA Rugby player.">
+  <meta name="description" content="Ho Lok Cheung: CS + Linguistics at UCLA. Student software developer, former Stanford research intern, eight-time hackathon prize winner, Academic All-American.">
   <meta property="og:title" content="Ho Lok Cheung">
   <meta property="og:description" content="CS + Linguistics @ UCLA. I build at the intersection of language, code, and sport.">
   <meta property="og:type" content="website">
@@ -23,6 +23,7 @@
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%2064%2064%22%3E%3Crect%20width=%2264%22%20height=%2264%22%20rx=%2216%22%20fill=%22%231868DB%22/%3E%3Ctext%20x=%2232%22%20y=%2243%22%20text-anchor=%22middle%22%20font-family=%22Arial,Helvetica,sans-serif%22%20font-weight=%22700%22%20font-size=%2228%22%20fill=%22white%22%3EHL%3C/text%3E%3C/svg%3E">
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Ho Lok Cheung", "url": "https://holokcheung.com/", "image": "https://holokcheung.com/photo.jpg", "email": "mailto:holokcheung@ucla.edu", "jobTitle": "Student Software Developer", "worksFor": {"@type": "Organization", "name": "UCLA Digital and Technology Solutions", "url": "https://dts.ucla.edu/"}, "affiliation": {"@type": "CollegeOrUniversity", "name": "University of California, Los Angeles", "url": "https://www.ucla.edu"}, "knowsLanguage": ["Cantonese", "Mandarin", "English"], "sameAs": ["https://github.com/holokcheung", "https://www.linkedin.com/in/holokcheung", "https://www.instagram.com/holok.cheung/"]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "VideoObject", "name": "Ho Lok Cheung: 2,400 pins, in motion", "description": "A 32-second intro film. One dot becomes 2,400, the number of pins on the Dot Pad tactile display that TouchSpace drives, and the same points re-form into a speech waveform, a floor plan with a route through it, and a handball goal.", "thumbnailUrl": "https://holokcheung.com/film-poster.jpg", "contentUrl": "https://holokcheung.com/film.mp4", "uploadDate": "2026-11-10", "duration": "PT32S"}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -217,6 +218,10 @@
       box-shadow: 0 24px 60px rgba(16,18,20,0.12), 0 2px 8px rgba(16,18,20,0.04);
       padding: 40px 48px 32px;
       animation: drop 0.18s ease-out;
+      max-height: calc(100vh - 80px);
+      max-height: calc(100dvh - 80px);
+      overflow-y: auto;
+      overscroll-behavior: contain;
     }
     @keyframes drop { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
     .mega-sections { display: none; }
@@ -242,7 +247,7 @@
       transition: color 0.15s;
     }
     .mega-col a:hover { color: var(--blue); }
-    .ext { font-size: 13px; color: #A3A6AD; margin-left: 3px; transition: color 0.15s; }
+    .ext { font-size: 13px; color: #8C8F97; margin-left: 3px; transition: color 0.15s; }
     .mega-col a:hover .ext { color: var(--blue); }
     .mega-promo {
       margin-top: 30px;
@@ -368,7 +373,7 @@
       transition: border-color 0.15s, box-shadow 0.15s, background 0.15s;
     }
     .chip:hover { border-color: var(--blue); box-shadow: 0 14px 34px rgba(24,104,219,0.16); }
-    .chip-go { font-size: 14px; color: #A3A6AD; margin-left: auto; padding-left: 4px; align-self: flex-start; transition: color 0.15s; }
+    .chip-go { font-size: 14px; color: #8C8F97; margin-left: auto; padding-left: 4px; align-self: flex-start; transition: color 0.15s; }
     .chip:hover .chip-go { color: var(--blue); }
     .chip.dark .chip-go { color: #8C8F97; align-self: center; margin-left: 8px; }
     .chip.dark:hover { background: #22262B; border-color: #22262B; }
@@ -437,6 +442,8 @@
       color: var(--ink);
       font-variant-numeric: tabular-nums;
     }
+    .num.pre { opacity: 0; }
+    @media print { .num.pre { opacity: 1; } }
     .label {
       font-family: var(--mono);
       font-size: 13px;
@@ -588,12 +595,41 @@
       place-items: center;
       position: relative;
     }
-    .panel-visual > img, .panel-visual > svg {
+    .panel-visual > img {
       border-radius: 14px;
       box-shadow: 0 22px 50px rgba(16,18,20,0.18);
     }
     .panel-visual > img { width: auto; height: auto; max-width: 100%; max-height: 100%; }
-    .panel-visual > svg { width: 100%; height: auto; max-height: 100%; }
+
+    /* ── Intro film ── */
+    .film { padding: 72px 0 0; }
+    .film-card {
+      background: var(--ink);
+      color: #fff;
+      border-radius: 28px;
+      padding: 56px;
+    }
+    .film-head { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 48px; align-items: end; margin-bottom: 36px; }
+    .film-card .h2 { color: #fff; }
+    .film-card .sub { color: #B7B9BE; margin-top: 0; max-width: none; }
+    .film-note { font-size: 14px; color: #8C8F97; margin-top: 12px; }
+    .film-frame {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      border-radius: 16px;
+      overflow: hidden;
+      background: #0A0B0D;
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.1);
+    }
+    .film-frame video { display: block; width: 100%; height: 100%; }
+    .film-frame video:focus-visible { outline: 3px solid #fff; outline-offset: -3px; border-radius: 16px; }
+    .film-play { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; padding: 0; background: transparent; cursor: pointer; }
+    .film-play:hover .play { transform: translate(-50%, -50%) scale(1.07); }
+    .film-play:focus-visible { outline: 3px solid #fff; outline-offset: -8px; border-radius: 16px; }
+    .film-text { margin-top: 22px; font-size: 14px; color: #B7B9BE; }
+    .film-text summary { cursor: pointer; color: #fff; font-weight: 500; padding: 6px 0; width: fit-content; }
+    .film-text summary:focus-visible { outline-color: #fff; }
+    .film-text ul { margin: 10px 0 0 18px; display: grid; gap: 8px; }
 
     /* ── Dark band: athletics ── */
     .dark { background: var(--ink); color: #fff; padding: 112px 0; }
@@ -826,6 +862,8 @@
       .panel { grid-template-columns: 1fr; gap: 28px; }
       .panel-visual { padding: 22px; aspect-ratio: 1 / 1; }
       .dark-inner { grid-template-columns: 1fr; gap: 48px; }
+      .film-card { padding: 40px; }
+      .film-head { grid-template-columns: 1fr; gap: 16px; margin-bottom: 28px; }
       .photo-grid { grid-template-columns: 1fr 1fr; grid-auto-rows: auto; }
       .shot { aspect-ratio: 4 / 3; }
       .shot-wide { grid-column: 1 / -1; aspect-ratio: 3 / 2; }
@@ -857,21 +895,29 @@
       .feat-grid { grid-template-columns: 1fr; gap: 36px; }
       .how, .edu { padding-top: 88px; }
       .dark, .cta { padding: 88px 0; }
+      .film { padding-top: 56px; }
+      .film-card { padding: 28px 20px; border-radius: 22px; }
+      .film-frame { border-radius: 12px; }
+      .film-play .play { width: 60px; height: 60px; }
       .card-p { padding: 28px 22px; }
       .card-p h3 { font-size: 48px; }
       .cta-box { padding: 60px 22px; border-radius: 24px; }
       .honors li { grid-template-columns: 78px 1fr; gap: 12px; }
       .award { border-radius: 14px; }
       .status { border-radius: 14px; }
+      .chip.dark { border-radius: 14px; }
       .photo-grid { grid-template-columns: 1fr; gap: 12px; }
       .shot { aspect-ratio: 3 / 2; }
       .shot-tall { grid-column: 1 / -1; grid-row: auto; aspect-ratio: 4 / 5; }
       .watch { left: 14px; bottom: 14px; }
       .brand-name { font-size: 17px; }
     }
+    @media (max-width: 380px) { .nav-inner { gap: 12px; } }
+    @media (max-width: 350px) { .brand-name { display: none; } }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
-      .chip, .status .dot { animation: none; }
+      .chip, .status .dot, .mega-panel { animation: none; }
+      *, *::before, *::after { transition-duration: 0.01ms !important; }
     }
   </style>
 </head>
@@ -881,7 +927,7 @@
 
 <header class="nav" id="nav">
   <div class="wrap nav-inner">
-    <a class="brand" href="#top"><span class="brand-mark">HL</span><span class="brand-name">Ho Lok Cheung</span></a>
+    <a class="brand" href="#top" aria-label="Ho Lok Cheung, home"><span class="brand-mark">HL</span><span class="brand-name">Ho Lok Cheung</span></a>
     <nav class="nav-links" aria-label="Main">
       <button class="nav-drop" id="explore-btn" type="button" aria-expanded="false" aria-controls="mega">Explore
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
@@ -905,6 +951,7 @@
     <div class="wrap">
       <div class="mega-panel">
         <nav class="mega-sections" aria-label="Sections">
+          <a href="#film">Intro film</a>
           <a href="#work">Work</a>
           <a href="#experience">Experience</a>
           <a href="#education">Education</a>
@@ -986,7 +1033,7 @@
       </p>
       <div class="cta-row">
         <a class="btn btn-primary" href="resume.pdf" target="_blank" rel="noopener">View my resume</a>
-        <a class="link-arrow" href="mailto:holokcheung@ucla.edu">Email me <span>→</span></a>
+        <a class="link-arrow" href="mailto:holokcheung@ucla.edu">Email me <span aria-hidden="true">→</span></a>
       </div>
 
       <div class="stage">
@@ -997,10 +1044,10 @@
             Ho Lok
           </span>
         </div>
-        <a class="chip c1" href="https://devpost.com/software/touchspace" target="_blank" rel="noopener"><span class="chip-icon bg-yellow">🏆</span><div><b>Claude for Public Benefit Prize</b><small>TouchSpace · Cal Hacks 13.0</small></div><span class="chip-go" aria-hidden="true">↗</span></a>
-        <a class="chip c2" href="https://dorahacks.io/buidl/16986" target="_blank" rel="noopener"><span class="chip-icon bg-lime">🥇</span><div><b>1st Place</b><small>GreenMate · Columbia Hackathon</small></div><span class="chip-go" aria-hidden="true">↗</span></a>
-        <a class="chip c3" href="https://www.usateamhandball.org/news/2026/april/27/usath-names-college-all-tournament-teams-academic-all-americans" target="_blank" rel="noopener"><span class="chip-icon bg-blue">🤾</span><div><b>Academic All-American</b><small>USA Team Handball · 1st Team</small></div><span class="chip-go" aria-hidden="true">↗</span></a>
-        <a class="chip c4" href="#education"><span class="chip-icon bg-lav">🎓</span><div><b>4.0 GPA · Regents Scholar</b><small>UCLA · top 2% of admits</small></div><span class="chip-go" aria-hidden="true">→</span></a>
+        <a class="chip c1" href="https://devpost.com/software/touchspace" target="_blank" rel="noopener"><span class="chip-icon bg-yellow" aria-hidden="true">🏆</span><div><b>Claude for Public Benefit Prize</b><small>TouchSpace · Cal Hacks 13.0</small></div><span class="chip-go" aria-hidden="true">↗</span></a>
+        <a class="chip c2" href="https://dorahacks.io/buidl/16986" target="_blank" rel="noopener"><span class="chip-icon bg-lime" aria-hidden="true">🥇</span><div><b>1st Place</b><small>GreenMate · Columbia Hackathon</small></div><span class="chip-go" aria-hidden="true">↗</span></a>
+        <a class="chip c3" href="https://www.usateamhandball.org/news/2026/april/27/usath-names-college-all-tournament-teams-academic-all-americans" target="_blank" rel="noopener"><span class="chip-icon bg-blue" aria-hidden="true">🤾</span><div><b>Academic All-American</b><small>USA Team Handball · 1st Team</small></div><span class="chip-go" aria-hidden="true">↗</span></a>
+        <a class="chip c4" href="#education"><span class="chip-icon bg-lav" aria-hidden="true">🎓</span><div><b>4.0 GPA · Regents Scholar</b><small>UCLA · top 2% of admits</small></div><span class="chip-go" aria-hidden="true">→</span></a>
         <a class="chip dark c5" href="https://github.com/holokcheung" target="_blank" rel="noopener">React · Node.js · C++ · Python<span class="chip-go" aria-hidden="true">↗</span></a>
       </div>
     </div>
@@ -1018,6 +1065,43 @@
         <li>USA Team Handball</li>
         <li>De Anza College</li>
       </ul>
+    </div>
+  </section>
+
+  <!-- INTRO FILM -->
+  <section class="film" id="film" aria-labelledby="film-h">
+    <div class="wrap">
+      <div class="film-card">
+        <div class="film-head">
+          <div>
+            <p class="eyebrow-mono">32-second intro · has sound</p>
+            <h2 class="h2" id="film-h">2,400 pins, in motion.</h2>
+          </div>
+          <div>
+            <p class="sub" id="film-desc">One dot becomes 2,400, the number of pins on the Dot Pad tactile display that TouchSpace drives. The same points then re-form into what I work on: a speech waveform, a floor plan with a route through it, and a handball goal.</p>
+            <p class="film-note">Made in code with Claude Code: React and Remotion for the picture, a score synthesized in Python.</p>
+          </div>
+        </div>
+        <div class="film-frame">
+          <video id="film-video" controls playsinline preload="none" poster="film-poster.jpg" width="1920" height="1080" aria-labelledby="film-h" aria-describedby="film-desc">
+            <source src="film.mp4" type="video/mp4">
+            <a href="film.mp4">Download the film (MP4, 10 MB)</a>
+          </video>
+          <button class="film-play" id="film-play" type="button" aria-label="Play the 32-second intro film (has sound)" hidden>
+            <span class="play"><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="#101214"/></svg></span>
+          </button>
+        </div>
+        <details class="film-text" id="film-text">
+          <summary>What the film shows, in text</summary>
+          <ul>
+            <li>One dot unfolds into a row of 60, then 40 rows: 2,400 pins.</li>
+            <li>Language: a speech waveform turns into “hello”, then its pronunciation /həˈloʊ/, scored sound by sound, then 你好. naccent is an AI pronunciation trainer for English learners. I speak Cantonese, Mandarin, and English.</li>
+            <li>Code: a floor plan rises on the pins and Dijkstra's algorithm finds a route through it. TouchSpace makes tactile maps for blind and visually impaired people. Our team won Anthropic's Claude for Public Benefit Prize at Cal Hacks 13.0. The pins then count to 8, for eight hackathon prizes.</li>
+            <li>Sport: the grid stands up as a handball goal and the 8 becomes the ball. 2026 Academic All-American, 1st Team, from USA Team Handball. I play for the UCLA Rugby team.</li>
+            <li>The points gather into the HL mark, then spell “Ho Lok Cheung” and holokcheung.com.</li>
+          </ul>
+        </details>
+      </div>
     </div>
   </section>
 
@@ -1059,13 +1143,13 @@
           <p class="eyebrow">Hackathon · Cal Hacks 13.0 · 2026</p>
           <div class="stack"><span><i class="sq bg-blue"></i>Python</span><span><i class="sq bg-lime"></i>FastAPI</span><span><i class="sq bg-yellow"></i>React</span><span><i class="sq bg-lav"></i>TypeScript</span><span><i class="sq bg-blue"></i>Claude API</span><span><i class="sq bg-lime"></i>RoomPlan</span></div>
           <h3>Tactile and audio maps for blind and visually impaired people</h3>
-          <p>Scan a room with a LiDAR iPhone and TouchSpace turns it into a floor plan and walkable navigation graph that rises as pins on a 2,400-pin Dot Pad tactile display. Ask questions out loud and Claude answers from the real map data, while Dijkstra route planning computes every path from the map, so the AI can never make one up. A FastAPI backend with 20 endpoints and 153 automated tests powers the React web app. Built with James Zheng and Sunghyuk Yoon.</p>
-          <p><strong>My part:</strong> the FastAPI backend, the React web app, the map schema and floor-plan processing, RoomPlan import, Dijkstra routing, the Claude question interpreter, the route editor and the 60&times;40 Dot Pad preview. James built the Bluetooth Dot Pad driver. <strong>On AI:</strong> Claude only interprets the question; every answer and route comes from deterministic map functions, and the 153 tests cover all 20 endpoints.</p>
+          <p>Scan a room with a LiDAR iPhone and TouchSpace turns it into a floor plan and walkable navigation graph that rises as pins on a 2,400-pin Dot Pad tactile display. Ask a question out loud and Claude works out what you mean; the answer comes from the real map data and Dijkstra route planning computes every path, so the AI can never make one up. A FastAPI backend with 20 endpoints and 153 automated tests powers the React web app. Built with James Zheng and Sunghyuk Yoon.</p>
+          <p><strong>My part:</strong> the FastAPI backend, the React web app, the map schema and floor-plan processing, RoomPlan import, Dijkstra routing, the Claude question interpreter, the route editor, and the 60&times;40 Dot Pad preview. James built the Bluetooth Dot Pad driver. <strong>On AI:</strong> Claude only interprets the question; every answer and route comes from deterministic map functions, and the 153 tests cover all 20 endpoints.</p>
           <p class="award"><span class="em" aria-hidden="true">🏆</span>Claude for Public Benefit Prize · $5K from Anthropic</p>
           <div class="links">
-            <a class="link-arrow" href="/touchspace/">Read the case study <span>→</span></a>
-            <a class="link-arrow" href="https://devpost.com/software/touchspace" target="_blank" rel="noopener">View on Devpost <span>→</span></a>
-            <a class="link-arrow" href="https://github.com/holokcheung/touchspace" target="_blank" rel="noopener">GitHub <span>→</span></a>
+            <a class="link-arrow" href="/touchspace/">Read the case study <span aria-hidden="true">→</span></a>
+            <a class="link-arrow" href="https://devpost.com/software/touchspace" target="_blank" rel="noopener">View on Devpost <span aria-hidden="true">→</span></a>
+            <a class="link-arrow" href="https://github.com/holokcheung/touchspace" target="_blank" rel="noopener">GitHub <span aria-hidden="true">→</span></a>
           </div>
         </div>
         <div class="panel-visual bg-lav">
@@ -1083,8 +1167,8 @@
           <p><strong>My part:</strong> I built the Whisper transcription and SpeechAce scoring pipeline behind the Flask service and shipped the Next.js frontend with Chart.js progress charts, after replacing a first version that scored with an LLM alone and handled accents and phonetic detail poorly.</p>
           <p class="award"><span class="em" aria-hidden="true">🏆</span>Best Student Life Hack</p>
           <div class="links">
-            <a class="link-arrow" href="https://devpost.com/software/naccent" target="_blank" rel="noopener">View on Devpost <span>→</span></a>
-            <a class="link-arrow" href="https://github.com/enkhbold470/naccent" target="_blank" rel="noopener">Code <span>→</span></a>
+            <a class="link-arrow" href="https://devpost.com/software/naccent" target="_blank" rel="noopener">View on Devpost <span aria-hidden="true">→</span></a>
+            <a class="link-arrow" href="https://github.com/enkhbold470/naccent" target="_blank" rel="noopener">Code <span aria-hidden="true">→</span></a>
           </div>
         </div>
         <div class="panel-visual bg-blue"><img src="naccent.jpg" width="681" height="1400" loading="lazy" alt="naccent showing expected and heard sounds for a spoken sentence"></div>
@@ -1098,9 +1182,9 @@
           <p>GreenMate runs on Snap Spectacles and overlays real-time plant-health data in the wearer's view, so you can see what a plant needs just by looking at it.</p>
           <p><strong>My part:</strong> I built the Spectacles app in Lens Studio.</p>
           <p class="award"><span class="em" aria-hidden="true">🥇</span>1st Place</p>
-          <a class="link-arrow" href="https://dorahacks.io/buidl/16986" target="_blank" rel="noopener">View on DoraHacks <span>→</span></a>
+          <a class="link-arrow" href="https://dorahacks.io/buidl/16986" target="_blank" rel="noopener">View on DoraHacks <span aria-hidden="true">→</span></a>
         </div>
-        <div class="panel-visual bg-lime"><img src="greenmate.jpg" width="1198" height="1400" loading="lazy" alt="GreenMate AR demo at the Columbia hackathon"></div>
+        <div class="panel-visual bg-lime"><img src="greenmate.jpg" width="1198" height="1400" loading="lazy" alt="GreenMate AR demo at the Columbia University Hackathon"></div>
       </div>
 
 
@@ -1111,14 +1195,14 @@
           <h3>A social memory assistant</h3>
           <p>An AI assistant that recognizes the people around you and recalls how you know them, to make in-person conversations easier. My first hackathon win, at an event hosted by Cal Hacks.</p>
           <p class="award"><span class="em" aria-hidden="true">🥈</span>2nd Place Overall</p>
-          <a class="link-arrow" href="https://github.com/NeuralNurse/CV-Module" target="_blank" rel="noopener">View on GitHub <span>→</span></a>
+          <a class="link-arrow" href="https://github.com/NeuralNurse/CV-Module" target="_blank" rel="noopener">View on GitHub <span aria-hidden="true">→</span></a>
         </div>
         <div class="panel-visual bg-lav"><img src="cv-module.jpg" width="931" height="1400" loading="lazy" alt="NeuralNurse detecting a face in a live camera feed"></div>
       </div>
     </div>
   </section>
 
-  <!-- CAL HACKS PHOTOS -->
+  <!-- EXPERIENCE -->
   <section class="exp" id="experience">
     <div class="wrap">
       <h2 class="h2">Experience</h2>
@@ -1235,7 +1319,7 @@
     </div>
   </section>
 
-  <!-- CTA -->
+  <!-- ATHLETICS (dark band) -->
   <section class="dark" id="athletics">
     <div class="wrap dark-inner">
       <div>
@@ -1260,7 +1344,7 @@
     </div>
   </section>
 
-  <!-- HOW I WORK -->
+  <!-- CAL HACKS PHOTOS -->
   <section class="photos" id="calhacks">
     <div class="wrap">
       <h2 class="h2">Cal Hacks 13.0, in photos</h2>
@@ -1286,12 +1370,12 @@
     </div>
   </section>
 
-  <!-- ATHLETICS (dark band) -->
+  <!-- HOW I WORK -->
   <section class="how" id="how">
     <div class="wrap">
       <div class="how-head">
         <h2 class="h2">How I work</h2>
-        <a class="btn btn-outline" href="resume.pdf" target="_blank" rel="noopener">Read my resume <span>→</span></a>
+        <a class="btn btn-outline" href="resume.pdf" target="_blank" rel="noopener">Read my resume <span aria-hidden="true">→</span></a>
       </div>
       <div class="feat-grid">
         <div class="feat">
@@ -1318,7 +1402,7 @@
     </div>
   </section>
 
-  <!-- EXPERIENCE -->
+  <!-- CONTACT -->
   <section class="cta">
     <div class="wrap">
       <div class="cta-box">
@@ -1373,7 +1457,12 @@
     menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
     if (trigger) lastTrigger = trigger;
   }
-  menuTriggers.forEach(t => t.addEventListener('click', () => setMenu(mega.hidden, t)));
+  menuTriggers.forEach(t => t.addEventListener('click', e => {
+    setMenu(mega.hidden, t);
+    // opened from the keyboard: go straight to the first link in the panel
+    if (!mega.hidden && e.detail === 0) [...mega.querySelectorAll('a')].find(a => a.offsetParent)?.focus();
+  }));
+  nav.addEventListener('focusout', e => { if (!mega.hidden && e.relatedTarget && !nav.contains(e.relatedTarget)) setMenu(false); });
   mega.addEventListener('click', e => {
     const a = e.target.closest('a');
     if (!a) return;
@@ -1414,6 +1503,9 @@
   updateFade();
   tabs.forEach(t => t.addEventListener('click', () => t.scrollIntoView({ block: 'nearest', inline: 'nearest' })));
 
+  // Once the page has loaded, fetch the pictures in the tabs that are not showing yet
+  addEventListener('load', () => document.querySelectorAll('.panel[hidden] img').forEach(i => { i.loading = 'eager'; }));
+
   // Count-up stats
   if (!matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) {
     const nums = document.querySelectorAll('.num[data-to]');
@@ -1421,6 +1513,7 @@
       entries.forEach(({ isIntersecting, target }) => {
         if (!isIntersecting) return;
         io.unobserve(target);
+        target.classList.remove('pre');
         const to = parseFloat(target.dataset.to), dec = +target.dataset.dec || 0, start = performance.now();
         (function tick(now) {
           const p = Math.min((now - start) / 1200, 1);
@@ -1429,7 +1522,21 @@
         })(start);
       });
     }, { threshold: 0.6 });
-    nums.forEach(n => { n.textContent = (0).toFixed(+n.dataset.dec || 0); io.observe(n); });
+    // The real numbers stay in the page for print, reader mode and screen readers; they are just not shown until they count up
+    nums.forEach(n => { n.classList.add('pre'); io.observe(n); });
+  }
+
+  // Intro film: nothing downloads until someone presses play. Without JS the browser's own controls stay.
+  const film = document.getElementById('film-video'), filmPlay = document.getElementById('film-play');
+  if (film && filmPlay) {
+    film.controls = false;
+    filmPlay.hidden = false;
+    filmPlay.addEventListener('click', () => {
+      filmPlay.hidden = true;
+      film.controls = true;
+      film.focus();
+      film.play().catch(() => {});
+    });
   }
 
   // Click-to-load video: only the thumbnail loads until someone presses play
@@ -1440,6 +1547,7 @@
     iframe.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
     iframe.allowFullscreen = true;
     btn.replaceWith(iframe);
+    iframe.focus();
   }));
 
   // Email links: open the mail app as usual, and copy the address in case there isn't one
