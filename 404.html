@@ -6,146 +6,52 @@
   <title>Page not found · Ho Lok Cheung</title>
   <meta name="robots" content="noindex">
   <meta name="description" content="This page does not exist on holokcheung.com. The link may be old, or the address has a typo.">
-  <meta name="theme-color" content="#F8F7F3">
   <link rel="icon" type="image/png" sizes="32x32" href="/icon-32.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Radio+Canada+Big:wght@400;700&family=Radio+Canada:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Inter+Tight:wght@700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
   <style>
-    /* Hallmark · shape: Marquee Hero · genre: editorial · theme: Grid (deal 3/3, seed personal-computer-science-linguistics-e464·c9a0927f·2026-11-11·r0) · redesign: full
-     * hero: Ledge · nav: none, the mark alone · footer: none, one screen · imagery: none, the figure is the picture · signature: 404 at poster scale under the blue field
-     * axes: light/grotesk-sans/cool · posture: full-palette · contrast: pass · fold: pass · v2.0.0 */
-    /* Hallmark · pre-emit critique: P4 H5 E4 S3 R5 V3 · weakest: S, a missing page says the same thing on every site; it borrows the home page's own first screen, the field above and the figure on the base */
-    /* Hallmark · brand kept: the HL mark and its blue flood the field in place of the theme's ultramarine */
-    /* Hallmark · waive 59 · one screen with nothing to space apart · a missing page holds a message, a way home and the figure 404 */
-    /* Hallmark · waive 77 · one screen, a message and an action · a missing page is a single sheet, not a landing page with sections */
-
+    /* Hallmark · checked: 2026-11-10 · genre: modern-minimal (inferred)
+     * floor: 0 FAIL · fixed: 2 (34, 48) · structural: 1 printed (58)
+     * built: the project · redesign: polish · v2.0.0 */
     :root {
-      color-scheme: light;
-      --space-3xs: 2px; --space-2xs: 4px; --space-xs: 8px; --space-sm: 12px; --space-md: 16px; --space-lg: 24px; --space-xl: 40px; --space-2xl: 64px; --space-3xl: 96px; --space-4xl: 144px;
-      --text-xs: 0.8125rem; --text-sm: 0.875rem; --text-md: 1rem; --text-lg: 1.25rem; --text-xl: 1.5625rem; --text-2xl: 1.953rem; --text-3xl: 2.441rem;
-      --text-display-s: clamp(2.25rem, 4vw + 0.5rem, 3.75rem); --text-display: clamp(2.75rem, 5vw + 1rem, 5.25rem);
-      --text-section: clamp(2rem, 2.5vw + 1rem, 3.5rem); --text-title: clamp(1.25rem, 0.75vw + 0.875rem, 1.625rem); --text-lead: clamp(1.125rem, 0.35vw + 1rem, 1.375rem);
-      --text-body: 1.0625rem; --text-label: 0.9375rem;
-      --ease-out: cubic-bezier(0.16, 1, 0.3, 1); --ease-in: cubic-bezier(0.7, 0, 0.84, 0); --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
-      --dur-micro: 120ms; --dur-short: 220ms; --dur-long: 420ms;
-      --color-error: oklch(52% 0.19 27); --color-success: oklch(50% 0.12 150);
-      --container: 1440px; --gutter: 64px; --gap-columns: 32px; --section-gap-s: 120px; --section-gap: 144px; --section-gap-l: 176px;
-      --z-base: 1; --z-raised: 10; --z-dropdown: 100; --z-sticky: 200; --z-sticky-nav: 300; --z-modal: 400; --z-toast: 500; --z-tooltip: 600;
-      --color-paper: oklch(97.5% 0.005 90); --color-paper-2: oklch(94.2% 0.006 90); --color-paper-3: oklch(90.5% 0.008 90);
-      --color-ink: oklch(19% 0.022 266); --color-ink-2: oklch(31% 0.02 266); --color-ink-lift: oklch(31% 0.02 266); --color-muted: oklch(47% 0.016 266);
-      --color-rule: oklch(87.5% 0.008 90);
-      --color-accent: #1868DB; --color-accent-ink: oklch(97.5% 0.005 90); --color-focus: #1868DB;
-      --color-field: #1868DB; --color-field-ink: oklch(97.5% 0.005 90);
-      --color-mark: oklch(57% 0.215 29); --color-mark-ink: oklch(97.5% 0.005 90);
-      --font-display: "Radio Canada Big", ui-sans-serif, system-ui, sans-serif; --font-body: "Radio Canada", ui-sans-serif, system-ui, sans-serif;
-      --font-outlier: var(--font-display);
-      --radius-card: 0; --radius-pill: 0; --rule-hair: 1px; --shadow-card: none;
-      --tracking-display: -0.035em; --display-weight: 700;
-      --nav-h: 72px;
-      /* from the container's edge out to the edge of the screen */
-      --bleed: calc(var(--gutter) + max(0px, (100vw - var(--container)) / 2));
+      --blue: #1868DB; --blue-hover: #1558BC; --ink: #101214; --text: #292A2E; --muted: #505258; --white: #fff;
+      --display: 'Inter Tight', 'Inter', sans-serif;
+      --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --mono: 'JetBrains Mono', ui-monospace, monospace;
     }
-
-    *, *::before, *::after { box-sizing: border-box; }
-    html, body { overflow-x: clip; }
-    html { scrollbar-color: var(--color-muted) var(--color-paper); scroll-padding-top: var(--space-3xl); }
-    body { margin: 0; background: var(--color-paper); color: var(--color-ink); font-family: var(--font-body); font-size: var(--text-body); line-height: 1.5; -webkit-font-smoothing: antialiased; caret-color: var(--color-accent); }
-    ::selection { background: var(--color-mark); color: var(--color-mark-ink); }
-    :focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
-    a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.16em; transition: color var(--dur-short) var(--ease-out); }
-    a:hover { color: var(--color-mark); }
-    h1, h2, h3 { margin: 0; font-family: var(--font-display); font-weight: var(--display-weight, 700); font-synthesis: none; letter-spacing: var(--tracking-display); line-height: 1; overflow-wrap: break-word; min-width: 0; text-wrap: balance; text-align: start; }
-    h1 { max-width: 20ch; font-size: var(--text-display); } h2 { max-width: 30ch; font-size: var(--text-section); } h3 { max-width: 40ch; font-size: var(--text-title); line-height: 1.15; }
-    h4 { margin: 0; font: 500 var(--text-label)/1.4 var(--font-body); color: var(--color-muted); }
-    p { margin: 0; text-wrap: pretty; }
-    p:not([class]) { max-width: 65ch; }
-    ul, ol, figure { margin: 0; padding: 0; }
-    ul, ol { list-style: none; }
-    img, video { max-width: 100%; height: auto; display: block; }
-    svg { display: block; }
-    [hidden] { display: none !important; }
-    button, input, select, textarea { font: inherit; }
-    .container { width: 100%; max-width: var(--container); margin-inline: auto; padding-inline: var(--gutter); box-sizing: border-box; }
-    .num, .figure, td.num { font-variant-numeric: tabular-nums; }
-    .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
-    [data-slot] { position: relative; overflow: hidden; background: linear-gradient(160deg, var(--color-paper-2, var(--color-paper)), var(--color-paper-3, var(--color-paper))); }
-    [data-slot] > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
-    [data-slot]:has(> img) > :not(img):not([data-keep]) { display: none !important; }
-    @media (max-width: 60rem) { :root { --gutter: 24px; --section-gap-s: 80px; --section-gap: 96px; --section-gap-l: 120px; } }
-    @media (max-width: 40rem) { :root { --gutter: 16px; --section-gap-s: 56px; --section-gap: 72px; --section-gap-l: 96px; --gap-columns: 16px; } }
-    @media (prefers-reduced-motion: reduce) { *:not(.keep-motion), *:not(.keep-motion)::before, *:not(.keep-motion)::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; } }
-    /* photographs: in colour, as the owner asked (the theme's own rule is a black-and-white print) */
-    [data-slot]:has(> img) { background: var(--color-paper-2); outline: 1px solid color-mix(in oklab, var(--color-ink) 8%, transparent); outline-offset: -1px; }
-
-    /* ── The column system: twelve columns; everything below the nav hangs from line 1 or line 5 ── */
-    .cols { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap-columns); }
-    .label { font: 500 var(--text-label)/1.4 var(--font-body); color: var(--color-muted); }
-    .skip { position: absolute; left: var(--space-md); top: calc(-1 * var(--space-4xl)); z-index: var(--z-tooltip); background: var(--color-ink); color: var(--color-paper); padding: var(--space-sm) var(--space-md); font-weight: 500; text-decoration: none; }
-    .skip:focus { top: var(--space-sm); color: var(--color-paper); }
-
-    /* Fields: one job each. Blue floods a sheet, red marks the one chosen thing. Inside a field the rule, muted and second-ink tokens follow the field's ink. */
-    .field { background: var(--color-field); color: var(--color-field-ink); --color-focus: var(--color-field-ink); --color-muted: var(--color-field-ink); --color-ink-2: var(--color-field-ink); --color-rule: color-mix(in oklab, var(--color-field-ink) 36%, transparent); }
-    .field--mark { background: var(--color-mark); color: var(--color-mark-ink); --color-focus: var(--color-ink); }
-    .field a:hover { color: inherit; text-decoration-thickness: 2px; }
-
-    /* Controls */
-    .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding-inline: var(--space-lg); border: 0; border-radius: 0; background: var(--color-ink); color: var(--color-paper); font: 500 var(--text-md)/1 var(--font-body); text-decoration: none; cursor: pointer; transition: background-color var(--dur-short) var(--ease-out); }
-    .btn:hover { background: var(--color-ink-lift); color: var(--color-paper); }
-    .btn:active { background: var(--color-ink); }
-    button:disabled, [aria-disabled="true"] { opacity: 0.5; cursor: not-allowed; }
-    .more { font-weight: 500; text-decoration: underline var(--rule-hair); text-underline-offset: 0.32em; }
-    .actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-md) var(--space-lg); }
-
-    /* Nav: one line, the wordmark at one edge and the links at the other */
-    .nav { position: sticky; top: 0; z-index: var(--z-sticky-nav); background: var(--color-paper); }
-    .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: var(--space-lg); min-height: var(--nav-h); }
-    .brand { --wm: 1.25rem; display: inline-grid; grid-template-columns: auto auto; column-gap: var(--space-sm); align-items: center; font: 700 var(--wm)/0.92 var(--font-display); letter-spacing: -0.02em; text-decoration: none; color: var(--color-ink); }
-    .brand:hover { color: var(--color-ink); }
-    .brand-mark { grid-row: span 2; display: grid; place-items: center; inline-size: calc(var(--wm) * 1.84); block-size: calc(var(--wm) * 1.84); background: var(--color-field); color: var(--color-field-ink); font-size: 0.8em; }
-    .brand-b { font-weight: 400; }
-    .nav-end { display: flex; align-items: center; gap: var(--space-lg); }
-    .nav-links { display: flex; align-items: center; gap: var(--space-lg); }
-    .nav-links a { display: inline-flex; align-items: center; min-height: 44px; font: 500 var(--text-label)/1 var(--font-body); color: var(--color-ink-2); text-decoration: none; }
-    .nav-links a:hover { color: var(--color-mark); }
-
-    /* Sections: a heading pane held on four columns while the content runs past it on eight */
-    .stack { padding-top: var(--section-gap); }
-    .split { align-items: start; row-gap: var(--space-xl); }
-    .pane { grid-column: 1 / 5; position: sticky; top: calc(var(--nav-h) + var(--space-lg)); display: grid; gap: var(--space-md); justify-items: start; }
-    .reel { grid-column: 5 / 13; min-width: 0; }
-    .sub { max-width: 36ch; color: var(--color-ink-2); }
-    .rows > * { border-top: var(--rule-hair) solid var(--color-rule); padding-block: var(--space-lg); }
-    .rows > :first-child { border-top: 0; padding-top: 0; }
-    .row8 { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); column-gap: var(--gap-columns); row-gap: var(--space-xs); }
-
-    /* One screen: the mark, the field from line 5 off the page, the figure resting on the base */
-    main { min-height: 100dvh; grid-template-rows: auto minmax(18rem, 1fr) auto; row-gap: var(--space-xl); padding-bottom: var(--space-xl); }
-    .top { grid-column: 1 / -1; display: flex; align-items: center; min-height: var(--nav-h); }
-    .mark { display: grid; place-items: center; inline-size: 2.3rem; block-size: 2.3rem; background: var(--color-field); color: var(--color-field-ink); font: 700 var(--text-md)/1 var(--font-display); text-decoration: none; }
-    .mark:hover { color: var(--color-field-ink); }
-    .sheet { grid-column: 5 / 13; position: relative; isolation: isolate; background: none; display: grid; align-content: end; justify-items: start; gap: var(--space-md); padding: var(--space-xl) 0 var(--space-xl) var(--space-xl); }
-    .sheet::before { content: ""; position: absolute; inset: 0 calc(-1 * var(--bleed)) 0 0; background: var(--color-field); z-index: -1; }
-    .sheet h1 { max-width: none; font-size: var(--text-display-s); }
-    .sheet p { font-size: var(--text-lead); }
-    .sheet .btn { margin-top: var(--space-md); }
-    .code { grid-column: 1 / -1; font: 700 clamp(7rem, 26vw, 24rem)/0.78 var(--font-display); letter-spacing: -0.06em; }
-    @media (max-width: 60rem) {
-      .sheet { grid-column: 1 / -1; padding: var(--space-xl) 0; }
-      .sheet::before { left: calc(-1 * var(--bleed)); }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { overflow-x: clip; }
+    body {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      background: var(--white);
+      color: var(--text);
+      font-family: var(--sans);
+      text-align: center;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: clip;
     }
+    .mark { width: 48px; height: 48px; margin: 0 auto 28px; border-radius: 13px; background: var(--blue); color: var(--white); display: grid; place-items: center; font-family: var(--display); font-weight: 700; font-size: 19px; text-decoration: none; }
+    .code { font-family: var(--mono); font-weight: 500; font-size: 96px; line-height: 1; letter-spacing: -0.05em; color: var(--ink); }
+    h1 { font-family: var(--display); font-weight: 700; font-size: clamp(28px, 5vw, 40px); line-height: 1.15; letter-spacing: -0.025em; color: var(--ink); margin-top: 18px; text-wrap: balance; }
+    p { font-size: 18px; color: var(--muted); margin-top: 12px; }
+    .btn { display: inline-block; margin-top: 32px; background: var(--blue); color: var(--white); font-weight: 600; text-decoration: none; padding: 16px 24px; border-radius: 999px; }
+    .btn:hover { background: var(--blue-hover); }
+    .btn:active { transform: translateY(1px); }
+    :focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
   </style>
 </head>
 <body>
-  <main class="container cols">
-    <div class="top"><a class="mark" href="/" aria-label="Ho Lok Cheung, home">HL</a></div>
-    <div class="sheet field">
-      <h1>This page doesn’t exist.</h1>
-      <p>The link may be old, or the address has a typo.</p>
-      <a class="btn" href="/">Back to holokcheung.com</a>
-    </div>
+  <main>
+    <a class="mark" href="/" aria-label="Ho Lok Cheung, home">HL</a>
     <div class="code" aria-hidden="true">404</div>
+    <h1>This page doesn’t exist.</h1>
+    <p>The link may be old, or the address has a typo.</p>
+    <a class="btn" href="/">Back to holokcheung.com</a>
   </main>
 <script data-goatcounter="https://holokcheung.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
